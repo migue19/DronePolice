@@ -12,10 +12,10 @@ class DireccionResponse {
     
     var estatus = Int()
     var error:String! = String()
-    var direccion = Direccion()
+    var direccion = [Direccion]()
     
     
-    init(estatus: Int, error: String, direccion: Direccion){
+    init(estatus: Int, error: String, direccion: [Direccion]){
         self.estatus = estatus
         self.error = error
         self.direccion = direccion

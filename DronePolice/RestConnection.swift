@@ -20,6 +20,7 @@ enum Path:String {
     case GENERARCODIGO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/generarCodigo"
     case BOTONPANICO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/botonPanico"
     case AGREGARDIRECCION = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/agregarDireccion"
+    case ACTUALIZARDIRECCION = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/actualizarDireccion"
     case REGISTERDEVICE = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/registroDispositivo"
     case ALERTASOSPECHOSO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/botonSospechoso"
     case OBTENERDIRECCIONES = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/obtenerDireccion"

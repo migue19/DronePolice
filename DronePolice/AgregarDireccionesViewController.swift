@@ -20,11 +20,27 @@ class AgregarDireccionesViewController: UIViewController {
     @IBOutlet weak var estado: UITextField!
     @IBOutlet weak var cp: UITextField!
     @IBOutlet weak var pais: UITextField!
+    @IBOutlet weak var registro: CustomButton!
+    
+    
+    var direccion: Direccion = Direccion()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+        identificador.text = direccion.identificador
+        telefono.text = direccion.telefono
+        referencia.text = direccion.referencia
+        calle.text = direccion.calle
+        colonia.text = direccion.colonia
+        //Ciudad.text = direccion.municipio
+        estado.text = direccion.municipio
+        cp.text = direccion.cp
+        pais.text = direccion.pais
         
+        if(direccion.direccionid != 0){
+        registro.setTitle("Actualizar", for: .normal)
+        }
         
         
         self.navigationController?.navigationBar.tintColor = Utils().colorPrincipal
@@ -59,13 +75,24 @@ class AgregarDireccionesViewController: UIViewController {
         return
         }
         
-        RestService().AgregarDirecciones(context: self, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!) { (response, error) in
+        
+        if(direccion.direccionid == 0){
+            RestService().AgregarDirecciones(context: self, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!) { (response, error) in
             
             self.dismiss(animated: true, completion: nil)
 
             
             print("hola")
+            }
         }
+        else{
+            RestService().ActualizarDireccion(context: self, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!, completionHandler: { (response, error) in
+                
+                
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+        
     }
     /*
     // MARK: - Navigation
