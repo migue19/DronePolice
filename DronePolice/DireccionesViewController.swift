@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreLocation
 
 struct promocion {
     let titulo: String!
@@ -17,14 +17,15 @@ struct promocion {
 
 class DireccionesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var direcciones = [Direccion]()
     let restService = RestService()
-    
+    var longitud = 0.0
+    var latitud = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       // LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -41,30 +42,32 @@ class DireccionesViewController: UIViewController {
         let Nam1BarBtnVar = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDireccion(_:)))
        
         self.navigationItem.setRightBarButtonItems([Nam1BarBtnVar], animated: true)
-
-    
         
-        restService.ObtenerDirecciones { (response, error) in
+        
+        let location = LocationService.sharedInstance.currentLocation
+        
+        if(location != nil){
+           longitud = (location?.coordinate.longitude)!
+           latitud = (location?.coordinate.latitude)!
+        }else{
+         Utils().alerta(context: self, title: "Error Ubicacion", mensaje: "Error al obtener la ubicacion")
+        
+        }
+        
+        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response, error) in
             if(error != nil){
-            print(error)
+                print(error ?? "")
                 return
             }
-            
             self.direcciones = (response?.direccion)!
-            
             self.tableView.reloadData()
-            
         }
-       
-        
-        
-        
+
         
         // Do any additional setup after loading the view.
     }
-    
-    
-    
+  
+
     func addDireccion(_ button: UIButton){
       self.performSegue(withIdentifier: "showAgregarDireccion", sender: Direccion())
     
@@ -162,6 +165,29 @@ extension DireccionesViewController: UITableViewDataSource{
         self.performSegue(withIdentifier: "showAgregarDireccion", sender: direccion)
         
     }*/
+    
+    // MARK: LocationService Delegate
+    /*func tracingLocation(_ currentLocation: CLLocation) {
+        latitud = currentLocation.coordinate.latitude
+        longitud = currentLocation.coordinate.longitude
+        
+        LocationService.sharedInstance.stopUpdatingLocation()
+        
+        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response, error) in
+            if(error != nil){
+                print(error ?? "")
+                return
+            }
+            self.direcciones = (response?.direccion)!
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    func tracingLocationDidFailWithError(_ error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }*/
+
     
    
     

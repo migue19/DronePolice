@@ -10,22 +10,24 @@ import UIKit
 import CoreLocation
 
 class SospechosoViewController: UIViewController,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate,CLLocationManagerDelegate {
+UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDelegate {
     @IBOutlet weak var imageSospechoso: UIImageView!
     let picker = UIImagePickerController()
     @IBOutlet weak var comentario: UITextField!
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocation! = nil
+    //let locationManager = CLLocationManager()
+    //var currentLocation: CLLocation! = nil
     var longitud = 0.0
     var latitud = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.delegate = self
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
+        /*locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 100
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.startMonitoringSignificantLocationChanges()*/
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imageSospechoso.isUserInteractionEnabled = true
@@ -41,10 +43,11 @@ UINavigationControllerDelegate,CLLocationManagerDelegate {
 
     
     override func viewDidAppear(_ animated: Bool) {
-        locationAuthStatus()
+        //locationAuthStatus()
+        LocationService.sharedInstance.startUpdatingLocation()
     }
     
-    func locationAuthStatus(){
+    /*func locationAuthStatus(){
         
         let estatus = CLLocationManager.authorizationStatus()
         
@@ -65,7 +68,7 @@ UINavigationControllerDelegate,CLLocationManagerDelegate {
         
         locationManager.startUpdatingLocation()
         
-    }
+    }*/
     
     
     override func didReceiveMemoryWarning() {
@@ -134,7 +137,7 @@ UINavigationControllerDelegate,CLLocationManagerDelegate {
            Utils().alerta(context: self, title: "Comentario Vacio", mensaje: "No puede ir el comentario vacio")
             return
         }
-        if (imageSospechoso.image == nil){
+        if (imageSospechoso.image == UIImage(named: "Foto")){
             Utils().alerta(context: self, title: "Imagen Vacia", mensaje: "La imagen no puede ser nula")
             return
         }
@@ -143,20 +146,22 @@ UINavigationControllerDelegate,CLLocationManagerDelegate {
         let imageBase64 = Utils().convertImageToBase64(image: imageSospechoso.image!)
         
         
-        RestService().EnviarSospechoso(comentarios: comentario.text!, foto: imageBase64, latitud: latitud, longitud: longitud) { (response, error) in
-            if(error != nil){
-               print(error ?? "error")
+        if(latitud == 0 || longitud == 0 ){
+            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+        }else{
+            RestService().EnviarSospechoso(comentarios: comentario.text!, foto: imageBase64, latitud: latitud, longitud: longitud) { (response, error) in
+                if(error != nil){
+                    print(error ?? "error")
+                }
+                
+                print(response ?? "")
             }
-            
-            print(response ?? "")
         }
-        
-        
     }
     
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.last!
         print("Current location: \(currentLocation)")
         
@@ -204,13 +209,23 @@ UINavigationControllerDelegate,CLLocationManagerDelegate {
             print(placemark.administrativeArea ?? "" ) //Abreviatura City
             print(placemark.country ?? "") //Pais
         }
-    }
+    }*/
     
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
 
+    // MARK: LocationService Delegate
+    func tracingLocation(_ currentLocation: CLLocation) {
+        latitud = currentLocation.coordinate.latitude
+        longitud = currentLocation.coordinate.longitude
+    }
+    
+    func tracingLocationDidFailWithError(_ error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }
+    
 
     /*
     // MARK: - Navigation

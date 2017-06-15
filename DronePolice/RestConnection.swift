@@ -14,7 +14,7 @@ import SwiftyJSON
 
 enum Path:String {
     case SERVICE_TEST = "http://189.206.53.12/paychat-core/secured/chatService/profile/getShortProfile"
-    case ACCESS_USER = "http://dronepolice.com.mx/drone/api/v1/usuarios-accesos"
+    case ACCESS_USER = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/acceso"
     case REGISTRO_SOCIAL = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/registro"
     case ESTADOS = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/estados"
     case GENERARCODIGO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/generarCodigo"

@@ -15,16 +15,12 @@ class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
     
+    func ObtenerDirecciones(latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?, Error?) -> ()){
     
-    func ObtenerDirecciones(completionHandler: @escaping (DireccionResponse?, Error?) -> ()){
-        
         //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().FechaActual()
-        let latitud = 0.0
-        let longitud = 0.0
-        
-        
+      
         let parameters: Parameters = [
             "imei": imei,
             "fecha": fecha,
@@ -57,7 +53,7 @@ class RestService{
                 let referencia = direccion["referencia"].string!
                 let telefono = direccion["telefono"].string!
                 
-                var auxDireccion = Direccion.init(identificador: identificador, telefono: telefono, calle: calle, referencia: referencia, colonia: colonia, municipio: municipio, cp: cp, pais: pais, direccionid: direccionid)
+                let auxDireccion = Direccion.init(identificador: identificador, telefono: telefono, calle: calle, referencia: referencia, colonia: colonia, municipio: municipio, cp: cp, pais: pais, direccionid: direccionid)
                 
                 ArrayDirecciones.append(auxDireccion)
                 //print(estadoid)
@@ -66,7 +62,7 @@ class RestService{
             
             let estatus = response!["estatus"].int!
             let error = response!["error"].string!
-            let response = ResponseGeneric(estatus: estatus, error: "")
+            //let response = ResponseGeneric(estatus: estatus, error: "")
             
             
             
@@ -115,7 +111,7 @@ class RestService{
     
     
     
-    func RegisterDevice(imei: String, token: String,completionHandler: @escaping (ResponseGeneric?, Error?) -> ()){
+    func RegisterDevice(latitud: Double,longitud: Double,imei: String, token: String,completionHandler: @escaping (ResponseGeneric?, Error?) -> ()){
         
         //Utils().showLoading(context: context)
         let imei = imei
@@ -125,8 +121,8 @@ class RestService{
             "tokenDispositivo": token,
             "imei": imei,
             "fecha": fecha,
-            "latitud": 0.0,
-            "longitud": 0.0,
+            "latitud": latitud,
+            "longitud": longitud,
             
         ]
 
@@ -146,15 +142,15 @@ class RestService{
     
     
     
-    func ActualizarDireccion(context: UIViewController, iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
+    func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double ,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
         
         Utils().showLoading(context: context)
         let fecha = Utils().FechaActual()
         
         let parameters: Parameters = [
             "fecha": fecha,
-            "latitud": 0,
-            "longitud": 0,
+            "latitud": latitud,
+            "longitud": longitud,
             "direccion":["direccionid": iddireccion,
                         "identificador": identificador,
                          "telefono": telefono,
@@ -186,15 +182,15 @@ class RestService{
     }
     
     
-    func AgregarDirecciones(context: UIViewController, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
+    func AgregarDirecciones(context: UIViewController,latitud: Double ,longitud: Double ,identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
         
         Utils().showLoading(context: context)
         let fecha = Utils().FechaActual()
         
          let parameters: Parameters = [
         "fecha": fecha,
-        "latitud": 0,
-        "longitud": 0,
+        "latitud": latitud,
+        "longitud": longitud,
         "direccion":["identificador": identificador,
         "telefono": telefono,
         "referencia":referencia,
@@ -312,8 +308,8 @@ class RestService{
                 return
             }
             
-            let error: String = response!["error"].string!
-            let estatus: Int = response!["estatus"].int!
+            //let error: String = response!["error"].string!
+            //let estatus: Int = response!["estatus"].int!
             let estados = response!["estados"].arrayValue
             
            // let loginResponse = LoginResponse(token: token, estatus: estatus)
@@ -338,20 +334,27 @@ class RestService{
     
     
     
-    func AccessUser(usuario: String, password: String, completionHandler: @escaping (UserResponse?,String?, Error?) -> ()){
+    func AccessUser(latitud: Double,longitud: Double,imei:String,usuario: String, password: String, completionHandler: @escaping (UserResponse?,String?, Error?) -> ()){
+        
+        let fecha = Utils().FechaActual()
         
         let parameters: Parameters = [
-            "usuario": usuario,
-            "pass": password,
+            "imei": imei,
+            "fecha": fecha,
+            "email": usuario,
+            "password": password,
+            "latitud:": latitud,
+            "longitud": longitud
         ]
         
-        restConnction.SendRequetService(url: Path.ACCESS_USER.rawValue, body: parameters, secure: false, method: .post) { (response, error) in
+        restConnction.SendRequetService(url: Path.ACCESS_USER.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
-                print("Ocurrio un error al validar el usuario: ", error!)
+                print("Ocurrio un error al validar el usuario: ", error.debugDescription)
                 return
             }
             
-            if response?.dictionaryObject?.count == nil
+            print(response ?? "")
+            /*if response?.dictionaryObject?.count == nil
             {
                 completionHandler(nil,response?.rawString(),nil)
             }
@@ -365,7 +368,7 @@ class RestService{
             
             let user = UserResponse(usuarioid: usuarioId,rol_id: rol_id,name: name,middlename: middlename,surname: surname,email: email)
             completionHandler(user, nil, nil)
-            }
+            }*/
             
         }
     }
@@ -395,10 +398,27 @@ class RestService{
         RestConnection().SendRequetService(url: Path.REGISTRO_SOCIAL.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if(error != nil){
                 print("Ocurrio un error al obtener el registro: ", error!)
+                completionHandler(nil,error)
                 return
             }
             
+            
+            
+            /*let resperror =  response!["error"].string!
+            
+            if resperror != ""{
+                completionHandler(nil,error)
+                return
+            }*/
+            
+            
             let estatus: Int = response!["estatus"].intValue
+            if(estatus == 0){
+              let resperror =  response!["error"].string!
+                completionHandler(nil,resperror as? Error)
+                return
+            }
+            
             let token: String = response!["token"].string!
             
             let loginResponse = LoginResponse(token: token, estatus: estatus)

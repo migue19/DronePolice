@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class AgregarDireccionesViewController: UIViewController {
+import CoreLocation
+class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate  {
     @IBOutlet weak var identificador: UITextField!
     @IBOutlet weak var telefono: UITextField!
     @IBOutlet weak var referencia: UITextField!
@@ -21,12 +21,14 @@ class AgregarDireccionesViewController: UIViewController {
     @IBOutlet weak var cp: UITextField!
     @IBOutlet weak var pais: UITextField!
     @IBOutlet weak var registro: CustomButton!
-    
-    
+    var latitud = 0.0
+    var longitud = 0.0
     var direccion: Direccion = Direccion()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        LocationService.sharedInstance.delegate = self
+        LocationService.sharedInstance.startUpdatingLocation()
        
         identificador.text = direccion.identificador
         telefono.text = direccion.telefono
@@ -74,10 +76,14 @@ class AgregarDireccionesViewController: UIViewController {
             Utils().alerta(context: self, title: "Error", mensaje: "Todos los campos son obligatorios")
         return
         }
+        if(latitud == 0 || longitud == 0 ){
+            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+            return
+        }
         
         
         if(direccion.direccionid == 0){
-            RestService().AgregarDirecciones(context: self, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!) { (response, error) in
+            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!) { (response, error) in
             
             self.dismiss(animated: true, completion: nil)
 
@@ -86,13 +92,24 @@ class AgregarDireccionesViewController: UIViewController {
             }
         }
         else{
-            RestService().ActualizarDireccion(context: self, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!, completionHandler: { (response, error) in
+            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!, completionHandler: { (response, error) in
                 
                 
                 self.dismiss(animated: true, completion: nil)
             })
         }
         
+    }
+    
+    // MARK: LocationService Delegate
+    func tracingLocation(_ currentLocation: CLLocation) {
+        latitud = currentLocation.coordinate.latitude
+        longitud = currentLocation.coordinate.longitude
+ 
+    }
+    
+    func tracingLocationDidFailWithError(_ error: NSError) {
+        print("tracing Location Error : \(error.description)")
     }
     /*
     // MARK: - Navigation

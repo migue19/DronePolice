@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
-            landmarkName = "AccessUser(usuario:password:completionHandler:)"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,28 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "AccessUser(usuario:password:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "359"
             endingLineNumber = "359"
-            landmarkName = "AccessUser(usuario:password:completionHandler:)"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -186,12 +170,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
-            landmarkName = "AccessUser(usuario:password:completionHandler:)"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -342,7 +342,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestConnection.swift"
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519242626.68865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -486,7 +486,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestConnection.swift"
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -614,7 +614,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestConnection.swift"
@@ -666,11 +666,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519242626.68865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
+            startingLineNumber = "427"
+            endingLineNumber = "427"
             landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -682,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
-            timestampString = "518731184.850098"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
             landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -698,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
-            timestampString = "518731184.850098"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -710,47 +710,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
-            timestampString = "518660801.658699"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "DronePolice.LoginController.sign (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDSignIn&gt;, didSignInFor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDGoogleUser&gt;, withError : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "518371190.281792"
+                  timestampString = "519243074.243534"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "305"
-                  endingLineNumber = "305"
-                  offsetFromSymbolStart = "8084">
+                  startingLineNumber = "307"
+                  endingLineNumber = "307"
+                  offsetFromSymbolStart = "7856">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "DronePolice.LoginController.(sign (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDSignIn&gt;, didSignInFor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDGoogleUser&gt;, withError : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()).(closure #3)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "518371190.284002"
+                  timestampString = "519243074.245732"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "307"
-                  endingLineNumber = "307"
-                  offsetFromSymbolStart = "176">
+                  startingLineNumber = "309"
+                  endingLineNumber = "309"
+                  offsetFromSymbolStart = "152">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -762,44 +762,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/LoginController.swift"
-            timestampString = "518660801.658699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
-            landmarkName = "sign(_:didSignInFor:withError:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/LoginController.swift"
-            timestampString = "518660801.658699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
-            landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -822,7 +790,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestConnection.swift"
@@ -842,11 +810,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "GetEstados(completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -890,11 +858,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "GetEstados(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -906,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "GetEstados(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -922,11 +890,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "GetEstados(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -938,11 +906,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "GetEstados(completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -986,11 +954,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "GenerateQR(context:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1034,11 +1002,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "GenerateQR(context:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1082,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "GenerateQR(context:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1226,28 +1194,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519159803.432806"
+            timestampString = "519229893.173504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519158091.590593"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1258,28 +1210,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "AgregarDirecciones(context:identificador:telefono:referencia:calle:numinterior:numexterior:colonia:ciudad:estado:cp:pais:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/BotonPanicoUiViewController.swift"
-            timestampString = "519146777.345921"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "AlertadePanico(_:)"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "AgregarDirecciones(context:latitud:longitud:identificador:telefono:referencia:calle:numinterior:numexterior:colonia:ciudad:estado:cp:pais:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1290,11 +1226,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "BotondePanico(context:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,11 +1242,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "BotondePanico(context:latitud:longitud:completionHandler:)"
             landmarkType = "7">
             <Locations>
@@ -1354,12 +1290,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "RegisterDevice(imei:token:completionHandler:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "RegisterDevice(latitud:longitud:imei:token:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1402,12 +1338,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "RegisterDevice(imei:token:completionHandler:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "RegisterDevice(latitud:longitud:imei:token:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1418,12 +1354,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "RegisterDevice(imei:token:completionHandler:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "RegisterDevice(latitud:longitud:imei:token:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1434,27 +1370,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "RegisterDevice(imei:token:completionHandler:)"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "RegisterDevice(latitud:longitud:imei:token:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
-            timestampString = "518660869.549361"
+            timestampString = "519236726.583089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "sign(_:didSignInFor:withError:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1466,42 +1402,42 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "RegisterDevice(imei:token:completionHandler:)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "RegisterDevice(latitud:longitud:imei:token:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "DronePolice.RestService.RegisterDevice (imei : Swift.String, token : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.ResponseGeneric&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "DronePolice.RestService.RegisterDevice (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, token : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.ResponseGeneric&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "519161159.54564"
+                  timestampString = "519243074.281238"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "133"
-                  endingLineNumber = "133"
-                  offsetFromSymbolStart = "660">
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "684">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "DronePolice.RestService.(RegisterDevice (imei : Swift.String, token : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.ResponseGeneric&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "DronePolice.RestService.(RegisterDevice (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, token : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.ResponseGeneric&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "519161159.548503"
+                  timestampString = "519243074.283436"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "134"
-                  endingLineNumber = "134"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
                   offsetFromSymbolStart = "100">
                </Location>
             </Locations>
@@ -1514,11 +1450,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519160340.910906"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "BotondePanico(context:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1642,11 +1578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
+            timestampString = "519230385.161308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1658,11 +1594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
+            timestampString = "519230385.161308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "imagePickerControllerDidCancel(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1674,11 +1610,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
+            timestampString = "519230385.161308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1690,11 +1626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
+            timestampString = "519230385.161308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1706,44 +1642,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "EnviarSospechoso(comentarios:foto:latitud:longitud:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "AlertaSospechoso(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DronePolice/SospechosoViewController.swift"
-            timestampString = "518738594.24654"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "AlertaSospechoso(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1754,11 +1658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "EnviarSospechoso(comentarios:foto:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1770,11 +1674,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "EnviarSospechoso(comentarios:foto:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1914,7 +1818,7 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "519161159.604516"
+                  timestampString = "519243074.327944"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "255"
@@ -1929,7 +1833,7 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "519161159.607325"
+                  timestampString = "519243074.330198"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "255"
@@ -2026,12 +1930,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            timestampString = "519227247.575915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "ObtenerDirecciones(completionHandler:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "ObtenerDirecciones(latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2041,8 +1945,312 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519227247.575915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "ObtenerDirecciones(latitud:longitud:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/AgregarDireccionesViewController.swift"
+            timestampString = "519236375.227974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519158091.590593"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519227247.575915"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "ObtenerDirecciones(latitud:longitud:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232050.716174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "AlertaSospechoso(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.SospechosoViewController.AlertaSospechoso (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "519231931.407473"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "148"
+                  endingLineNumber = "148"
+                  offsetFromSymbolStart = "1472">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.SospechosoViewController.(AlertaSospechoso (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "519231931.409661"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519228988.839304"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "2768">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519228988.841518"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229893.173504"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "DireccionesViewController"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229866.544616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519243074.36661"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "2716">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519243074.368847"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "3380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229867.600471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -2054,16 +2262,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/DireccionesViewController.swift"
+            timestampString = "519229872.734338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519243074.3782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "3096">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.DireccionesViewController.(viewDidLoad () -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/DireccionesViewController.swift"
+                  timestampString = "519243074.3804"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DronePolice/RestService.swift"
-            timestampString = "519154859.114893"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231930.951678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "ObtenerDirecciones(completionHandler:)"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "AlertadePanico(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231930.951678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "tracingLocation(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231930.951678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "tracingLocationDidFailWithError(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232050.716174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "tracingLocation(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2073,14 +2377,462 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519158091.590593"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232050.716174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
+            landmarkName = "tracingLocationDidFailWithError(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232050.716174"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "AlertaSospechoso(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231930.951678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "AlertadePanico(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.AlertadePanico (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519231812.133682"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "888">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.(AlertadePanico (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519231812.135879"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231930.951678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "AlertadePanico(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.AlertadePanico (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519243074.403397"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "888">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.(AlertadePanico (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519243074.405573"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231811.584243"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "AlertadePanico(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/BotonPanicoUiViewController.swift"
+            timestampString = "519231838.963615"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "AlertadePanico(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.AlertadePanico (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519231838.974514"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.BotonPanicoUiViewController.AlertadePanico (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/BotonPanicoUiViewController.swift"
+                  timestampString = "519231838.977901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232020.121518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "AlertaSospechoso(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.SospechosoViewController.AlertaSospechoso (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "519243074.410642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "1884">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.SospechosoViewController.(AlertaSospechoso (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "519243074.412833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232209.954482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "AlertaSospechoso(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/SospechosoViewController.swift"
+            timestampString = "519232372.646909"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "AlertaSospechoso(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "sign(_:didSignInFor:withError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.LoginController.(sign (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDSignIn&gt;, didSignInFor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDGoogleUser&gt;, withError : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()).(closure #3)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "519243074.426334"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "326"
+                  endingLineNumber = "326"
+                  offsetFromSymbolStart = "1004">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.LoginController.(sign (Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDSignIn&gt;, didSignInFor : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.GIDGoogleUser&gt;, withError : Swift.ImplicitlyUnwrappedOptional&lt;Swift.Error&gt;) -&gt; ()).(closure #3).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "519243074.42851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "327"
+                  endingLineNumber = "327"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "tracingLocation(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "tracingLocation(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RestService.(AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.UserResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "519243074.438308"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "356"
+                  endingLineNumber = "356"
+                  offsetFromSymbolStart = "460">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RestService.(AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.UserResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1).(implicit closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "519243074.44051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "356"
+                  endingLineNumber = "356"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "AccessUser(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.LoginController.AccessUser (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "519243074.445625"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "1500">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.LoginController.(AccessUser (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "519243074.447813"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2090,12 +2842,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/AgregarDireccionesViewController.swift"
-            timestampString = "519160723.351073"
+            timestampString = "519236301.537229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "registrarDireccion(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.AgregarDireccionesViewController.registrarDireccion (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "519243074.453039"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "6180">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.AgregarDireccionesViewController.(registrarDireccion (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "519243074.455243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/AgregarDireccionesViewController.swift"
+            timestampString = "519236306.980246"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "registrarDireccion(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.AgregarDireccionesViewController.registrarDireccion (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "519243074.460317"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "11460">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.AgregarDireccionesViewController.(registrarDireccion (Any) -&gt; ()).(closure #2)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "519243074.4625"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519236726.583089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "AccessUser(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2105,14 +2953,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519159803.432806"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519236927.497507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "DireccionesViewController"
-            landmarkType = "4">
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2121,29 +2969,269 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519159803.432806"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519236936.668482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "DireccionesViewController"
-            landmarkType = "4">
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DronePolice/DireccionesViewController.swift"
-            timestampString = "519159803.432806"
+            filePath = "DronePolice/LoginController.swift"
+            timestampString = "519237054.372977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "AccessUser(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519237077.99942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "353"
+            endingLineNumber = "353"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519237838.142005"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "AccessUser(latitud:longitud:imei:usuario:password:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RestService.AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.UserResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "519243074.550241"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "350"
+                  endingLineNumber = "350"
+                  offsetFromSymbolStart = "772">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RestService.(AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.UserResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "519243074.552705"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "351"
+                  endingLineNumber = "351"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestConnection.swift"
+            timestampString = "519238359.388408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "MethodHTTPSecure(url:body:method:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RegistroViewController.swift"
+            timestampString = "519242843.568801"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "Registro(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RegistroViewController.(Registro (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "519243074.562316"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1232">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RegistroViewController.(Registro (Any) -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "519243074.565755"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RegistroViewController.swift"
+            timestampString = "519240561.823435"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "Registro(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RegistroViewController.Registro (Any) -&gt; ()"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "519243074.583725"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "4352">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DronePolice.RegistroViewController.(Registro (Any) -&gt; ()).(closure #1)"
+                  moduleName = "DronePolice"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "519243074.585949"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519242550.578683"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519242551.576697"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519242574.401791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+            landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DronePolice/RestService.swift"
+            timestampString = "519242578.246777"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
+            landmarkName = "RegistroRedesSociales(email:nombre:apePaterno:apeMaterno:numCel:idSocial:social:imei:latitud:longitud:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

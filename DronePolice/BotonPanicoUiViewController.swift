@@ -9,22 +9,24 @@
 import UIKit
 import CoreLocation
 
-class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
+class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{//,CLLocationManagerDelegate {
     var restService = RestService()
     var settingDAO = SettingsDAO()
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocation! = nil
+    //let locationManager = CLLocationManager()
+    //var currentLocation: CLLocation! = nil
     var longitud = 0.0
     var latitud = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locationManager.delegate = self
+        LocationService.sharedInstance.delegate = self
+      
+       /* locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 100
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.startMonitoringSignificantLocationChanges()*/
         
         // Do any additional setup after loading the view.
         settingDAO.getData()
@@ -32,11 +34,12 @@ class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
 
     
     override func viewDidAppear(_ animated: Bool) {
-        locationAuthStatus()
+        //locationAuthStatus()
+        LocationService.sharedInstance.startUpdatingLocation()
         settingDAO.getData()
     }
 
-    func locationAuthStatus(){
+    /*func locationAuthStatus(){
         
         let estatus = CLLocationManager.authorizationStatus()
         
@@ -57,7 +60,7 @@ class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
         
         locationManager.startUpdatingLocation()
         
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -65,20 +68,33 @@ class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     @IBAction func AlertadePanico(_ sender: Any) {
+       let location = LocationService.sharedInstance.currentLocation
         
-        restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response, error) in
-            if (error != nil){
-                print("error: ",error ?? "hay un errror")
-                return
-            }
-            
-            print(response ?? "")
-        })
+        if (location != nil){
+            latitud = (location?.coordinate.latitude)!
+            longitud = (location?.coordinate.longitude)!
+        }
+        
+        
+        if(latitud == 0 || longitud == 0 ){
+            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+        }else{
+            restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response, error) in
+                if (error != nil){
+                    print("error: ",error ?? "hay un errror")
+                    return
+                }
+                
+                print(response ?? "")
+            })
+        }
+        
+        
     }
     
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+   /* func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.last!
         print("Current location: \(currentLocation)")
         
@@ -89,7 +105,7 @@ class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
         longitud = long
         latitud = lat
         
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) in
+        /*CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) in
             if (error != nil) {
                 print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
                 return
@@ -97,18 +113,28 @@ class BotonPanicoUiViewController: UIViewController,CLLocationManagerDelegate {
             
             if (placemarks?.count)! > 0 {
                 let pm = placemarks?[0]
-                //self.displayLocationInfo(placemark: pm!)
+                self.displayLocationInfo(placemark: pm!)
             } else {
                 print("Problem with the data received from geocoder")
             }
-        })
+        })*/
         
     }
     
+     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
+    }*/
+    
+    // MARK: LocationService Delegate
+    func tracingLocation(_ currentLocation: CLLocation) {
+        self.latitud = currentLocation.coordinate.latitude
+        self.longitud = currentLocation.coordinate.longitude
     }
     
+    func tracingLocationDidFailWithError(_ error: NSError) {
+        print("tracing Location Error : \(error.description)")
+    }
     
     /*func displayLocationInfo(placemark: CLPlacemark!) {
         if placemark != nil {

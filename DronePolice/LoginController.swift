@@ -14,17 +14,18 @@ import FirebaseAuth
 import CoreLocation
 import Firebase
 
-class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,GIDSignInDelegate, CLLocationManagerDelegate{
+class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,GIDSignInDelegate,LocationServiceDelegate{//, CLLocationManagerDelegate{
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var contraseña: UITextField!
     @IBOutlet weak var fbButton: CustomButton!
     @IBOutlet weak var googButton: CustomButton!
-    let locationManager = CLLocationManager()
-    var currentLocation: CLLocation! = nil
+    //let locationManager = CLLocationManager()
+    //var currentLocation: CLLocation! = nil
     var longitud = 0.0
     var latitud = 0.0
     let restService = RestService()
     let settingsDAO = SettingsDAO()
+    let uuid = UUID().uuidString
     
     
 
@@ -32,12 +33,14 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
+        LocationService.sharedInstance.delegate = self
         
-        locationManager.delegate = self
+        
+      /*  locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 100
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.startMonitoringSignificantLocationChanges()*/
         /*NOTA: .startMonitoringSignificantLocationChanges y .distanceFilter trabajan en conjunto:
          1.- La primera da la orden de entrar a la funcion didUpdateLocations siempre que el usuario haya transcurrido un tramo significativo de metros.
          2.- La segunda es la distancia o el tramo en metros que debe recorrer el usuario para activar la primera.
@@ -66,12 +69,13 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
 
     
     override func viewDidAppear(_ animated: Bool) {
-        locationAuthStatus()
+        LocationService.sharedInstance.startUpdatingLocation()
+       // locationAuthStatus()
     }
     
     
     
-    func locationAuthStatus(){
+    /*func locationAuthStatus(){
         
         let estatus = CLLocationManager.authorizationStatus()
         
@@ -92,18 +96,24 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         
         locationManager.startUpdatingLocation()
         
-    }
+    }*/
     
     
     @IBAction func AccessUser(_ sender: Any) {
         if usuario.text == "" || contraseña.text == ""
         {
           self.alerta(title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
+            return
+        }
+        if(latitud == 0 || longitud == 0 ){
+            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+            return
         }
         
-        else
-        {
-         restService.AccessUser(usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, cadena ,error) in
+            
+            
+        
+        restService.AccessUser(latitud: latitud, longitud: longitud, imei: uuid,usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, cadena ,error) in
             if error != nil{
               print("Error en el servicio")
             }
@@ -117,7 +127,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
               self.performSegue(withIdentifier: "hola", sender: self)
     
          })
-        }
+        
     
     }
     
@@ -287,22 +297,13 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         print(lastName)
         print(email)
         print(urlimage)
-        let uuid = UUID().uuidString
-        var latitud:Double = 0.0
-        var longitud:Double = 0.0
         
         
-        
-        if self.latitud != 0.0 && self.longitud != 0.0{
-            latitud = self.latitud
-            longitud = self.longitud
-            
-        } else {
-            print("locationManager.location is nil")
+        if(latitud == 0 || longitud == 0 ){
+            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+            return
         }
-        
-        
-        
+    
         restService.RegistroRedesSociales(email: email, nombre: firstName, apePaterno: paterno, apeMaterno: materno, numCel: "", idSocial: idgoogle, social: "google", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
             
             if(error != nil){
@@ -322,13 +323,13 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             //FirebaseInstanceId.getInstance().getToken()
             /////servico registro device
            
-            RestService().RegisterDevice(imei: uuid,token: tokenfirebase!, completionHandler: { (respose, error) in
+            RestService().RegisterDevice(latitud: self.latitud, longitud: self.longitud, imei: self.uuid,token: tokenfirebase!, completionHandler: { (respose, error) in
                 if(error != nil){
                     self.alerta(title: "Error en el Servidor", mensaje: error.debugDescription)
                     return
                 }
                 
-                self.settingsDAO.insertUserInDB(idUser: idgoogle, token: token!, estatus: estatus!, name: name, firstName: firstName, lastName: lastName, email: email, urlImage: String(describing: urlimage), imei: uuid)
+                self.settingsDAO.insertUserInDB(idUser: idgoogle, token: token!, estatus: estatus!, name: name, firstName: firstName, lastName: lastName, email: email, urlImage: String(describing: urlimage), imei: self.uuid)
                 
                 self.downloadImage(url: urlimage)
                 
@@ -348,7 +349,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation = locations.last!
         print("Current location: \(currentLocation)")
         
@@ -377,10 +378,10 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error \(error)")
-    }
+    }*/
+ 
     
-    
-    func displayLocationInfo(placemark: CLPlacemark!) {
+   /* func displayLocationInfo(placemark: CLPlacemark!) {
         if placemark != nil {
             //stop updating location to save battery life
             locationManager.stopUpdatingLocation()
@@ -396,6 +397,17 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             print(placemark.administrativeArea ?? "" ) //Abreviatura City
             print(placemark.country ?? "") //Pais
         }
+    }*/
+
+    // MARK: LocationService Delegate
+    func tracingLocation(_ currentLocation: CLLocation) {
+        latitud = currentLocation.coordinate.latitude
+        longitud = currentLocation.coordinate.longitude
+
+    }
+    
+    func tracingLocationDidFailWithError(_ error: NSError) {
+        print("tracing Location Error : \(error.description)")
     }
 
     
