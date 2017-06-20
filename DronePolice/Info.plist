@@ -40,7 +40,7 @@
 	<key>FacebookDisplayName</key>
 	<string>DronePolice</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
+	<true/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

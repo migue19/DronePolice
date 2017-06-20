@@ -138,7 +138,7 @@ class SettingsDAO{
     
     
     func deleteAllSettings(){
-        let array = ["Email","Name","FirstName","LastName","ImageURL","id","token","estatus","imei"]
+        let array = ["Email","Name","ApellidoPaterno","ApellidoMaterno","ImageURL","id","token","estatus","imei"]
         
         for description in array {
             self.findAndDeleteSettings(descripcion: description)
@@ -223,14 +223,14 @@ class SettingsDAO{
         
     }
     
-    func insertUserInDB(idUser: String, token: String, estatus: Int, name: String, firstName: String, lastName: String, email: String, urlImage: String,imei: String){
+    func insertUserInDB(idUser: String, token: String, estatus: Int, name: String, apePaterno: String, apeMaterno: String, email: String, urlImage: String,imei: String){
         self.InsertSetting(descripcion: "id", valor: idUser)
         self.InsertSetting(descripcion: "token", valor: token)
         self.InsertSetting(descripcion: "imei", valor: imei)
         self.InsertSetting(descripcion: "estatus", valor: String(estatus))
         self.InsertSetting(descripcion: "Name", valor: name)
-        self.InsertSetting(descripcion: "FirstName", valor: firstName)
-        self.InsertSetting(descripcion: "LastName", valor: lastName)
+        self.InsertSetting(descripcion: "ApellidoPaterno", valor: apePaterno)
+        self.InsertSetting(descripcion: "ApellidoMaterno", valor: apeMaterno)
         self.InsertSetting(descripcion: "Email", valor: email)
         self.InsertSetting(descripcion: "ImageURL", valor: urlImage)
     }

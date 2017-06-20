@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Firebase
 
 
 
@@ -15,7 +16,7 @@ class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
     
-    func ObtenerDirecciones(latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?, Error?) -> ()){
+    func ObtenerDirecciones(latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
     
         //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
@@ -31,9 +32,18 @@ class RestService{
         restConnction.SendRequetService(url: Path.OBTENERDIRECCIONES.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error al validar el usuario: ", error!)
-                completionHandler(nil, error)
+                completionHandler(nil,nil,error)
                 return
             }
+            
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
             
             let direcciones = response!["direccion"].arrayValue
     
@@ -60,17 +70,11 @@ class RestService{
                 
             }
             
-            let estatus = response!["estatus"].int!
-            let error = response!["error"].string!
-            //let response = ResponseGeneric(estatus: estatus, error: "")
+            let dirResponse = DireccionResponse.init(estatus: estatus, error: resperror, direccion: ArrayDirecciones)
             
             
             
-            let dirResponse = DireccionResponse.init(estatus: estatus, error: error, direccion: ArrayDirecciones)
-            
-            
-            
-            completionHandler(dirResponse,nil)
+            completionHandler(dirResponse,nil, nil)
         }
     }
     
@@ -78,7 +82,7 @@ class RestService{
     
     
     
-    func EnviarSospechoso(comentarios: String, foto: String,latitud: Double, longitud: Double ,completionHandler: @escaping (ResponseGeneric?, Error?) -> ()){
+    func EnviarSospechoso(comentarios: String, foto: String,latitud: Double, longitud: Double ,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
         
         //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
@@ -98,14 +102,22 @@ class RestService{
         restConnction.SendRequetService(url: Path.ALERTASOSPECHOSO.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error al validar el usuario: ", error!)
-                completionHandler(nil, error)
+                completionHandler(nil,nil ,error)
                 return
             }
             
             let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            
             let response = ResponseGeneric(estatus: estatus, error: "")
             
-            completionHandler(response,nil)
+            completionHandler(response,nil,nil)
         }
     }
     
@@ -221,7 +233,7 @@ class RestService{
     }
     
     
-    func BotondePanico(context: UIViewController, latitud: Double, longitud: Double,completionHandler: @escaping (ResponseGeneric?, Error?) -> ()){
+    func BotondePanico(context: UIViewController, latitud: Double, longitud: Double,completionHandler: @escaping (ResponseGeneric?,String?,Error?) -> ()){
         let imei = settingsDAO.getDateForDescription(description: "imei")
         let fecha = Utils().FechaActual()
         
@@ -235,23 +247,22 @@ class RestService{
         restConnction.SendRequetService(url: Path.BOTONPANICO.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error en el servicio: ", error!)
-                completionHandler(nil, error)
+                completionHandler(nil,nil,error)
                 return
             }
             
-            let respError = response!["error"].string!
+            
             let estatus = response!["estatus"].int!
-            
-            
-            if( respError != ""){
-                print("Ocurrio un error en el usuario: ", error!)
-                completionHandler(nil, respError as? Error)
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
                 return
             }
+
+            let response = ResponseGeneric(estatus: estatus, error: resperror)
             
-            let response = ResponseGeneric(estatus: estatus, error: respError)
-            
-            completionHandler(response,nil)
+            completionHandler(response,nil,nil)
             
         }
     
@@ -334,26 +345,45 @@ class RestService{
     
     
     
-    func AccessUser(latitud: Double,longitud: Double,imei:String,usuario: String, password: String, completionHandler: @escaping (UserResponse?,String?, Error?) -> ()){
+    func AccessUser(latitud: Double,longitud: Double,imei:String,usuario: String, password: String, completionHandler: @escaping (LoginResponse?,String?, Error?) -> ()){
         
         let fecha = Utils().FechaActual()
+  
         
         let parameters: Parameters = [
             "imei": imei,
             "fecha": fecha,
             "email": usuario,
             "password": password,
-            "latitud:": latitud,
+            "latitud": latitud,
             "longitud": longitud
         ]
         
         restConnction.SendRequetService(url: Path.ACCESS_USER.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error al validar el usuario: ", error.debugDescription)
+                completionHandler(nil,nil,error)
                 return
             }
             
-            print(response ?? "")
+            let estatus: Int = response!["estatus"].intValue
+            
+            if(estatus == 0){
+                let resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            let token: String  = response!["token"].stringValue
+            
+            let nombre: String = response!["nombre"].stringValue
+            
+            
+            let loginResponse = LoginResponse.init(token: token, estatus: estatus,nombre: nombre)
+            
+            completionHandler(loginResponse,nil,nil)
+            
+            //print(response ?? "")
             /*if response?.dictionaryObject?.count == nil
             {
                 completionHandler(nil,response?.rawString(),nil)
@@ -375,15 +405,58 @@ class RestService{
     
     
     
-    
-    
     func RegistroRedesSociales(email: String, nombre: String, apePaterno: String,apeMaterno: String,numCel: String,idSocial: String, social: String, imei: String, latitud: Double, longitud: Double, completionHandler: @escaping (LoginResponse?, Error?) -> ()){
+        
+        let fecha = Utils().FechaActual()
+        
+        let parameters: Parameters = [
+            "email": email,
+            "nombre": nombre,
+            "apePaterno": apePaterno,
+            "apeMaterno":apeMaterno,
+            "idSocial": idSocial,
+            "social": social,
+            "imei": imei,
+            "fecha": fecha,
+            "latitud": latitud,
+            "longitud": longitud
+        ]
+        
+        
+        RestConnection().SendRequetService(url: Path.REGISTRO_SOCIAL.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
+            if(error != nil){
+                print("Ocurrio un error al obtener el registro: ", error!)
+                completionHandler(nil,error)
+                return
+            }
+            let estatus: Int = response!["estatus"].intValue
+            
+            if(estatus == 0){
+                let resperror =  response!["error"].string!
+                completionHandler(nil,resperror as? Error)
+                return
+            }
+            
+            let token: String = response!["token"].string!
+            
+            let loginResponse = LoginResponse(token: token, estatus: estatus)
+            
+            print(response ?? "")
+            
+            completionHandler(loginResponse,nil)
+        }
+        
+    }
+    
+    func Registro(email: String, password: String,nombre: String, apePaterno: String,apeMaterno: String,numCel: String,idSocial: String, social: String, imei: String, latitud: Double, longitud: Double, completionHandler: @escaping (LoginResponse?, Error?) -> ()){
         
         let fecha = Utils().FechaActual()
        
         let parameters: Parameters = [
         "email": email,
+        "password": password,
         "nombre": nombre,
+        "numCel": numCel,
         "apePaterno": apePaterno,
         "apeMaterno":apeMaterno,
         "idSocial": idSocial,
@@ -401,22 +474,19 @@ class RestService{
                 completionHandler(nil,error)
                 return
             }
-            
-            
-            
-            /*let resperror =  response!["error"].string!
-            
-            if resperror != ""{
-                completionHandler(nil,error)
-                return
-            }*/
-            
-            
             let estatus: Int = response!["estatus"].intValue
+            
             if(estatus == 0){
               let resperror =  response!["error"].string!
                 completionHandler(nil,resperror as? Error)
                 return
+            }
+            
+            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+                if(error != nil){
+                    completionHandler(nil,error)
+                    return
+                }
             }
             
             let token: String = response!["token"].string!

@@ -237,7 +237,7 @@ UNUserNotificationCenterDelegate{
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print(response.notification.request.content.userInfo)
+        print("notificacion push: ",response.notification.request.content.userInfo)
         
         let userInfo = response.notification.request.content.userInfo
         

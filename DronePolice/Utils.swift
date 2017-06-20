@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Utils {
+    var settingsDAO = SettingsDAO()
     
     let colorPrincipal: UIColor = UIColor.init(red: 45/255.0, green: 69/255.0, blue: 134/255.0, alpha: 1)
     //let colorCellGris:UIColor = UIColor.init(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
@@ -144,6 +145,26 @@ class Utils {
             }
         }
         return nil
+    }
+    
+    
+    ///////Utils
+    // MARK: - Descargar Imagen y Guardarla en DB
+    func downloadImage(url: URL) {
+        print("Download Started")
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            
+            self.settingsDAO.InsertImageDB(data: data)
+            print("Download Finished")
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
     }
     
     

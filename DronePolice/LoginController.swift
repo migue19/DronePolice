@@ -34,18 +34,8 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         LocationService.sharedInstance.delegate = self
-        
-        
-      /*  locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 100
-        locationManager.startMonitoringSignificantLocationChanges()*/
-        /*NOTA: .startMonitoringSignificantLocationChanges y .distanceFilter trabajan en conjunto:
-         1.- La primera da la orden de entrar a la funcion didUpdateLocations siempre que el usuario haya transcurrido un tramo significativo de metros.
-         2.- La segunda es la distancia o el tramo en metros que debe recorrer el usuario para activar la primera.
-         */
-        
+    
+        self.setupViewResizerOnKeyboardShown()
         settingsDAO.getData()
         let sizetext = (fbButton.titleLabel?.bounds.size.width)!
         
@@ -66,68 +56,93 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-
     
     override func viewDidAppear(_ animated: Bool) {
         LocationService.sharedInstance.startUpdatingLocation()
-       // locationAuthStatus()
     }
-    
-    
-    
-    /*func locationAuthStatus(){
-        
-        let estatus = CLLocationManager.authorizationStatus()
-        
-        if estatus == .notDetermined {
-            locationManager.requestAlwaysAuthorization()
-            return
-        }
-        
-        if estatus == .denied || estatus == .restricted {
-            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        locationManager.startUpdatingLocation()
-        
-    }*/
-    
-    
+
     @IBAction func AccessUser(_ sender: Any) {
         if usuario.text == "" || contraseña.text == ""
         {
-          self.alerta(title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
+          Utils().alerta(context: self,title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
             return
         }
         if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
             return
         }
-        
-            
-            
-        
-        restService.AccessUser(latitud: latitud, longitud: longitud, imei: uuid,usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, cadena ,error) in
+ 
+        restService.AccessUser(latitud: latitud, longitud: longitud, imei: uuid,usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, stringresponse ,error) in
             if error != nil{
-              print("Error en el servicio")
+              Utils().alerta(context: self, title: "Errror en el server", mensaje: error.debugDescription)
+              return
             }
-            if cadena != nil{
-               self.alerta(title: "Error en Sesion", mensaje: "\n"+cadena!)
-              print(cadena ?? "")
+            if(stringresponse != nil){
+              Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                 return
             }
             
-              print(response ?? "Error en el response")
-              self.performSegue(withIdentifier: "hola", sender: self)
-    
-         })
-        
+            let token = response?.token
+            let estatus = response?.estatus
+            let nombreCompleto = response?.nombre
+            
+            let nombreCompletoArr = nombreCompleto?.characters.split{$0 == " "}.map(String.init)
+            // or simply:
+            // let fullNameArr = fullName.characters.split{" "}.map(String.init)
+            var nombre = ""
+            var paterno = ""
+            var materno = ""
+            
+            
+            if(nombreCompletoArr?.count == 3){
+                nombre = (nombreCompletoArr?[0])!
+                paterno = (nombreCompletoArr?[1])!
+                materno = (nombreCompletoArr?[2])!
+            }
+            
+            if nombreCompletoArr?.count == 2{
+                nombre = (nombreCompletoArr?[0])!
+                paterno = (nombreCompletoArr?[1])!
+            }
+            
+            if(nombreCompletoArr?.count == 1){
+                nombre = (nombreCompletoArr?[0])!
+            }
+            
+            let urlimage = ""
+         
+            
+            FIRAuth.auth()?.signIn(withEmail: self.usuario.text!, password: self.contraseña.text!) { (user, error) in
+                if(error != nil){
+                    Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+                }
+                
+                let tokenfirebase = FIRInstanceID.instanceID().token()
+                
+                
+                self.settingsDAO.insertUserInDB(idUser: self.usuario.text!, token: token!, estatus: estatus!, name: nombre, apePaterno: paterno, apeMaterno: materno, email: self.usuario.text!, urlImage: urlimage, imei: self.uuid)
+                
+                //Utils().downloadImage(url: urlimage)
+                
+                RestService().RegisterDevice(latitud: self.latitud, longitud: self.longitud, imei: self.uuid,token: tokenfirebase!, completionHandler: { (respose, error) in
+                    if(error != nil){
+                        Utils().alerta(context: self,title: "Error en el Servidor", mensaje: error.debugDescription)
+                        self.settingsDAO.deleteAllSettings()
+                        self.settingsDAO.getData()
+                        return
+                    }
+                    self.settingsDAO.getData()
+                    
+                    print(respose ?? "error")
+                    let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBar") as! TabBarController
+                    
+                    self.present(vc, animated: true, completion: nil)
+                })
+
+
+            }
+            
+        })
     
     }
     
@@ -158,38 +173,30 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                 print("Error al loguearse: \(String(describing: error))")
                 return
             }
-            /*if(result!.token.tokenString! != nil){
-             print("\(result?.token.tokenString!)")
-             }*/
+        
             FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id,name,email,first_name,last_name"]).start{
                 (connetion,result,error) in
                 if error != nil{
                     print("error al obtener los parametros del perfil")
                     return
                 }
-                
-                var userID = ""
-                var name = ""
+                var faceid = ""
+                //var name = ""
                 var firstName = ""
                 var lastName = ""
                 var email = ""
                 var facebookProfileUrl = ""
                 
                 if let data = result as? [String:Any] {
-                    userID = data["id"] as! String
-                    name = data["name"] as! String
+                    faceid = data["id"] as! String
+                    //name = data["name"] as! String
                     firstName = data["first_name"] as! String
                     lastName = data["last_name"] as! String
                     email = data["email"] as! String
-                    facebookProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
+                    facebookProfileUrl = "http://graph.facebook.com/\(faceid)/picture?type=large"
                 }
                 
-                
                 let lastNameArr = lastName.characters.split{$0 == " "}.map(String.init)
-                // or simply:
-                // let fullNameArr = fullName.characters.split{" "}.map(String.init)
-                
-                
                 var paterno = ""
                 var materno = ""
                 
@@ -200,45 +207,27 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                    paterno = lastNameArr[0]
                 }
                 
-                
-                
-                print(paterno)
-                print(materno)
-                print(userID)
-                print(name)
-                print(firstName)
-                print(lastName)
-                print(email)
-                print(facebookProfileUrl)
-                
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if(error != nil){
-                       print("hubo un error: ", error.debugDescription)
-                    return
+                        Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
+                        return
+                    }
+                    if(self.latitud == 0 || self.longitud == 0 ){
+                        Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+                        return
                     }
                     
                     
-                    print("face login firebase")
+                    let urlimage = URL(string: facebookProfileUrl)
+                    
+                    self.registerWithSocialNetwork(email: email, nombre: firstName, paterno: paterno, materno: materno, idSocial: faceid, social: "facebook", imei: self.uuid, latitud: self.latitud, longitud: self.longitud, urlimage: urlimage!)
+                    
+                    
+                    print("se agrego a firebase")
                 }
-
-                
-                
-                
-                
-                
-                /*self.settingsDAO.insertUserInDB(name: name, firstName: firstName, lastName: lastName, email: email, urlImage: facebookProfileUrl)
-                
-                let urlimage = URL(string: facebookProfileUrl)
-                
-                self.downloadImage(url: urlimage!)
-                
-                self.settingsDAO.getData()
-                
-                self.performSegue(withIdentifier: "showCiudad", sender: self)*/
             }
-            
         }
     }
     
@@ -258,13 +247,11 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         print("Logueo Google Correcto", user)
         
         let idgoogle = user.userID ?? ""
-        let name = user.profile.name ?? ""
+        //let name = user.profile.name ?? ""
         let firstName = user.profile.givenName ?? ""
         let lastName = user.profile.familyName ?? ""
         let email = user.profile.email ?? ""
         let urlimage = user.profile.imageURL(withDimension: 400)!
-        
-        
         
         let lastNameArr = lastName.characters.split{$0 == " "}.map(String.init)
         // or simply:
@@ -280,125 +267,70 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             paterno = lastNameArr[0]
         }
         
-        
         let authentication = user.authentication
         let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
                                                           accessToken: (authentication?.accessToken)!)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            if(error != nil){
+            Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
+                return
+            }
             print("se agrego a firebase")
+            
+            if(self.latitud == 0 || self.longitud == 0 ){
+                Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+                return
+            }
+            
+            self.registerWithSocialNetwork(email: email, nombre: firstName, paterno: paterno, materno: materno, idSocial: idgoogle, social: "google", imei: self.uuid, latitud: self.latitud, longitud: self.longitud, urlimage: urlimage)
+            
         }
         
-        print(paterno)
-        print(materno)
-        print(idgoogle)
-        print(name)
-        print(firstName)
-        print(lastName)
-        print(email)
-        print(urlimage)
         
         
-        if(latitud == 0 || longitud == 0 ){
-            Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
-            return
-        }
+    }
     
-        restService.RegistroRedesSociales(email: email, nombre: firstName, apePaterno: paterno, apeMaterno: materno, numCel: "", idSocial: idgoogle, social: "google", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
+    
+    
+    // MARK: Registro con Redes Sociales
+    func registerWithSocialNetwork(email: String, nombre: String, paterno: String, materno: String,idSocial: String, social: String, imei: String,latitud: Double, longitud: Double,urlimage: URL){
+        
+        restService.RegistroRedesSociales(email: email, nombre: nombre, apePaterno: paterno, apeMaterno: materno, numCel: "", idSocial: idSocial, social: social, imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
             
             if(error != nil){
-                self.alerta(title: "Error en el Servidor", mensaje: error.debugDescription)
-             return
+                Utils().alerta(context: self,title: "Error en el Servidor", mensaje: error.debugDescription)
+                return
             }
-        
-            
-            
             
             let token = response?.token
             let estatus = response?.estatus
             
-          
-            
             let tokenfirebase = FIRInstanceID.instanceID().token()
-            //FirebaseInstanceId.getInstance().getToken()
-            /////servico registro device
-           
+            
+            
+            self.settingsDAO.insertUserInDB(idUser: idSocial, token: token!, estatus: estatus!, name: nombre, apePaterno: paterno, apeMaterno: materno, email: email, urlImage: String(describing: urlimage), imei: self.uuid)
+            
+            Utils().downloadImage(url: urlimage)
+            
             RestService().RegisterDevice(latitud: self.latitud, longitud: self.longitud, imei: self.uuid,token: tokenfirebase!, completionHandler: { (respose, error) in
                 if(error != nil){
-                    self.alerta(title: "Error en el Servidor", mensaje: error.debugDescription)
+                    Utils().alerta(context: self,title: "Error en el Servidor", mensaje: error.debugDescription)
+                    self.settingsDAO.deleteAllSettings()
+                    self.settingsDAO.getData()
                     return
                 }
-                
-                self.settingsDAO.insertUserInDB(idUser: idgoogle, token: token!, estatus: estatus!, name: name, firstName: firstName, lastName: lastName, email: email, urlImage: String(describing: urlimage), imei: self.uuid)
-                
-                self.downloadImage(url: urlimage)
-                
                 self.settingsDAO.getData()
                 
                 print(respose ?? "error")
                 let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBar") as! TabBarController
                 
                 self.present(vc, animated: true, completion: nil)
-                
             })
-
-
-            
         }
-        
     }
     
     
-    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let currentLocation = locations.last!
-        print("Current location: \(currentLocation)")
-        
-        let userLocation:CLLocation = locations[0]
-        let long = userLocation.coordinate.longitude;
-        let lat = userLocation.coordinate.latitude;
-        
-        longitud = long
-        latitud = lat
-        
-        CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) in
-            if (error != nil) {
-                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-                return
-            }
-            
-            if (placemarks?.count)! > 0 {
-                let pm = placemarks?[0]
-                self.displayLocationInfo(placemark: pm!)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error)")
-    }*/
- 
-    
-   /* func displayLocationInfo(placemark: CLPlacemark!) {
-        if placemark != nil {
-            //stop updating location to save battery life
-            locationManager.stopUpdatingLocation()
-            
-            //print(placemark.addressDictionary ?? "")
-            print(placemark.subAdministrativeArea ?? "") //No se que pedo
-            print(placemark.subThoroughfare ?? "") //numero
-            print(placemark.name ?? "")  //Calle y numero
-            print(placemark.thoroughfare ?? "")  //Calle
-            print(placemark.subLocality ?? "") //Colonia
-            print(placemark.locality ?? "" )   //Puebla
-            print(placemark.postalCode ?? "" ) //CP
-            print(placemark.administrativeArea ?? "" ) //Abreviatura City
-            print(placemark.country ?? "") //Pais
-        }
-    }*/
-
     // MARK: LocationService Delegate
     func tracingLocation(_ currentLocation: CLLocation) {
         latitud = currentLocation.coordinate.latitude
@@ -410,39 +342,54 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         print("tracing Location Error : \(error.description)")
     }
 
-    
-    
-    
-    ///////Utils 
-    // MARK: - Descargar Imagen y Guardarla en DB
-    func downloadImage(url: URL) {
-        print("Download Started")
-        getDataFromUrl(url: url) { (data, response, error)  in
-            guard let data = data, error == nil else { return }
-            
-            self.settingsDAO.InsertImageDB(data: data)
-            print("Download Finished")
-        }
-    }
-    
-    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-        URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            completion(data, response, error)
-            }.resume()
-    }
-    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
     
-    func alerta(title: String, mensaje: String ){
-        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+   
+   // MARK: keyboard autoresizing
+    func setupViewResizerOnKeyboardShown() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShowForResizing),
+                                               name: Notification.Name.UIKeyboardWillShow,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHideForResizing),
+                                               name: Notification.Name.UIKeyboardWillHide,
+                                               object: nil)
     }
+    
+    
+    
+    func keyboardWillShowForResizing(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let window = self.view.window?.frame {
+            // We're not just minusing the kb height from the view height because
+            // the view could already have been resized for the keyboard before
+            self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                     y: self.view.frame.origin.y,
+                                     width: self.view.frame.width,
+                                     height: window.origin.y + window.height - keyboardSize.height)
+        } else {
+            debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
+        }
+    }
+    
+    
+    func keyboardWillHideForResizing(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let viewHeight = self.view.frame.height
+            self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                     y: self.view.frame.origin.y,
+                                     width: self.view.frame.width,
+                                     height: viewHeight + keyboardSize.height)
+        } else {
+            debugPrint("We're about to hide the keyboard and the keyboard size is nil. Now is the rapture.")
+        }
+    }
+
     
 
 

@@ -9,59 +9,24 @@
 import UIKit
 import CoreLocation
 
-class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{//,CLLocationManagerDelegate {
+class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{
     var restService = RestService()
     var settingDAO = SettingsDAO()
-    //let locationManager = CLLocationManager()
-    //var currentLocation: CLLocation! = nil
     var longitud = 0.0
     var latitud = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         LocationService.sharedInstance.delegate = self
-      
-       /* locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 100
-        locationManager.startMonitoringSignificantLocationChanges()*/
-        
-        // Do any additional setup after loading the view.
         settingDAO.getData()
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
-        //locationAuthStatus()
         LocationService.sharedInstance.startUpdatingLocation()
         settingDAO.getData()
     }
 
-    /*func locationAuthStatus(){
-        
-        let estatus = CLLocationManager.authorizationStatus()
-        
-        if estatus == .notDetermined {
-            locationManager.requestAlwaysAuthorization()
-            return
-        }
-        
-        if estatus == .denied || estatus == .restricted {
-            let alert = UIAlertController(title: "Location Services Disabled", message: "Please enable Location Services in Settings", preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        locationManager.startUpdatingLocation()
-        
-    }*/
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -79,53 +44,24 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{//,C
         if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
         }else{
-            restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response, error) in
+            restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response,stringresponse,error) in
                 if (error != nil){
-                    print("error: ",error ?? "hay un errror")
+                    Utils().alerta(context: self, title: "Error en el servicio", mensaje: error.debugDescription)
                     return
                 }
+                if(stringresponse != nil){
+                    Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                   return
+                }
                 
-                print(response ?? "")
+                if(response?.estatus == 1){
+                   Utils().alerta(context: self, title: "Alerta Exitosa", mensaje: "Se envio la alerta correctamente")
+                }
+                print(response?.estatus ?? "")
             })
         }
-        
-        
     }
-    
-    
-    
-   /* func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let currentLocation = locations.last!
-        print("Current location: \(currentLocation)")
-        
-        let userLocation:CLLocation = locations[0]
-        let long = userLocation.coordinate.longitude;
-        let lat = userLocation.coordinate.latitude;
-        
-        longitud = long
-        latitud = lat
-        
-        /*CLGeocoder().reverseGeocodeLocation(manager.location!, completionHandler: {(placemarks, error) in
-            if (error != nil) {
-                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-                return
-            }
-            
-            if (placemarks?.count)! > 0 {
-                let pm = placemarks?[0]
-                self.displayLocationInfo(placemark: pm!)
-            } else {
-                print("Problem with the data received from geocoder")
-            }
-        })*/
-        
-    }
-    
-     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error \(error)")
-    }*/
-    
+
     // MARK: LocationService Delegate
     func tracingLocation(_ currentLocation: CLLocation) {
         self.latitud = currentLocation.coordinate.latitude
@@ -136,33 +72,6 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{//,C
         print("tracing Location Error : \(error.description)")
     }
     
-    /*func displayLocationInfo(placemark: CLPlacemark!) {
-        if placemark != nil {
-            //stop updating location to save battery life
-            locationManager.stopUpdatingLocation()
-            
-            //print(placemark.addressDictionary ?? "")
-            print(placemark.subAdministrativeArea ?? "") //No se que pedo
-            print(placemark.subThoroughfare ?? "") //numero
-            print(placemark.name ?? "")  //Calle y numero
-            print(placemark.thoroughfare ?? "")  //Calle
-            print(placemark.subLocality ?? "") //Colonia
-            print(placemark.locality ?? "" )   //Puebla
-            print(placemark.postalCode ?? "" ) //CP
-            print(placemark.administrativeArea ?? "" ) //Abreviatura City
-            print(placemark.country ?? "") //Pais
-        }
-    }*/
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

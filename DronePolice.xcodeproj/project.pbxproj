@@ -143,8 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				7D28BC511EE31C6A006CF726 /* AdminUserViewController.swift */,
+				7DEE01701EF5BFE600A4D419 /* Configuracion */,
 				7D28BC531EE32220006CF726 /* EscanerController.swift */,
-				7D1BF8961EE1FA3500A032A0 /* PerfilViewController.swift */,
 				7D31FD471EE9CCBC00102684 /* AgregarDireccionesViewController.swift */,
 				7D1BF89B1EE1FDF900A032A0 /* AvatarImageView.swift */,
 				7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */,
@@ -195,23 +195,21 @@
 			isa = PBXGroup;
 			children = (
 				7D31FD421EE7004F00102684 /* DronePolice.entitlements */,
-				7DAD18CA1ED439B2009B37E5 /* AppDelegate.swift */,
+				7DEE016C1EF58B7B00A4D419 /* AppDelegate */,
+				7DEE016B1EF58B6100A4D419 /* Utils */,
 				7DF285001EF20709009D1F31 /* Location */,
 				7DAD18EA1ED442E0009B37E5 /* Service Rest */,
 				7D1BF8941EE1DB2600A032A0 /* DataBase */,
+				7DEE016F1EF58D8E00A4D419 /* Login */,
 				7DA45AE11ED4773800111A99 /* PruebaViewController.swift */,
-				7DEE01691EF2F44500A4D419 /* RegistroViewController.swift */,
-				7DAD18CC1ED439B2009B37E5 /* LoginController.swift */,
 				7D28BC571EE357C0006CF726 /* Librerias */,
-				7D1BF89D1EE20C3F00A032A0 /* Utils.swift */,
 				7D28BC551EE35750006CF726 /* TabBarController */,
 				7D28BC581EE357E1006CF726 /* FireBase */,
 				7DAD18DF1ED43D4F009B37E5 /* CustomButton */,
-				7DAD18CE1ED439B2009B37E5 /* Main.storyboard */,
 				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
-				7DAD18D61ED439B2009B37E5 /* LaunchScreen.storyboard */,
+				7DEE016D1EF58BC000A4D419 /* StoryBoard */,
+				7DEE016E1EF58BDC00A4D419 /* Bridge DronePolice */,
 				7DAD18D91ED439B2009B37E5 /* Info.plist */,
-				7DA45ADB1ED474A500111A99 /* DronePolice-Bridging-Header.h */,
 			);
 			path = DronePolice;
 			sourceTree = "<group>";
@@ -246,6 +244,56 @@
 				7DF284E01EF1970B009D1F31 /* Direccion.swift */,
 			);
 			name = Response;
+			sourceTree = "<group>";
+		};
+		7DEE016B1EF58B6100A4D419 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7D1BF89D1EE20C3F00A032A0 /* Utils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		7DEE016C1EF58B7B00A4D419 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7DAD18CA1ED439B2009B37E5 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7DEE016D1EF58BC000A4D419 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				7DAD18CE1ED439B2009B37E5 /* Main.storyboard */,
+				7DAD18D61ED439B2009B37E5 /* LaunchScreen.storyboard */,
+			);
+			name = StoryBoard;
+			sourceTree = "<group>";
+		};
+		7DEE016E1EF58BDC00A4D419 /* Bridge DronePolice */ = {
+			isa = PBXGroup;
+			children = (
+				7DA45ADB1ED474A500111A99 /* DronePolice-Bridging-Header.h */,
+			);
+			name = "Bridge DronePolice";
+			sourceTree = "<group>";
+		};
+		7DEE016F1EF58D8E00A4D419 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7DEE01691EF2F44500A4D419 /* RegistroViewController.swift */,
+				7DAD18CC1ED439B2009B37E5 /* LoginController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		7DEE01701EF5BFE600A4D419 /* Configuracion */ = {
+			isa = PBXGroup;
+			children = (
+				7D1BF8961EE1FA3500A032A0 /* PerfilViewController.swift */,
+			);
+			name = Configuracion;
 			sourceTree = "<group>";
 		};
 		7DF285001EF20709009D1F31 /* Location */ = {

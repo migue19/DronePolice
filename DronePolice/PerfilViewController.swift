@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 let offset_HeaderStop:CGFloat = 40.0
 let offset_B_LabelHeader:CGFloat = 95.0
@@ -311,6 +312,8 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             self.settingsDAO.deleteAllImageDB()
             self.settingsDAO.deleteAllSettings()
             
+            //Log out Firebase
+            try! FIRAuth.auth()!.signOut()
             //Regresamos al inicio de la aplicacion
             let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoryBoardStart")
             UIApplication.shared.keyWindow?.rootViewController = loginViewController

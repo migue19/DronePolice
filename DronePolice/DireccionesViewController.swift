@@ -49,17 +49,33 @@ class DireccionesViewController: UIViewController {
         if(location != nil){
            longitud = (location?.coordinate.longitude)!
            latitud = (location?.coordinate.latitude)!
-        }else{
-         Utils().alerta(context: self, title: "Error Ubicacion", mensaje: "Error al obtener la ubicacion")
+        }//else{
+         //Utils().alerta(context: self, title: "Error Ubicacion", mensaje: "Error al obtener la ubicacion")
+       // }
         
-        }
-        
-        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response, error) in
+        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response,stringresponse ,error) in
             if(error != nil){
-                print(error ?? "")
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
                 return
             }
+            if(stringresponse != nil){
+             Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+              return
+            }
+            
+            
             self.direcciones = (response?.direccion)!
+            
+            if(self.direcciones.count == 0){
+                let alerta: UIAlertController = UIAlertController(title: "Error", message: "No hay direcciones registradas", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "ok", style: .default) { action -> Void in
+                    self.performSegue(withIdentifier: "showAgregarDireccion", sender: Direccion())
+                }
+                alerta.addAction(okAction)
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
             self.tableView.reloadData()
         }
 

@@ -47,60 +47,41 @@ class RegistroViewController: UIViewController {
             return
         }
         
-        restService.RegistroRedesSociales(email: email.text!, nombre: nombre.text!, apePaterno: apePaterno.text!, apeMaterno: apeMaterno.text!, numCel: "", idSocial: email.text!, social: "", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
+        if(contraseña.text != repetirContraseña.text){
+            Utils().alerta(context: self, title: "Error", mensaje: "Las contraseñas deben ser iguales")
+            return
+        }
+        
+        
+        restService.Registro(email: email.text!, password: contraseña.text!, nombre: nombre.text!, apePaterno: apePaterno.text!, apeMaterno: apeMaterno.text!, numCel: telefono.text!, idSocial: email.text!, social: "", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
             
             if(error != nil){
                 Utils().alerta(context: self, title: "Error en el Servidor", mensaje: error.debugDescription)
                 return
             }
-            
-            
-            
-            
-            
             let token = response?.token
             if(token == nil){
               Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
               return
             }
-            
+
             let estatus = response?.estatus
             
-            
-            
-            let tokenfirebase = FIRInstanceID.instanceID().token()
-            //FirebaseInstanceId.getInstance().getToken()
-            /////servico registro device
-            
-            RestService().RegisterDevice(latitud: self.latitud, longitud: self.longitud, imei: self.uuid,token: tokenfirebase!, completionHandler: { (respose, error) in
+            FIRAuth.auth()?.createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
+                
                 if(error != nil){
-                    Utils().alerta(context: self, title: "Error en el Servidor", mensaje: error.debugDescription)
-                    return
+                 Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
                 }
                 
-                self.settingsDAO.insertUserInDB(idUser: "", token: token!, estatus: estatus!, name: self.nombre.text!, firstName: self.apePaterno.text!, lastName: self.apeMaterno.text!, email: self.email.text!, urlImage: "", imei: self.uuid)
-                
-                //self.downloadImage(url: urlimage)
-                
-                self.settingsDAO.getData()
-                print(respose ?? "error")
-                
-                self.dismiss(animated: true, completion: nil)
-                /*self.nombre.text = ""
-                self.apeMaterno.text = ""
-                self.apePaterno.text = ""
-                self.telefono.text = ""
-                self.email.text = ""
-                self.contraseña.text = ""
-                self.repetirContraseña.text = ""*/
-                
-                
-            })
+            }
+            
+            if(estatus == 1){
+              Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
+            }
             
             
             
         }
-        
     }
     /*
     // MARK: - Navigation
