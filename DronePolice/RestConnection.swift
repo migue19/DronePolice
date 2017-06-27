@@ -24,6 +24,10 @@ enum Path:String {
     case REGISTERDEVICE = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/registroDispositivo"
     case ALERTASOSPECHOSO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/botonSospechoso"
     case OBTENERDIRECCIONES = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/obtenerDireccion"
+    case MIEMBROSFAMILIARES = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/miembrosFamiliares"
+    case MIEMBROSVECINOS = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/miembrosVecinos"
+    case AGREGARMIEMBRO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/agregarMiembro"
+    case ELIMINARMIEMBRO = "http://rest.dronepolice.com.mx/dronpolice-core/secured/dronpoliceService/eliminarMiembro"
     
 }
 

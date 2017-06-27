@@ -31,10 +31,16 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+       
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         LocationService.sharedInstance.delegate = self
-    
+        self.setGradientBackground()
         self.setupViewResizerOnKeyboardShown()
         settingsDAO.getData()
         let sizetext = (fbButton.titleLabel?.bounds.size.width)!
@@ -82,6 +88,8 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                 return
             }
             
+            
+            
             let token = response?.token
             let estatus = response?.estatus
             let nombreCompleto = response?.nombre
@@ -110,11 +118,22 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             }
             
             let urlimage = ""
+            
+            /*FIRAuth.auth()?.createUser(withEmail: self.usuario.text!, password: self.contraseña.text!) { (user, error) in
+                
+                if(error != nil){
+                    Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+                    return
+                }
+                
+            }*/
+
          
             
             FIRAuth.auth()?.signIn(withEmail: self.usuario.text!, password: self.contraseña.text!) { (user, error) in
                 if(error != nil){
                     Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+                   return
                 }
                 
                 let tokenfirebase = FIRInstanceID.instanceID().token()
@@ -167,7 +186,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     }
     
     @IBAction func CustomLoginFB(_ sender: Any) {
-        FBSDKLoginManager().logIn(withReadPermissions: ["email", "public_profile"], from: self){
+        FBSDKLoginManager().logIn(withReadPermissions: ["read_stream","email", "public_profile"], from: self){
             (result,error) in
             if error != nil{
                 print("Error al loguearse: \(String(describing: error))")
@@ -207,10 +226,13 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                    paterno = lastNameArr[0]
                 }
                 
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                let tokenface = FBSDKAccessToken.current().tokenString
+                
+                let credential = FIRFacebookAuthProvider.credential(withAccessToken: tokenface!)
                 
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if(error != nil){
+                        
                         Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
                         return
                     }
@@ -330,6 +352,18 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         }
     }
     
+    
+    func setGradientBackground() {
+        let colorTop =  Utils().colorBackground.cgColor
+        let colorBottom = Utils().colorDegradado.cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [ colorTop, colorBottom]
+        gradientLayer.locations = [ 0.60, 1.0]
+        gradientLayer.frame = self.view.bounds
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
     // MARK: LocationService Delegate
     func tracingLocation(_ currentLocation: CLLocation) {

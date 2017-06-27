@@ -218,7 +218,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         
         switch indexPath.section {
         case 0:
-            imageView.image = UIImage(named: "icDireccciones")
+            imageView.image = UIImage(named: "iconodirecciones")
             textLabel.text = options[row]
             if(options[row] == ""){
                cell.accessoryType = .none

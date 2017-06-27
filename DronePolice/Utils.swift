@@ -13,7 +13,9 @@ class Utils {
     var settingsDAO = SettingsDAO()
     
     let colorPrincipal: UIColor = UIColor.init(red: 45/255.0, green: 69/255.0, blue: 134/255.0, alpha: 1)
-    //let colorCellGris:UIColor = UIColor.init(red: 170/255.0, green: 170/255.0, blue: 170/255.0, alpha: 1)
+    let colorBackground: UIColor = UIColor.init(red: 41/255.0, green: 52/255.0, blue: 89/255.0, alpha: 1)
+    let colorDegradado: UIColor = UIColor.init(red: 86/255.0, green: 102/255.0, blue: 148/255.0, alpha: 1)
+    
     let colorCellGris: UIColor = UIColor.white
     
     func FechaActual() -> String{
@@ -79,6 +81,17 @@ class Utils {
     }
     
     
+    func setGradientBackground(context: UIViewController) {
+        let colorTop =  Utils().colorBackground.cgColor
+        let colorBottom = Utils().colorDegradado.cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [ colorTop, colorBottom]
+        gradientLayer.locations = [ 0.60, 1.0]
+        gradientLayer.frame = context.view.bounds
+        
+        context.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
     
     
     

@@ -10,9 +10,11 @@ import UIKit
 import AVFoundation
 
 class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var messageLabel:UILabel!
+    var longitud = 0.0
+    var latitud = 0.0
+    var segment = 1
 
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -115,7 +117,9 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                let alert = UIAlertController(title: "Codigo Detectado",
+                
+                captureSession?.stopRunning()
+                /*let alert = UIAlertController(title: "Codigo Detectado",
                                               message: metadataObj.stringValue,
                                               preferredStyle: UIAlertControllerStyle.alert)
                 
@@ -123,7 +127,32 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                                                  style: .cancel, handler: nil)
                 
                 alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)*/
+                
+                let location = LocationService.sharedInstance.currentLocation
+                
+                if (location != nil){
+                    latitud = (location?.coordinate.latitude)!
+                    longitud = (location?.coordinate.longitude)!
+                }
+                
+                RestService().AgregarMiembro(latitud: latitud, longitud: longitud, qr: metadataObj.stringValue, tipo: segment) { (response, stringresponse, error) in
+                    if(error != nil){
+                        Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                        self.dismiss(animated: true, completion: nil)
+                        return
+                    }
+                    if(stringresponse != nil){
+                        Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                        self.dismiss(animated: true, completion: nil)
+                        return
+                    }
+                    
+                    if(response?.estatus == 1){
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+
             
                 messageLabel.text = metadataObj.stringValue
             }

@@ -17,6 +17,7 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setGradientBackground()
         LocationService.sharedInstance.delegate = self
         settingDAO.getData()
     }
@@ -62,6 +63,19 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{
         }
     }
 
+    
+    func setGradientBackground() {
+        let colorTop =  Utils().colorBackground.cgColor
+        let colorBottom = Utils().colorDegradado.cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [ colorTop, colorBottom]
+        gradientLayer.locations = [ 0.60, 1.0]
+        gradientLayer.frame = self.view.bounds
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
     // MARK: LocationService Delegate
     func tracingLocation(_ currentLocation: CLLocation) {
         self.latitud = currentLocation.coordinate.latitude

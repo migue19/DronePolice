@@ -7,16 +7,141 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AdminUserViewController: UIViewController {
-    var direccciones = ["migue","estas","como","hola"]
-
+    var miembros = [Miembro]()
+    var longitud = 0.0
+    var latitud = 0.0
+    var segment = 1
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        getMiembrosFamiliares()
         // Do any additional setup after loading the view.
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(segment)
+    }
+    
+    
+    
+    
+    
+    func getMiembrosFamiliares(){
+        let location = LocationService.sharedInstance.currentLocation
+        
+        if (location != nil){
+            latitud = (location?.coordinate.latitude)!
+            longitud = (location?.coordinate.longitude)!
+        }
+        
+        RestService().ObtenerMiembrosFamiliares(latitud: latitud, longitud: longitud) { (response, stringresponse, error) in
+            if(error != nil){
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                return
+            }
+            if(stringresponse != nil){
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
+            }
+            
+            
+            self.miembros = (response?.miembros)!
+            
+            if(self.miembros.count == 0){
+                self.tableView.reloadData()
+                let alerta: UIAlertController = UIAlertController(title: "Error", message: "No hay miembros registrados", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                
+                alerta.addAction(okAction)
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
+            self.tableView.reloadData()
+            
+        }
+    
+    }
+    
+    
+    func getMiembrosVecinos(){
+        let location = LocationService.sharedInstance.currentLocation
+        
+        if (location != nil){
+            latitud = (location?.coordinate.latitude)!
+            longitud = (location?.coordinate.longitude)!
+        }
+        
+        RestService().ObtenerMiembrosVecinos(latitud: latitud, longitud: longitud) { (response, stringresponse, error) in
+            if(error != nil){
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                return
+            }
+            if(stringresponse != nil){
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
+            }
+            
+            
+            self.miembros = (response?.miembros)!
+            
+            if(self.miembros.count == 0){
+                self.tableView.reloadData()
+                let alerta: UIAlertController = UIAlertController(title: "Error", message: "No hay miembros registrados", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+                
+                alerta.addAction(okAction)
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
+            self.tableView.reloadData()
+            
+        }
+    
+    }
+    
+    
+    
+    @IBAction func GetMiembros(_ sender: Any) {
+        switch (sender as AnyObject).selectedSegmentIndex {
+        case 0:
+            segment = 1
+            getMiembrosFamiliares()
+            print("Vecinos")
+        case 1:
+            segment = 2
+            getMiembrosVecinos()
+            print("Familiares")
+        default:
+            break
+        }
+
+    }
+    
+    
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "agregarMiembro"){
+            let vc = segue.destination as! EscanerController
+            vc.segment = segment
+        }
+    }
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,9 +164,8 @@ extension AdminUserViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("hola")
-        let direccion = direccciones[indexPath.row]
-        
-        print(direccion)
+        let idmiembro = miembros[indexPath.row].id
+        print(idmiembro)
         //self.performSegue(withIdentifier: "showAgregarDireccion", sender: direccion)
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -51,7 +175,7 @@ extension AdminUserViewController: UITableViewDelegate{
 
 extension AdminUserViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return direccciones.count
+        return miembros.count
     }
     
     
@@ -64,7 +188,7 @@ extension AdminUserViewController: UITableViewDataSource{
         
         cell.textLabel?.numberOfLines = 0;
         cell.textLabel?.lineBreakMode = .byWordWrapping;
-        cell.textLabel?.text = direccciones[indice]
+        cell.textLabel?.text = miembros[indice].nombre
         //cell.imagen.image = promociones[indice].image
         //cell.descripcion.text = promociones[indice].descripcion
         //cell.fecha.text = promociones[indice].fecha
@@ -78,7 +202,31 @@ extension AdminUserViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        self.direccciones.remove(at: indexPath.row)
+        self.miembros.remove(at: indexPath.row)
+        
+        let idmiembro = miembros[indexPath.row].id
+        
+        RestService().eliminarMiembro(latitud: latitud, longitud: longitud, id: idmiembro) { (response, stringresponse, error) in
+            if(error != nil){
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                return
+            }
+            if(stringresponse != nil){
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
+            }
+            
+            if(response?.estatus == 1){
+                Utils().alerta(context: self, title: "Exito", mensaje: "Se elimino correctamente al usuario")
+                if(self.segment == 1){
+                   self.getMiembrosFamiliares()
+                }else{
+                   self.getMiembrosVecinos()
+                }
+            }
+        }
+
+        
         tableView.deleteRows(at: [indexPath], with: .left)
     }
     

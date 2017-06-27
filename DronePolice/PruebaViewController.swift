@@ -12,11 +12,13 @@ class PruebaViewController: UIViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var ContainerA: UIView!
     @IBOutlet weak var ContainerB: UIView!
+    @IBOutlet weak var ContainerC: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.ContainerB.alpha = 0
+        self.ContainerC.alpha = 0
 
         // Do any additional setup after loading the view.
     }
@@ -27,18 +29,29 @@ class PruebaViewController: UIViewController {
     }
     
     @IBAction func showComponent(_ sender: Any) {
-        if (sender as AnyObject).selectedSegmentIndex == 0 {
+        
+        switch (sender as AnyObject).selectedSegmentIndex {
+        case 0:
             UIView.animate(withDuration: 0.5, animations: {
                 self.ContainerA.alpha = 1
                 self.ContainerB.alpha = 0
+                self.ContainerC.alpha = 0
             })
-        } else {
+        case 1:
             UIView.animate(withDuration: 0.5, animations: {
                 self.ContainerA.alpha = 0
                 self.ContainerB.alpha = 1
+                self.ContainerC.alpha = 0
             })
+        case 2:
+            UIView.animate(withDuration: 0.5, animations: {
+                self.ContainerA.alpha = 0
+                self.ContainerB.alpha = 0
+                self.ContainerC.alpha = 1
+            })
+        default:
+            break
         }
-        
     }
 
     /*

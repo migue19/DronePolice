@@ -21,6 +21,8 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Utils().setGradientBackground(context: self)
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
         /*locationManager.delegate = self
@@ -157,6 +159,10 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
                 if(stringresponse != nil){
                     Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                    return
+                }
+                
+                if(response?.estatus == 1){
+                  Utils().alerta(context: self, title: "Exitoso", mensaje: "Sospechoso enviado correctamente")
                 }
                 
                 print(response?.estatus ?? "")

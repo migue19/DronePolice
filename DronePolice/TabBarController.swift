@@ -12,7 +12,26 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.selectedIndex = 1
+        //self.tabBarController?.selectedIndex = 1
+        self.selectedIndex = 3
+        
+        //self.tabBar.isTranslucent = false
+        ///self.tabBar.barTintColor = UIColor.red.withAlphaComponent(0.4)
+        //self.tabBar.backgroundImage = UIImage()
+        //self.tabBar.backgroundImage = UIImage()
+        /*let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //view.addSubview(blurEffectView)
+        self.tabBar.insertSubview(blurEffectView, at: 0)*/
+        
+        //context.view.layer.
+        
+    
+        
+        //imageWithColor(UIColor.clearColor())
+       
         // Do any additional setup after loading the view.
     }
     

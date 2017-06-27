@@ -16,6 +16,198 @@ class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
     
+    func eliminarMiembro(latitud: Double,longitud: Double,id: Int,completionHandler: @escaping (ResponseGeneric?,String?,Error?) -> ()){
+        
+        //Utils().showLoading(context: context)
+        let imei = settingsDAO.getDateForDescription(description: "imei")!
+        let fecha = Utils().FechaActual()
+        
+        let parameters: Parameters = [
+            "imei": imei,
+            "fecha": fecha,
+            "latitud": latitud,
+            "longitud": longitud,
+            "id": id
+        ]
+        
+        restConnction.SendRequetService(url: Path.ELIMINARMIEMBRO.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
+            if error != nil{
+                print("Ocurrio un error al validar el usuario: ", error!)
+                completionHandler(nil,nil,error)
+                return
+            }
+            
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            let responseGeneric = ResponseGeneric.init(estatus: estatus, error: resperror)
+            
+            completionHandler(responseGeneric,nil, nil)
+        }
+    }
+    
+    
+    
+    func AgregarMiembro(latitud: Double,longitud: Double,qr: String,tipo: Int,completionHandler: @escaping (ResponseGeneric?,String?,Error?) -> ()){
+        
+        //Utils().showLoading(context: context)
+        let imei = settingsDAO.getDateForDescription(description: "imei")!
+        let fecha = Utils().FechaActual()
+        
+        let parameters: Parameters = [
+            "imei": imei,
+            "fecha": fecha,
+            "latitud": latitud,
+            "longitud": longitud,
+            "qr": qr,
+            "tipo": tipo
+            ]
+        
+        restConnction.SendRequetService(url: Path.AGREGARMIEMBRO.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
+            if error != nil{
+                print("Ocurrio un error al validar el usuario: ", error!)
+                completionHandler(nil,nil,error)
+                return
+            }
+            
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            let responseGeneric = ResponseGeneric.init(estatus: estatus, error: resperror)
+            
+            completionHandler(responseGeneric,nil, nil)
+        }
+    }
+    
+    
+    func ObtenerMiembrosFamiliares(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()){
+        
+        //Utils().showLoading(context: context)
+        let imei = settingsDAO.getDateForDescription(description: "imei")!
+        let fecha = Utils().FechaActual()
+        
+        let parameters: Parameters = [
+            "imei": imei,
+            "fecha": fecha,
+            "latitud": latitud,
+            "longitud": longitud,
+            ]
+        
+        restConnction.SendRequetService(url: Path.MIEMBROSFAMILIARES.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
+            if error != nil{
+                print("Ocurrio un error al validar el usuario: ", error!)
+                completionHandler(nil,nil,error)
+                return
+            }
+            
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            
+            let miembros = response!["miembros"].arrayValue
+            
+            
+            var ArrayMiembros = [Miembro]()
+            
+            
+            for miembro in miembros{
+                //let auxestado = estado.dictionaryValue
+                let id = miembro["id"].intValue
+                let nombre = miembro["nombre"].stringValue
+                
+                
+                let auxMiembro = Miembro.init(id: id, nombre: nombre)
+                
+                ArrayMiembros.append(auxMiembro)
+                //print(estadoid)
+                
+            }
+            
+            let miembroResponse = MiembrosResponse.init(estatus: estatus, error: resperror, miembros: ArrayMiembros)
+            
+            
+            
+            completionHandler(miembroResponse,nil, nil)
+        }
+    }
+    
+    
+    func ObtenerMiembrosVecinos(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()){
+        
+        //Utils().showLoading(context: context)
+        let imei = settingsDAO.getDateForDescription(description: "imei")!
+        let fecha = Utils().FechaActual()
+        
+        let parameters: Parameters = [
+            "imei": imei,
+            "fecha": fecha,
+            "latitud": latitud,
+            "longitud": longitud,
+            ]
+        
+        restConnction.SendRequetService(url: Path.MIEMBROSVECINOS.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
+            if error != nil{
+                print("Ocurrio un error al validar el usuario: ", error!)
+                completionHandler(nil,nil,error)
+                return
+            }
+            
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            
+            let miembros = response!["miembros"].arrayValue
+            
+            
+            var ArrayMiembros = [Miembro]()
+            
+            
+            for miembro in miembros{
+                //let auxestado = estado.dictionaryValue
+                let id = miembro["id"].intValue
+                let nombre = miembro["nombre"].stringValue
+                
+                
+                let auxMiembro = Miembro.init(id: id, nombre: nombre)
+                
+                ArrayMiembros.append(auxMiembro)
+                //print(estadoid)
+                
+            }
+            
+            let miembroResponse = MiembrosResponse.init(estatus: estatus, error: resperror, miembros: ArrayMiembros)
+            
+            
+            
+            completionHandler(miembroResponse,nil, nil)
+        }
+    }
+    
+    
+    
+    
+    
+    
     func ObtenerDirecciones(latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
     
         //Utils().showLoading(context: context)

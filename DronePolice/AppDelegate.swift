@@ -35,6 +35,13 @@ UNUserNotificationCenterDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //UITabBar.appearance().barTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
+        UITabBar.appearance().tintColor = UIColor.black
+        
+        
+      
+        
+        
         FIRApp.configure()
         
         registerForPushNotifications(application: application)
