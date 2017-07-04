@@ -372,7 +372,7 @@
 				TargetAttributes = {
 					7DAD18C61ED439B2009B37E5 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = QNY838NJDJ;
+						DevelopmentTeam = MC2W678MVZ;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -633,14 +633,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QNY838NJDJ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bf473f01-4a1b-4be8-a084-7d494238e2fe";
-				PROVISIONING_PROFILE_SPECIFIER = DevelopmentProfile;
+				PROVISIONING_PROFILE = "e3a2cf4b-e72c-4f4e-b469-5a49b4b0863b";
+				PROVISIONING_PROFILE_SPECIFIER = "Drone Production Push";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -653,14 +653,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Inovaweb Soluciones Tecnologicas de Mexico SA de CV (QNY838NJDJ)";
-				DEVELOPMENT_TEAM = QNY838NJDJ;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nut Systems (MC2W678MVZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nut Systems (MC2W678MVZ)";
+				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d764f210-9495-401d-9795-cfe3f521c96a";
-				PROVISIONING_PROFILE_SPECIFIER = "Drone Production";
+				PROVISIONING_PROFILE = "e3a2cf4b-e72c-4f4e-b469-5a49b4b0863b";
+				PROVISIONING_PROFILE_SPECIFIER = "Drone Production Push";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

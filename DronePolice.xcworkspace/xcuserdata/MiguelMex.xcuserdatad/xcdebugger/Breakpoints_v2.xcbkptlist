@@ -1593,13 +1593,13 @@
                   symbolName = "DronePolice.AppDelegate.userNotificationCenter (__ObjC.UNUserNotificationCenter, didReceive : __ObjC.UNNotificationResponse, withCompletionHandler : () -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "520208428.25736"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AppDelegate.swift"
+                  timestampString = "520796991.608305"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "261"
                   endingLineNumber = "261"
-                  offsetFromSymbolStart = "1332">
+                  offsetFromSymbolStart = "1594">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1608,13 +1608,13 @@
                   symbolName = "DronePolice.AppDelegate.userNotificationCenter (__ObjC.UNUserNotificationCenter, didReceive : __ObjC.UNNotificationResponse, withCompletionHandler : () -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "520208428.259707"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AppDelegate.swift"
+                  timestampString = "520796991.612699"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "261"
                   endingLineNumber = "261"
-                  offsetFromSymbolStart = "4264">
+                  offsetFromSymbolStart = "5850">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2393,13 +2393,13 @@
                   symbolName = "DronePolice.SospechosoViewController.AlertaSospechoso (Any) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/SospechosoViewController.swift"
-                  timestampString = "520208428.305709"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "520796991.677246"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "154"
                   endingLineNumber = "154"
-                  offsetFromSymbolStart = "1884">
+                  offsetFromSymbolStart = "2245">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2408,13 +2408,13 @@
                   symbolName = "DronePolice.SospechosoViewController.(AlertaSospechoso (Any) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/SospechosoViewController.swift"
-                  timestampString = "520208428.308117"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/SospechosoViewController.swift"
+                  timestampString = "520796991.680477"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "155"
                   endingLineNumber = "155"
-                  offsetFromSymbolStart = "68">
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2521,13 +2521,13 @@
                   symbolName = "DronePolice.RestService.AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.326686"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.706856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "595"
                   endingLineNumber = "595"
-                  offsetFromSymbolStart = "908">
+                  offsetFromSymbolStart = "1196">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2536,13 +2536,13 @@
                   symbolName = "DronePolice.RestService.(AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.32975"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.710089"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "595"
                   endingLineNumber = "595"
-                  offsetFromSymbolStart = "3812">
+                  offsetFromSymbolStart = "5714">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2569,13 +2569,13 @@
                   symbolName = "DronePolice.LoginController.AccessUser (Any) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "520208428.335339"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "520796991.718136"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
                   endingLineNumber = "81"
-                  offsetFromSymbolStart = "1532">
+                  offsetFromSymbolStart = "1875">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2584,13 +2584,13 @@
                   symbolName = "DronePolice.LoginController.(AccessUser (Any) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "520208428.337612"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "520796991.721501"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2617,13 +2617,13 @@
                   symbolName = "DronePolice.AgregarDireccionesViewController.registrarDireccion (Any) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
-                  timestampString = "520208428.343122"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "520796991.729501"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
                   endingLineNumber = "86"
-                  offsetFromSymbolStart = "6180">
+                  offsetFromSymbolStart = "7811">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2632,13 +2632,13 @@
                   symbolName = "DronePolice.AgregarDireccionesViewController.(registrarDireccion (Any) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
-                  timestampString = "520208428.345407"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "520796991.733088"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "88"
                   endingLineNumber = "88"
-                  offsetFromSymbolStart = "28">
+                  offsetFromSymbolStart = "23">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2665,13 +2665,13 @@
                   symbolName = "DronePolice.AgregarDireccionesViewController.registrarDireccion (Any) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
-                  timestampString = "520208428.35072"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "520796991.740973"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
                   endingLineNumber = "95"
-                  offsetFromSymbolStart = "11460">
+                  offsetFromSymbolStart = "14406">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2680,13 +2680,13 @@
                   symbolName = "DronePolice.AgregarDireccionesViewController.(registrarDireccion (Any) -&gt; ()).(closure #2)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
-                  timestampString = "520208428.353149"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/AgregarDireccionesViewController.swift"
+                  timestampString = "520796991.744263"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "98"
                   endingLineNumber = "98"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "23">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2793,13 +2793,13 @@
                   symbolName = "DronePolice.RestService.AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.380958"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.782539"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "554"
                   endingLineNumber = "554"
-                  offsetFromSymbolStart = "776">
+                  offsetFromSymbolStart = "1029">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2808,13 +2808,13 @@
                   symbolName = "DronePolice.RestService.(AccessUser (latitud : Swift.Double, longitud : Swift.Double, imei : Swift.String, usuario : Swift.String, password : Swift.String, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.383366"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.785969"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "555"
                   endingLineNumber = "555"
-                  offsetFromSymbolStart = "100">
+                  offsetFromSymbolStart = "106">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2857,13 +2857,13 @@
                   symbolName = "DronePolice.RegistroViewController.Registro (Any) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RegistroViewController.swift"
-                  timestampString = "520208428.388695"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "520796991.795322"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "5220">
+                  offsetFromSymbolStart = "6399">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2872,8 +2872,8 @@
                   symbolName = "DronePolice.RegistroViewController.(Registro (Any) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RegistroViewController.swift"
-                  timestampString = "520208428.390936"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RegistroViewController.swift"
+                  timestampString = "520796991.798962"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
@@ -2998,7 +2998,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3049,13 +3049,13 @@
                   symbolName = "DronePolice.RestService.Registro (email : Swift.String, password : Swift.String, nombre : Swift.String, apePaterno : Swift.String, apeMaterno : Swift.String, numCel : Swift.String, idSocial : Swift.String, social : Swift.String, imei : Swift.String, latitud : Swift.Double, longitud : Swift.Double, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.423481"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.837892"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "663"
                   endingLineNumber = "663"
-                  offsetFromSymbolStart = "1540">
+                  offsetFromSymbolStart = "2263">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3064,13 +3064,13 @@
                   symbolName = "DronePolice.RestService.(Registro (email : Swift.String, password : Swift.String, nombre : Swift.String, apePaterno : Swift.String, apeMaterno : Swift.String, numCel : Swift.String, idSocial : Swift.String, social : Swift.String, imei : Swift.String, latitud : Swift.Double, longitud : Swift.Double, completionHandler : (Swift.Optional&lt;DronePolice.LoginResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "520208428.425715"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/RestService.swift"
+                  timestampString = "520796991.841268"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "664"
                   endingLineNumber = "664"
-                  offsetFromSymbolStart = "140">
+                  offsetFromSymbolStart = "245">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3078,7 +3078,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3366,7 +3366,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3382,7 +3382,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3398,7 +3398,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3414,7 +3414,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3430,7 +3430,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DronePolice/LoginController.swift"
@@ -3465,13 +3465,13 @@
                   symbolName = "DronePolice.LoginController.(AccessUser (Any) -&gt; ()).(closure #1)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "520208428.594159"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "520796991.961001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
                   endingLineNumber = "133"
-                  offsetFromSymbolStart = "2972">
+                  offsetFromSymbolStart = "4107">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3480,13 +3480,13 @@
                   symbolName = "function signature specialization &lt;Arg[5] = Value Promoted from Box, Arg[6] = Value Promoted from Box, Arg[7] = Value Promoted from Box&gt; of DronePolice.LoginController.(AccessUser (Any) -&gt; ()).(closure #1).(closure #2)"
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/MiguelMex/Desktop/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "520208428.596513"
+                  urlString = "file:///Users/MiguelMex/Desktop/Proyecto%20Drone%20Police/DronePolice/DronePolice/LoginController.swift"
+                  timestampString = "520796991.96448"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
                   endingLineNumber = "134"
-                  offsetFromSymbolStart = "184">
+                  offsetFromSymbolStart = "313">
                </Location>
             </Locations>
          </BreakpointContent>
