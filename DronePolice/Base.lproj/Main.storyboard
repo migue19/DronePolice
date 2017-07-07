@@ -71,8 +71,7 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iN-ru-3ND" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
-                                                <frame key="frameInset" minX="20" minY="513.5" width="110" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6iN-ru-3ND" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="1UN-am-bpa"/>
@@ -93,8 +92,7 @@
                                                     <action selector="AccessUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rqx-9i-f4Q"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPr-EQ-Htk" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
-                                                <frame key="frameInset" minX="245" minY="513" width="110" height="35"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MPr-EQ-Htk" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="0TW-mH-CHN"/>
@@ -128,11 +126,11 @@
                                         <constraints>
                                             <constraint firstItem="6iN-ru-3ND" firstAttribute="leading" secondItem="xUv-K2-cwE" secondAttribute="leading" constant="20" id="BBy-sW-trP"/>
                                             <constraint firstItem="BOv-q0-5pI" firstAttribute="centerY" secondItem="xUv-K2-cwE" secondAttribute="centerY" id="Ykf-Sc-AKK"/>
-                                            <constraint firstItem="MPr-EQ-Htk" firstAttribute="top" secondItem="BOv-q0-5pI" secondAttribute="bottom" constant="50" id="ZDY-md-4Hy"/>
+                                            <constraint firstItem="MPr-EQ-Htk" firstAttribute="top" secondItem="BOv-q0-5pI" secondAttribute="bottom" constant="99.5" id="ZDY-md-4Hy"/>
                                             <constraint firstItem="BOv-q0-5pI" firstAttribute="width" secondItem="xUv-K2-cwE" secondAttribute="width" multiplier="0.9" id="gPB-Sh-Iu6"/>
                                             <constraint firstItem="7YW-4H-37Y" firstAttribute="centerY" secondItem="xUv-K2-cwE" secondAttribute="centerY" constant="-200" id="gzF-Wq-job"/>
                                             <constraint firstItem="BOv-q0-5pI" firstAttribute="centerX" secondItem="xUv-K2-cwE" secondAttribute="centerX" id="hpD-HZ-JQq"/>
-                                            <constraint firstItem="6iN-ru-3ND" firstAttribute="top" secondItem="BOv-q0-5pI" secondAttribute="bottom" constant="50" id="iwI-sq-k24"/>
+                                            <constraint firstItem="6iN-ru-3ND" firstAttribute="top" secondItem="BOv-q0-5pI" secondAttribute="bottom" constant="100" id="iwI-sq-k24"/>
                                             <constraint firstItem="7YW-4H-37Y" firstAttribute="centerX" secondItem="xUv-K2-cwE" secondAttribute="centerX" id="qqG-I5-nwI"/>
                                             <constraint firstAttribute="trailing" secondItem="MPr-EQ-Htk" secondAttribute="trailing" constant="20" id="sov-7k-r3z"/>
                                         </constraints>
@@ -276,15 +274,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zsc-R7-Zmk">
-                                <color key="backgroundColor" red="1" green="0.99008873490000004" blue="0.92020879830000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zsc-R7-Zmk">
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.1960784314" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Bpw-7t-SRF"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="ALERTA"/>
-                                    <segment title="SOSPECHOSO"/>
-                                    <segment title="SIGUEME"/>
+                                    <segment title="" image="tabalerta"/>
+                                    <segment title="" image="tabsospechoso"/>
+                                    <segment title="" image="tabsigueme"/>
                                 </segments>
                                 <color key="tintColor" red="0.12549019607843137" green="0.19607843137254902" blue="0.37254901960784315" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -458,7 +456,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73Y-Yu-kfU" id="qTj-aw-ghk">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1008,7 +1006,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jlT-lj-ZtO" id="ViB-Cu-udP">
-                                            <frame key="frameInset" width="342" height="59"/>
+                                            <frame key="frameInset" width="342" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1088,7 +1086,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9b6-x0-1nK" id="RMU-fa-yoh">
-                                                    <frame key="frameInset" width="342" height="43"/>
+                                                    <frame key="frameInset" width="342" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="bg1-sQ-VAi">
@@ -1215,7 +1213,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="akh-KD-nQl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Configuracion" image="configu" id="s9d-a7-d4o"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BrJ-mP-1jH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BrJ-mP-1jH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1233,7 +1231,7 @@
             <objects>
                 <navigationController storyboardIdentifier="StoryBoardStart" automaticallyAdjustsScrollViewInsets="NO" id="xpJ-3m-61n" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gHW-SF-P73">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gHW-SF-P73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1322,5 +1320,8 @@
         <image name="menu" width="22" height="22"/>
         <image name="profile" width="16" height="16"/>
         <image name="profile_pic" width="16" height="16"/>
+        <image name="tabalerta" width="550" height="208"/>
+        <image name="tabsigueme" width="586" height="208"/>
+        <image name="tabsospechoso" width="830" height="208"/>
     </resources>
 </document>
