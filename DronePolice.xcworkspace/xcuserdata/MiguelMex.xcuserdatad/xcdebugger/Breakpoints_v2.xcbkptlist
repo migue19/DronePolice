@@ -1482,12 +1482,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "523850362.821631"
+                  timestampString = "524781557.736919"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "257"
                   endingLineNumber = "257"
-                  offsetFromSymbolStart = "1594">
+                  offsetFromSymbolStart = "1332">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1497,12 +1497,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/AppDelegate.swift"
-                  timestampString = "523850362.825676"
+                  timestampString = "524781557.741535"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "257"
                   endingLineNumber = "257"
-                  offsetFromSymbolStart = "5850">
+                  offsetFromSymbolStart = "4272">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2410,12 +2410,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850362.929273"
+                  timestampString = "524781557.927708"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "646"
                   endingLineNumber = "646"
-                  offsetFromSymbolStart = "1196">
+                  offsetFromSymbolStart = "908">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2425,12 +2425,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850362.934552"
+                  timestampString = "524781557.936618"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "646"
                   endingLineNumber = "646"
-                  offsetFromSymbolStart = "5714">
+                  offsetFromSymbolStart = "3812">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2458,12 +2458,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "523850362.945129"
+                  timestampString = "524781557.978632"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "81"
                   endingLineNumber = "81"
-                  offsetFromSymbolStart = "1385">
+                  offsetFromSymbolStart = "1136">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2473,12 +2473,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "523850362.949236"
+                  timestampString = "524781557.9826"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "82"
                   endingLineNumber = "82"
-                  offsetFromSymbolStart = "96">
+                  offsetFromSymbolStart = "76">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2650,12 +2650,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.006737"
+                  timestampString = "524781558.03286"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "605"
                   endingLineNumber = "605"
-                  offsetFromSymbolStart = "1029">
+                  offsetFromSymbolStart = "776">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2665,12 +2665,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.010643"
+                  timestampString = "524781558.037131"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "606"
                   endingLineNumber = "606"
-                  offsetFromSymbolStart = "106">
+                  offsetFromSymbolStart = "100">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2714,12 +2714,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
-                  timestampString = "523850363.021117"
+                  timestampString = "524781558.047472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "6399">
+                  offsetFromSymbolStart = "5220">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2729,7 +2729,7 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RegistroViewController.swift"
-                  timestampString = "523850363.025366"
+                  timestampString = "524781558.054036"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "58"
@@ -2906,12 +2906,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.0975"
+                  timestampString = "524781558.109227"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "714"
                   endingLineNumber = "714"
-                  offsetFromSymbolStart = "2263">
+                  offsetFromSymbolStart = "1540">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2921,12 +2921,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.103033"
+                  timestampString = "524781558.113493"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "715"
                   endingLineNumber = "715"
-                  offsetFromSymbolStart = "245">
+                  offsetFromSymbolStart = "140">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3322,12 +3322,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "523850363.225373"
+                  timestampString = "524781558.219739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "133"
                   endingLineNumber = "133"
-                  offsetFromSymbolStart = "4107">
+                  offsetFromSymbolStart = "2972">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3337,12 +3337,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/LoginController.swift"
-                  timestampString = "523850363.229935"
+                  timestampString = "524781558.223669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "134"
                   endingLineNumber = "134"
-                  offsetFromSymbolStart = "313">
+                  offsetFromSymbolStart = "184">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4010,12 +4010,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.465658"
+                  timestampString = "524781558.316554"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "394"
                   endingLineNumber = "394"
-                  offsetFromSymbolStart = "3312">
+                  offsetFromSymbolStart = "2264">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -4025,12 +4025,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.470752"
+                  timestampString = "524781558.320661"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "395"
                   endingLineNumber = "395"
-                  offsetFromSymbolStart = "115">
+                  offsetFromSymbolStart = "100">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -4074,12 +4074,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.503738"
+                  timestampString = "524781558.3388"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "440"
                   endingLineNumber = "440"
-                  offsetFromSymbolStart = "3062">
+                  offsetFromSymbolStart = "2100">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -4089,12 +4089,12 @@
                   moduleName = "DronePolice"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/MiguelMex/Desktop/Empresa%20Nut/DronePolice/DronePolice/RestService.swift"
-                  timestampString = "523850363.507754"
+                  timestampString = "524781558.34316"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "441"
                   endingLineNumber = "441"
-                  offsetFromSymbolStart = "115">
+                  offsetFromSymbolStart = "100">
                </Location>
             </Locations>
          </BreakpointContent>

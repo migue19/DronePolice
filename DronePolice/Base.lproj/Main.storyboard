@@ -1692,7 +1692,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="akh-KD-nQl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Configuracion" image="configu" id="s9d-a7-d4o"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BrJ-mP-1jH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BrJ-mP-1jH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1710,7 +1710,7 @@
             <objects>
                 <navigationController storyboardIdentifier="StoryBoardStart" automaticallyAdjustsScrollViewInsets="NO" id="xpJ-3m-61n" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gHW-SF-P73">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gHW-SF-P73">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
