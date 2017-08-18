@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate  {
+class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate,PopupLocalizacionProtocolo,PopupEstadoProtocolo{
     @IBOutlet weak var identificador: UITextField!
     @IBOutlet weak var telefono: UITextField!
     @IBOutlet weak var referencia: UITextField!
@@ -23,7 +23,11 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     @IBOutlet weak var registro: CustomButton!
     var latitud = 0.0
     var longitud = 0.0
+    var latitudDireccion = 0.0
+    var longitudDireccion = 0.0
     var direccion: Direccion = Direccion()
+    var Auxestado = Estado()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +39,18 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         referencia.text = direccion.referencia
         calle.text = direccion.calle
         colonia.text = direccion.colonia
-        //Ciudad.text = direccion.municipio
-        estado.text = direccion.municipio
+        Ciudad.text = direccion.municipio
+        //estado.text = direccion.municipio
         cp.text = direccion.cp
         pais.text = direccion.pais
+        numexterior.text = direccion.noExt
+        numInterior.text = direccion.noInt
         
         if(direccion.direccionid != 0){
-        registro.setTitle("Actualizar", for: .normal)
+            registro.setTitle("Actualizar", for: .normal)
+        }
+        else{
+            pais.text = "México"
         }
         
         
@@ -54,6 +63,8 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: Utils().colorPrincipal]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
         
+        
+        //estado.addTarget(self, action: #selector(buttonAction), for: .touchDown)
         
         //self.navigationBar.tintColor = Utils().colorPrincipal
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
@@ -72,8 +83,8 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     }
     
     @IBAction func registrarDireccion(_ sender: Any) {
-        if identificador.text == "" || telefono.text == "" ||  referencia.text == "" || calle.text == "" || numexterior.text == "" || numInterior.text == "" || colonia.text == "" || Ciudad.text == "" || estado.text == "" || cp.text == "" || pais.text == ""{
-            Utils().alerta(context: self, title: "Error", mensaje: "Todos los campos son obligatorios")
+        if identificador.text == "" || telefono.text == "" ||  referencia.text == "" || calle.text == "" || numexterior.text == "" || colonia.text == "" || Ciudad.text == "" || estado.text == "" || cp.text == "" || pais.text == ""{
+            Utils().alerta(context: self, title: "Error", mensaje: "Los campos con * son obligatorios")
         return
         }
         if(latitud == 0 || longitud == 0 ){
@@ -83,19 +94,47 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         
         
         if(direccion.direccionid == 0){
-            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!) { (response, error) in
+            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud,latitudDir: latitudDireccion, longitudDir: longitudDireccion,identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!) { (response,stringresponse ,error) in
             
-            self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
 
+                if(error != nil){
+                    Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                    return
+                }
+                if(stringresponse != nil){
+                    Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                    return
+                }
+                
+                if(response?.estatus == 1){
+                    Utils().alerta(context: self, title: "Exito", mensaje: "Se Agrego Correctamente la Direccion")
+                }
+                self.navigationController?.popViewController(animated: true)
             
-            print("hola")
             }
         }
         else{
-            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estado: estado.text!, cp: cp.text!, pais: pais.text!, completionHandler: { (response, error) in
-                
+            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: false, completionHandler: { (response,stringresponse ,error) in
                 
                 self.dismiss(animated: true, completion: nil)
+                
+                if(error != nil){
+                    Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                    return
+                }
+                if(stringresponse != nil){
+                    Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                    return
+                }
+                
+                if(response?.estatus == 1){
+                    Utils().alerta(context: self, title: "Exito", mensaje: "Se Actualizo Correctamente la Direccion")
+                    
+                }
+                
+             self.navigationController?.popViewController(animated: true)
+                
             })
         }
         
@@ -111,6 +150,72 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     func tracingLocationDidFailWithError(_ error: NSError) {
         print("tracing Location Error : \(error.description)")
     }
+    
+    @IBAction func EliminarDirecciones(_ sender: Any) {
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: true, completionHandler: { (response,stringresponse ,error) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            if(error != nil){
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                return
+            }
+            if(stringresponse != nil){
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
+            }
+            
+            if(response?.estatus == 1){
+                Utils().alerta(context: self, title: "Exito", mensaje: "Se Actualizo Correctamente la Direccion")
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+        
+    }
+    
+    
+    
+    func muestraDireccion(calleString: String, numero: String, ciudad: String, codigoPostal: String, estadoString: String,latitudDir: Double,longitudDir: Double)
+    {
+        calle.text = calleString
+        numexterior.text = numero
+        Ciudad.text = ciudad
+        estado.text = estadoString
+        cp.text = codigoPostal
+        latitudDireccion = latitudDir
+        longitudDireccion = longitudDir
+        print("Listo")
+        
+    }
+    
+    
+    func muestraEstado(estadoAux: Estado) {
+        Auxestado = estadoAux
+        estado.text = estadoAux.nombre
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popLocalizacion"
+        {
+            let popup = segue.destination as! LocalizacionViewController
+            popup.popUpVC = self
+        }
+        
+        if segue.identifier == "popUpEstado"
+        {
+            let popup = segue.destination as! EstadosViewController
+            popup.popUpVC = self
+        }
+        
+        
+        
+    }
+    
+    
+    
+        
     /*
     // MARK: - Navigation
 

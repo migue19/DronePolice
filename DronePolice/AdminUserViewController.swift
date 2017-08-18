@@ -202,9 +202,8 @@ extension AdminUserViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        self.miembros.remove(at: indexPath.row)
-        
         let idmiembro = miembros[indexPath.row].id
+        self.miembros.remove(at: indexPath.row)
         
         RestService().eliminarMiembro(latitud: latitud, longitud: longitud, id: idmiembro) { (response, stringresponse, error) in
             if(error != nil){

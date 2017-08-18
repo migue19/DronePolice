@@ -16,6 +16,21 @@ class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
     
+    
+    
+    func dowloadImage(url: String,completionHandler: @escaping (UIImage?,Error?) -> ()){
+        //let parameters: Parameters = [:]
+        restConnction.MethodHTTPSecureImage(url: url, method: .get) { (response, error) in
+            if(error != nil){
+                completionHandler(nil,error)
+                return
+            }
+            
+            completionHandler(response,nil)
+        }
+    
+    }
+    
     func eliminarMiembro(latitud: Double,longitud: Double,id: Int,completionHandler: @escaping (ResponseGeneric?,String?,Error?) -> ()){
         
         //Utils().showLoading(context: context)
@@ -208,9 +223,9 @@ class RestService{
     
     
     
-    func ObtenerDirecciones(latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
+    func ObtenerDirecciones(context: UIViewController,latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
     
-        //Utils().showLoading(context: context)
+       // Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().FechaActual()
       
@@ -238,12 +253,15 @@ class RestService{
             
             
             let direcciones = response!["direccion"].arrayValue
-    
+             print(direcciones)
+            
+            
 
         var ArrayDirecciones = [Direccion]()
             
             
             for direccion in direcciones{
+                //print(direccion)
                 //let auxestado = estado.dictionaryValue
                 let calle = direccion["calle"].string!
                 let colonia = direccion["colonia"].string!
@@ -254,8 +272,10 @@ class RestService{
                 let pais = direccion["pais"].string!
                 let referencia = direccion["referencia"].string!
                 let telefono = direccion["telefono"].string!
+                let noInt = direccion["noInt"].stringValue
+                let noExt = direccion["noExt"].stringValue
                 
-                let auxDireccion = Direccion.init(identificador: identificador, telefono: telefono, calle: calle, referencia: referencia, colonia: colonia, municipio: municipio, cp: cp, pais: pais, direccionid: direccionid)
+                let auxDireccion = Direccion.init(identificador: identificador, telefono: telefono, calle: calle, referencia: referencia, colonia: colonia, municipio: municipio, cp: cp, pais: pais, direccionid: direccionid,noInt: noInt,noExt: noExt)
                 
                 ArrayDirecciones.append(auxDireccion)
                 //print(estadoid)
@@ -274,7 +294,7 @@ class RestService{
     
     
     
-    func EnviarSospechoso(comentarios: String, foto: String,latitud: Double, longitud: Double ,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
+    func EnviarSospechoso(comentarios: String, foto: String,latitud: Double, longitud: Double , latitudAlerta: Double,longitudAlerta: Double,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
         
         //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
@@ -287,8 +307,8 @@ class RestService{
             "fecha": fecha,
             "latitud": latitud,
             "longitud": longitud,
-            "latitudAlerta":latitud,
-            "longitudAlerta": longitud
+            "latitudAlerta":latitudAlerta,
+            "longitudAlerta": longitudAlerta
             ]
         
         restConnction.SendRequetService(url: Path.ALERTASOSPECHOSO.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
@@ -346,7 +366,7 @@ class RestService{
     
     
     
-    func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double ,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
+    func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double,latitudDir: Double, longitudDir: Double,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,eliminar: Bool,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
         
         Utils().showLoading(context: context)
         let fecha = Utils().FechaActual()
@@ -363,30 +383,38 @@ class RestService{
                          "noExt": numexterior,
                          "noInt": numinterior,
                          "colonia": colonia,
-                         "municipio": estado,
-                         "estadoId": 6,
+                         "latitud": latitudDir,
+                         "longitud": longitudDir,
+                         "municipio": ciudad,
+                         "estadoId": estadoId,
                          "cp": cp,
-                         "pais": pais ]
+                         "pais": pais ],
+            "eliminar": eliminar
         ]
         restConnction.SendRequetService(url: Path.ACTUALIZARDIRECCION.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error al validar el usuario: ", error!)
-                completionHandler(nil, error)
+                completionHandler(nil,nil ,error)
                 return
             }
-            //let error: String = response!["error"].string!
-            /*let estatus = response!["estatus"].int!
-             let codigoqr = response!["qr"].string!
-             let qrResponse = GenerarQrResponse(estatus: estatus,qr: codigoqr)
-             */
-            print(response ?? "")
             
-            completionHandler(nil,nil)
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            let response = ResponseGeneric(estatus: estatus, error: resperror)
+            
+            completionHandler(response,nil,nil)
+            
         }
     }
     
     
-    func AgregarDirecciones(context: UIViewController,latitud: Double ,longitud: Double ,identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estado: String,cp:String,pais: String,completionHandler: @escaping (GenerarQrResponse?, Error?) -> ()){
+    func AgregarDirecciones(context: UIViewController,latitud: Double ,longitud: Double,latitudDir:Double,longitudDir: Double,identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
         
         Utils().showLoading(context: context)
         let fecha = Utils().FechaActual()
@@ -396,31 +424,37 @@ class RestService{
         "latitud": latitud,
         "longitud": longitud,
         "direccion":["identificador": identificador,
-        "telefono": telefono,
-        "referencia":referencia,
-        "calle": calle,
-        "noExt": numexterior,
-        "noInt": numinterior,
-        "colonia": colonia,
-        "municipio": estado,
-        "estadoId": 6,
-        "cp": cp,
-        "pais": pais ]
+                     "telefono": telefono,
+                     "referencia":referencia,
+                     "calle": calle,
+                     "noExt": numexterior,
+                     "noInt": numinterior,
+                     "colonia": colonia,
+                     "latitud": latitudDir,
+                     "longitud": longitudDir,
+                     "municipio": ciudad,
+                     "estadoId": estadoId,
+                     "cp": cp,
+                     "pais": pais ]
         ]
         restConnction.SendRequetService(url: Path.AGREGARDIRECCION.rawValue, body: parameters, secure: true, method: .post) { (response, error) in
             if error != nil{
                 print("Ocurrio un error al validar el usuario: ", error!)
-                completionHandler(nil, error)
+                completionHandler(nil,nil,error)
                 return
             }
-            //let error: String = response!["error"].string!
-            /*let estatus = response!["estatus"].int!
-            let codigoqr = response!["qr"].string!
-            let qrResponse = GenerarQrResponse(estatus: estatus,qr: codigoqr)
-            */
-            print(response ?? "")
             
-            completionHandler(nil,nil)
+            let estatus = response!["estatus"].int!
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            let responseGeneric = ResponseGeneric.init(estatus: estatus, error: resperror)
+            
+            completionHandler(responseGeneric,nil, nil)
         }
     }
     
@@ -501,7 +535,7 @@ class RestService{
     
     
     
-    func GetEstados(completionHandler: @escaping (UserResponse?, Error?) -> ()){
+    func GetEstados(completionHandler: @escaping (EstadosResponse?,String? ,Error?) -> ()){
         let parameters: Parameters = [:]
         
         
@@ -510,24 +544,41 @@ class RestService{
                 print("Ocurrio un error al validar el usuario: ", error!)
                 return
             }
+           
+            let estatus: Int = response!["estatus"].intValue
             
-            //let error: String = response!["error"].string!
-            //let estatus: Int = response!["estatus"].int!
+            
+            var resperror = ""
+            if(estatus == 0){
+                resperror =  response!["error"].string!
+                completionHandler(nil,resperror,nil)
+                return
+            }
+            
+            
             let estados = response!["estados"].arrayValue
             
            // let loginResponse = LoginResponse(token: token, estatus: estatus)
+            
+            var arrayEstado = [Estado]()
             
             for estado in estados {
                //let auxestado = estado.dictionaryValue
                let estadoid = estado["estadoid"].int!
                let nombre = estado["nombre"].string!
-               print(estadoid)
-               print(nombre)
+                
+                let auxEstados = Estado.init(estadoid: estadoid, nombre: nombre)
+                
+                arrayEstado.append(auxEstados)
+               
             }
             
-            print(response ?? "")
+        
+            let estadoResponse = EstadosResponse.init(estatus: estatus, error: resperror, estados: arrayEstado)
             
-            completionHandler(nil,nil)
+            
+            
+            completionHandler(estadoResponse,nil, nil)
             
             
         }

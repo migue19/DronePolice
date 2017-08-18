@@ -15,6 +15,8 @@ class MapaAlertaViewController: UIViewController,GMSMapViewDelegate{
     @IBOutlet weak var Descripcion: UILabel!
     @IBOutlet weak var sospechoso: CustomButton!
     
+    @IBOutlet weak var closeimage: UIButton!
+    @IBOutlet weak var imageSospechoso: UIImageView!
     var latitud = Double()
     var longitud = Double()
     var Snombre = String()
@@ -38,6 +40,20 @@ class MapaAlertaViewController: UIViewController,GMSMapViewDelegate{
         
         setupMap()
         createMarker()
+        
+        if(imagen != ""){
+            RestService().dowloadImage(url: imagen, completionHandler: { (response, error) in
+                if(error != nil){
+                  Utils().alerta(context: self, title: "Error", mensaje: "Error: \(String(describing: error))")
+                }
+                
+                self.imageSospechoso.image = response
+                
+            })
+        }
+        else{
+            Utils().alerta(context: self, title: "Alerta", mensaje: "No Existe imagen del sospechoso")
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -70,6 +86,33 @@ class MapaAlertaViewController: UIViewController,GMSMapViewDelegate{
     }
 
 
+    @IBAction func closeImage(_ sender: Any) {
+        imageSospechoso.isHidden = true
+        closeimage.isHidden = true
+    }
+    
+    
+    
+    @IBAction func ShowSospechoso(_ sender: Any) {
+        imageSospechoso.clipsToBounds = true
+        imageSospechoso.layer.borderColor = UIColor.gray.cgColor
+        imageSospechoso.layer.borderWidth = 3
+        imageSospechoso.layer.cornerRadius = imageSospechoso.layer.bounds.height/8
+        imageSospechoso.isHidden = false
+        closeimage.isHidden = false
+        
+    }
+    
+    
+    
+    @IBAction func CloseView(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let main = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarController
+        UIApplication.shared.keyWindow?.rootViewController = main
+    }
+  
+    
+    
     /*
     // MARK: - Navigation
 

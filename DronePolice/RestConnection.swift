@@ -46,6 +46,42 @@ class RestConnection{
     }
     
     
+    func MethodHTTPSecureImage(url: String, method: HTTPMethod, completion: @escaping (UIImage?, Error?) -> () ){
+        //Obtenerlos de la base de Datos Local
+        print("Metodo Seguro")
+        var user = "start@dronpolice.com"
+        var password = "tok_1234567890"
+        
+        let context = AppDelegate.viewContext
+        do{
+            let settings = try context.fetch(Settings.fetchRequest())
+            if settings.count > 0 {
+                user = settingsDAO.getDateForDescription(description: "id")
+                password = settingsDAO.getDateForDescription(description: "token")
+            }
+        }
+        catch{
+            print("Error al obtener los Datos de la DB-> AppDelegate ")
+        }
+        
+        
+        let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
+        let base64Credentials = credentialData.base64EncodedString()
+        print(base64Credentials)
+        let headers = ["Authorization": "Basic \(base64Credentials)"]
+        
+        
+        
+        Alamofire.request(url,method: method, headers: headers).responseData { response in
+            
+            if let data = response.result.value {
+                let image = UIImage(data: data)
+                completion(image, nil)
+            }
+        }
+    }
+    
+    
     
     func MethodHTTPSecure(url: String,body: Parameters, method: HTTPMethod, completion: @escaping (JSON?, Error?) -> () ){
         //Obtenerlos de la base de Datos Local

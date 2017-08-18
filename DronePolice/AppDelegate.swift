@@ -145,7 +145,9 @@ UNUserNotificationCenterDelegate{
     }
     
     
-    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(userInfo)
+    }
     
     
     
@@ -231,15 +233,9 @@ UNUserNotificationCenterDelegate{
         vc.Sdescripcion = title
         vc.comentario = comentario
         vc.imagen = imagen
+        vc.tipo = tipo!
         
         self.window?.rootViewController = vc
-        
-        
-        
-        
-        
-    
-        //Handle the notification
     }
     
     @available(iOS 10.0, *)

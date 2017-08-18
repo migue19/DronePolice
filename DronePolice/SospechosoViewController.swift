@@ -10,14 +10,17 @@ import UIKit
 import CoreLocation
 
 class SospechosoViewController: UIViewController,UIImagePickerControllerDelegate,
-UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDelegate {
+UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{//,CLLocationManagerDelegate {
     @IBOutlet weak var imageSospechoso: UIImageView!
     let picker = UIImagePickerController()
     @IBOutlet weak var comentario: UITextField!
     //let locationManager = CLLocationManager()
+    @IBOutlet weak var botonLocalizar: CustomButton!
     //var currentLocation: CLLocation! = nil
     var longitud = 0.0
     var latitud = 0.0
+    var latitudDir = 0.0
+    var longitudDir = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,10 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
         Utils().setGradientBackground(context: self)
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
+        
+        
+        // top,left,bottom,rigth
+        botonLocalizar.imageEdgeInsets = UIEdgeInsetsMake(5, -1, 5, 15);
         /*locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -139,7 +146,7 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
            Utils().alerta(context: self, title: "Comentario Vacio", mensaje: "No puede ir el comentario vacio")
             return
         }
-        if (imageSospechoso.image == UIImage(named: "Foto")){
+        if (imageSospechoso.image == UIImage(named: "foto")){
             Utils().alerta(context: self, title: "Imagen Vacia", mensaje: "La imagen no puede ser nula")
             return
         }
@@ -151,7 +158,11 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
         if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
         }else{
-            RestService().EnviarSospechoso(comentarios: comentario.text!, foto: imageBase64, latitud: latitud, longitud: longitud) { (response,stringresponse ,error) in
+            if(latitudDir == 0 || longitudDir == 0){
+                latitudDir = latitud
+                longitudDir = longitud
+            }
+            RestService().EnviarSospechoso(comentarios: comentario.text!, foto: imageBase64, latitud: latitud, longitud: longitud, latitudAlerta: latitudDir, longitudAlerta: longitudDir) { (response,stringresponse ,error) in
                 if(error != nil){
                     Utils().alerta(context: self, title: "Error en el Servicio", mensaje: error.debugDescription)
                     return
@@ -162,6 +173,14 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
                 }
                 
                 if(response?.estatus == 1){
+                  self.comentario.text = ""
+                    self.imageSospechoso.image = UIImage(named: "foto")
+                    self.imageSospechoso.clipsToBounds = false
+                    self.imageSospechoso.layer.borderColor = UIColor.red.cgColor
+                    self.imageSospechoso.layer.borderWidth = 0
+                    self.imageSospechoso.layer.cornerRadius = 0
+                    
+                    
                   Utils().alerta(context: self, title: "Exitoso", mensaje: "Sospechoso enviado correctamente")
                 }
                 
@@ -174,6 +193,24 @@ UINavigationControllerDelegate,LocationServiceDelegate{//,CLLocationManagerDeleg
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+    }
+    
+    
+    func muestraUbicacion(latitudDir: Double, longitudDir: Double) {
+        self.latitudDir = latitudDir
+        self.longitudDir = longitudDir
+        print("sospechoso ubi: ", self.latitudDir)
+        print("sospechoso ubi2: ", self.longitudDir)
+        print("listo")
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "popUpUbicacion"
+        {
+            let popup = segue.destination as! PopUpLocializarViewController
+            popup.popUpVC = self
+        }
     }
 
     // MARK: LocationService Delegate

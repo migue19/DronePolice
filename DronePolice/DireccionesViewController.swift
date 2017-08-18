@@ -53,14 +53,63 @@ class DireccionesViewController: UIViewController {
          //Utils().alerta(context: self, title: "Error Ubicacion", mensaje: "Error al obtener la ubicacion")
        // }
         
-        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response,stringresponse ,error) in
+        restService.ObtenerDirecciones(context: self, latitud: latitud, longitud: longitud) { (response,stringresponse ,error) in
+            
+            //self.dismiss(animated: true, completion: nil)
+            
+            
+            if(error != nil){
+                //self.dismiss(animated: true, completion: nil)
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                
+                return
+            }
+            if(stringresponse != nil){
+                //self.dismiss(animated: true, completion: nil)
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+              return
+            }
+            
+            
+            self.direcciones = (response?.direccion)!
+            
+            if(self.direcciones.count == 0){
+                //self.dismiss(animated: true, completion: nil)
+                let alerta: UIAlertController = UIAlertController(title: "Error", message: "No hay direcciones registradas", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "ok", style: .default) { action -> Void in
+                    self.performSegue(withIdentifier: "showAgregarDireccion", sender: Direccion())
+                }
+                alerta.addAction(okAction)
+                self.present(alerta, animated: true, completion: nil)
+                return
+            }
+            
+            self.tableView.reloadData()
+            
+            //self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+        }
+
+        //self.dismiss(animated: true, completion: nil)
+        
+        // Do any additional setup after loading the view.
+    }
+  
+
+    
+    
+    func ActulizarDirecciones(){
+        restService.ObtenerDirecciones(context: self, latitud: latitud, longitud: longitud) { (response,stringresponse ,error) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
             if(error != nil){
                 Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
                 return
             }
             if(stringresponse != nil){
-             Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
-              return
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
             }
             
             
@@ -77,13 +126,12 @@ class DireccionesViewController: UIViewController {
             }
             
             self.tableView.reloadData()
-        }
-
-        
-        // Do any additional setup after loading the view.
+            self.dismiss(animated: true, completion: nil)
+      }
     }
-  
-
+    
+    
+    
     func addDireccion(_ button: UIButton){
       self.performSegue(withIdentifier: "showAgregarDireccion", sender: Direccion())
     
@@ -146,14 +194,19 @@ extension DireccionesViewController: UITableViewDataSource{
 
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell: DireccionTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DireccionTableViewCell
         //let cell = Bundle.main.loadNibNamed("PromocionesTableViewCell", owner: self, options: nil)?.first as! PromocionesTableViewCell
         let indice = indexPath.row
         
-      
-        cell.textLabel?.numberOfLines = 0;
-        cell.textLabel?.lineBreakMode = .byWordWrapping;
-        cell.textLabel?.text = direcciones[indice].calle + " " + direcciones[indice].colonia + " " + direcciones[indice].cp
+        
+        
+        cell.direccionTxt.numberOfLines = 0;
+        cell.direccionTxt.lineBreakMode = .byWordWrapping
+        cell.direccionTxt.text = direcciones[indice].calle
+        
+        cell.eliminarDir.tag = indice
+        cell.eliminarDir.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        
         //cell.imagen.image = promociones[indice].image
         //cell.descripcion.text = promociones[indice].descripcion
         //cell.fecha.text = promociones[indice].fecha
@@ -171,7 +224,31 @@ extension DireccionesViewController: UITableViewDataSource{
         tableView.deleteRows(at: [indexPath], with: .left)
     }
     
-    
+    func buttonAction(sender: UIButton!) {
+        let indice = sender.tag
+        //print("Button tapped: \(iddireccion)")
+        
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono, referencia: direcciones[indice].referencia, calle: direcciones[indice].calle, numinterior: direcciones[indice].noInt, numexterior: direcciones[indice].noExt, colonia: direcciones[indice].colonia, ciudad: direcciones[indice].municipio, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais, eliminar: true, completionHandler: { (response,stringresponse ,error) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+            if(error != nil){
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                return
+            }
+            if(stringresponse != nil){
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+                return
+            }
+            
+            if(response?.estatus == 1){
+                Utils().alerta(context: self, title: "Exito", mensaje: "Se Actualizo Correctamente la Direccion")
+                self.ActulizarDirecciones()
+            }
+        })
+        
+        
+    }
     
   /*  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("hola")

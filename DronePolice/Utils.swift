@@ -163,6 +163,20 @@ class Utils {
     
     ///////Utils
     // MARK: - Descargar Imagen y Guardarla en DB
+    
+    
+    func downloadImageURL(url: URL, completionHandler: @escaping (Data?) -> ()){
+        print("Download Started")
+        
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            completionHandler(data)
+            print("Download Finished")
+        }
+    }
+    
+    
+    
     func downloadImage(url: URL) {
         print("Download Started")
         getDataFromUrl(url: url) { (data, response, error)  in

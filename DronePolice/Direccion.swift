@@ -18,11 +18,13 @@ class Direccion{
     var cp = String()
     var pais = String()
     var direccionid = Int()
+    var noInt = String()
+    var noExt = String()
     
     init(){
     }
     
-    init(identificador: String,telefono: String,calle: String,referencia:String,colonia:String,municipio: String, cp:String, pais: String, direccionid: Int ){
+    init(identificador: String,telefono: String,calle: String,referencia:String,colonia:String,municipio: String, cp:String, pais: String, direccionid: Int,noInt: String, noExt: String ){
         self.identificador = identificador
         self.telefono = telefono
         self.referencia = referencia
@@ -32,6 +34,8 @@ class Direccion{
         self.cp = cp
         self.pais = pais
         self.direccionid = direccionid
+        self.noInt = noInt
+        self.noExt = noExt
     
     }
     

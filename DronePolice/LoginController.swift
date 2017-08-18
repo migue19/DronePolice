@@ -73,10 +73,10 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
           Utils().alerta(context: self,title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
             return
         }
-        if(latitud == 0 || longitud == 0 ){
+       /* if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
             return
-        }
+        }*/
  
         restService.AccessUser(latitud: latitud, longitud: longitud, imei: uuid,usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, stringresponse ,error) in
             if error != nil{
@@ -236,10 +236,10 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                         Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
                         return
                     }
-                    if(self.latitud == 0 || self.longitud == 0 ){
+                    /*if(self.latitud == 0 || self.longitud == 0 ){
                         Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
                         return
-                    }
+                    }*/
                     
                     
                     let urlimage = URL(string: facebookProfileUrl)
@@ -300,10 +300,10 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             }
             print("se agrego a firebase")
             
-            if(self.latitud == 0 || self.longitud == 0 ){
+            /*if(self.latitud == 0 || self.longitud == 0 ){
                 Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
                 return
-            }
+            }*/
             
             self.registerWithSocialNetwork(email: email, nombre: firstName, paterno: paterno, materno: materno, idSocial: idgoogle, social: "google", imei: self.uuid, latitud: self.latitud, longitud: self.longitud, urlimage: urlimage)
             

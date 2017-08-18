@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D1800041EFA9ABF008E3B96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D1800031EFA9ABF008E3B96 /* GoogleService-Info.plist */; };
+		7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */; };
 		7D1BF88D1EDE01E800A032A0 /* BotonPanicoUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */; };
 		7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8901EE0F58200A032A0 /* TabBarController.swift */; };
 		7D1BF8931EE1D48500A032A0 /* SettingsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8921EE1D48500A032A0 /* SettingsDAO.swift */; };
@@ -17,12 +17,10 @@
 		7D1BF89E1EE20C3F00A032A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF89D1EE20C3F00A032A0 /* Utils.swift */; };
 		7D1BF8A01EE21BA100A032A0 /* GenerarQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */; };
 		7D1F0D331EE4B1DD00F308A1 /* GenerateQrResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F0D321EE4B1DD00F308A1 /* GenerateQrResponse.swift */; };
-		7D2609FA1F029BEF00B6EC6B /* Drone_Production.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 7D2609F91F029BEF00B6EC6B /* Drone_Production.mobileprovision */; };
 		7D28BC521EE31C6A006CF726 /* AdminUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D28BC511EE31C6A006CF726 /* AdminUserViewController.swift */; };
 		7D28BC541EE32220006CF726 /* EscanerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D28BC531EE32220006CF726 /* EscanerController.swift */; };
 		7D28BC5A1EE35954006CF726 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D28BC591EE35954006CF726 /* LoginResponse.swift */; };
 		7D298BF11EF2B8A3000D5EDC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D298BF01EF2B8A3000D5EDC /* AdSupport.framework */; };
-		7D31FD441EE8375800102684 /* Respaldo-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D31FD431EE8375800102684 /* Respaldo-GoogleService-Info.plist */; };
 		7D31FD461EE86A8700102684 /* DireccionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31FD451EE86A8700102684 /* DireccionesViewController.swift */; };
 		7D31FD481EE9CCBC00102684 /* AgregarDireccionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D31FD471EE9CCBC00102684 /* AgregarDireccionesViewController.swift */; };
 		7D52142B1EEB3737000C6ACE /* ResponseGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52142A1EEB3737000C6ACE /* ResponseGeneric.swift */; };
@@ -45,9 +43,16 @@
 		7DAD18E51ED442A7009B37E5 /* RestConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD18E41ED442A7009B37E5 /* RestConnection.swift */; };
 		7DAD18E71ED442B2009B37E5 /* RestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD18E61ED442B2009B37E5 /* RestService.swift */; };
 		7DAD18E91ED442D8009B37E5 /* ShortProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAD18E81ED442D8009B37E5 /* ShortProfileResponse.swift */; };
+		7DB58F7F1F29F1CF005D5A10 /* EstadosDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB58F7E1F29F1CF005D5A10 /* EstadosDAO.swift */; };
 		7DEE016A1EF2F44500A4D419 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE01691EF2F44500A4D419 /* RegistroViewController.swift */; };
 		7DF284DF1EF19624009D1F31 /* DireccionesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF284DE1EF19624009D1F31 /* DireccionesResponse.swift */; };
 		7DF284E11EF1970B009D1F31 /* Direccion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF284E01EF1970B009D1F31 /* Direccion.swift */; };
+		7DF5C7621F29AF4D00436BC2 /* PopUpLocializarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7611F29AF4D00436BC2 /* PopUpLocializarViewController.swift */; };
+		7DF5C7641F29D6DF00436BC2 /* EstadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7631F29D6DF00436BC2 /* EstadosViewController.swift */; };
+		7DF5C7661F29DE0D00436BC2 /* Estado.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7651F29DE0D00436BC2 /* Estado.swift */; };
+		7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */; };
+		7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */; };
+		7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */; };
 		CB47BDE537E36849F96CC836 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301B53A985F0D6AD1A4A2B31 /* Pods_DronePolice.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +60,7 @@
 		301B53A985F0D6AD1A4A2B31 /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9FCEE4BD60939C4AD08F1E /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
 		63981C9A76917287CF777827 /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
-		7D1800031EFA9ABF008E3B96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DireccionTableViewCell.swift; sourceTree = "<group>"; };
 		7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotonPanicoUiViewController.swift; sourceTree = "<group>"; };
 		7D1BF8901EE0F58200A032A0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7D1BF8921EE1D48500A032A0 /* SettingsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDAO.swift; sourceTree = "<group>"; };
@@ -66,12 +71,10 @@
 		7D1BF89D1EE20C3F00A032A0 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerarQRViewController.swift; sourceTree = "<group>"; };
 		7D1F0D321EE4B1DD00F308A1 /* GenerateQrResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateQrResponse.swift; sourceTree = "<group>"; };
-		7D2609F91F029BEF00B6EC6B /* Drone_Production.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = Drone_Production.mobileprovision; sourceTree = "<group>"; };
 		7D28BC511EE31C6A006CF726 /* AdminUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserViewController.swift; sourceTree = "<group>"; };
 		7D28BC531EE32220006CF726 /* EscanerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscanerController.swift; sourceTree = "<group>"; };
 		7D28BC591EE35954006CF726 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		7D298BF01EF2B8A3000D5EDC /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		7D31FD431EE8375800102684 /* Respaldo-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Respaldo-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D31FD451EE86A8700102684 /* DireccionesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DireccionesViewController.swift; sourceTree = "<group>"; };
 		7D31FD471EE9CCBC00102684 /* AgregarDireccionesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgregarDireccionesViewController.swift; sourceTree = "<group>"; };
 		7D52142A1EEB3737000C6ACE /* ResponseGeneric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseGeneric.swift; sourceTree = "<group>"; };
@@ -97,9 +100,17 @@
 		7DAD18E41ED442A7009B37E5 /* RestConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestConnection.swift; sourceTree = "<group>"; };
 		7DAD18E61ED442B2009B37E5 /* RestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestService.swift; sourceTree = "<group>"; };
 		7DAD18E81ED442D8009B37E5 /* ShortProfileResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortProfileResponse.swift; sourceTree = "<group>"; };
+		7DB58F7E1F29F1CF005D5A10 /* EstadosDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstadosDAO.swift; sourceTree = "<group>"; };
 		7DEE01691EF2F44500A4D419 /* RegistroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		7DF284DE1EF19624009D1F31 /* DireccionesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DireccionesResponse.swift; sourceTree = "<group>"; };
 		7DF284E01EF1970B009D1F31 /* Direccion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direccion.swift; sourceTree = "<group>"; };
+		7DF5C7611F29AF4D00436BC2 /* PopUpLocializarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpLocializarViewController.swift; sourceTree = "<group>"; };
+		7DF5C7631F29D6DF00436BC2 /* EstadosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstadosViewController.swift; sourceTree = "<group>"; };
+		7DF5C7651F29DE0D00436BC2 /* Estado.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Estado.swift; sourceTree = "<group>"; };
+		7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstadosResponse.swift; sourceTree = "<group>"; };
+		7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DronePolice.entitlements; sourceTree = "<group>"; };
+		7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizacionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1BF8921EE1D48500A032A0 /* SettingsDAO.swift */,
+				7DB58F7E1F29F1CF005D5A10 /* EstadosDAO.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -157,7 +169,11 @@
 				7DEE01701EF5BFE600A4D419 /* Configuracion */,
 				7D28BC531EE32220006CF726 /* EscanerController.swift */,
 				7D31FD471EE9CCBC00102684 /* AgregarDireccionesViewController.swift */,
+				7DF5C7611F29AF4D00436BC2 /* PopUpLocializarViewController.swift */,
+				7DF5C7631F29D6DF00436BC2 /* EstadosViewController.swift */,
 				7D1BF89B1EE1FDF900A032A0 /* AvatarImageView.swift */,
+				7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */,
+				7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */,
 				7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */,
 				7D8A40981F0124C6000A3178 /* SiguemeViewController.swift */,
 				7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */,
@@ -180,8 +196,7 @@
 		7D28BC581EE357E1006CF726 /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
-				7D1800031EFA9ABF008E3B96 /* GoogleService-Info.plist */,
-				7D31FD431EE8375800102684 /* Respaldo-GoogleService-Info.plist */,
+				7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */,
 			);
 			name = FireBase;
 			sourceTree = "<group>";
@@ -197,7 +212,6 @@
 		7DAD18BE1ED439B2009B37E5 = {
 			isa = PBXGroup;
 			children = (
-				7D2609F91F029BEF00B6EC6B /* Drone_Production.mobileprovision */,
 				7DAD18C91ED439B2009B37E5 /* DronePolice */,
 				7DAD18C81ED439B2009B37E5 /* Products */,
 				78D7F779B6639B9D2B5A363B /* Pods */,
@@ -216,6 +230,7 @@
 		7DAD18C91ED439B2009B37E5 /* DronePolice */ = {
 			isa = PBXGroup;
 			children = (
+				7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */,
 				7DEE016C1EF58B7B00A4D419 /* AppDelegate */,
 				7DEE016B1EF58B6100A4D419 /* Utils */,
 				7DF285001EF20709009D1F31 /* Location */,
@@ -263,8 +278,10 @@
 				7D1F0D321EE4B1DD00F308A1 /* GenerateQrResponse.swift */,
 				7D52142A1EEB3737000C6ACE /* ResponseGeneric.swift */,
 				7DF284DE1EF19624009D1F31 /* DireccionesResponse.swift */,
+				7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */,
 				7D8A40961F007671000A3178 /* MiembrosResponse.swift */,
 				7D8A40941F007557000A3178 /* Miembro.swift */,
+				7DF5C7651F29DE0D00436BC2 /* Estado.swift */,
 				7DF284E01EF1970B009D1F31 /* Direccion.swift */,
 			);
 			name = Response;
@@ -374,7 +391,7 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = MC2W678MVZ;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -409,12 +426,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D2609FA1F029BEF00B6EC6B /* Drone_Production.mobileprovision in Resources */,
-				7D1800041EFA9ABF008E3B96 /* GoogleService-Info.plist in Resources */,
 				7DAD18D81ED439B2009B37E5 /* LaunchScreen.storyboard in Resources */,
 				7DAD18D51ED439B2009B37E5 /* Assets.xcassets in Resources */,
-				7D31FD441EE8375800102684 /* Respaldo-GoogleService-Info.plist in Resources */,
 				7DAD18D01ED439B2009B37E5 /* Main.storyboard in Resources */,
+				7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,27 +491,34 @@
 				7D1BF88D1EDE01E800A032A0 /* BotonPanicoUiViewController.swift in Sources */,
 				7D1BF8931EE1D48500A032A0 /* SettingsDAO.swift in Sources */,
 				7D1BF8A01EE21BA100A032A0 /* GenerarQRViewController.swift in Sources */,
+				7DF5C7621F29AF4D00436BC2 /* PopUpLocializarViewController.swift in Sources */,
 				7D28BC541EE32220006CF726 /* EscanerController.swift in Sources */,
 				7D1BF89A1EE1FCF300A032A0 /* FXBlurView.m in Sources */,
 				7D28BC5A1EE35954006CF726 /* LoginResponse.swift in Sources */,
 				7D8A40951F007557000A3178 /* Miembro.swift in Sources */,
 				7DAD18E11ED43D76009B37E5 /* CustomButton.swift in Sources */,
 				7DAD18E51ED442A7009B37E5 /* RestConnection.swift in Sources */,
+				7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */,
+				7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */,
 				7DAD18D31ED439B2009B37E5 /* DronePolice.xcdatamodeld in Sources */,
 				7D31FD461EE86A8700102684 /* DireccionesViewController.swift in Sources */,
+				7DF5C7641F29D6DF00436BC2 /* EstadosViewController.swift in Sources */,
 				7DA45ADA1ED44C1F00111A99 /* UserResponse.swift in Sources */,
 				7DAD18CD1ED439B2009B37E5 /* LoginController.swift in Sources */,
 				7D8A409B1F012D69000A3178 /* SiguemeButton.swift in Sources */,
 				7D52142B1EEB3737000C6ACE /* ResponseGeneric.swift in Sources */,
 				7DEE016A1EF2F44500A4D419 /* RegistroViewController.swift in Sources */,
+				7DF5C7661F29DE0D00436BC2 /* Estado.swift in Sources */,
 				7D52142D1EEB3C9C000C6ACE /* SospechosoViewController.swift in Sources */,
 				7DF284E11EF1970B009D1F31 /* Direccion.swift in Sources */,
 				7D28BC521EE31C6A006CF726 /* AdminUserViewController.swift in Sources */,
 				7D8A40991F0124C6000A3178 /* SiguemeViewController.swift in Sources */,
 				7D1F0D331EE4B1DD00F308A1 /* GenerateQrResponse.swift in Sources */,
+				7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */,
 				7D52142F1EF02CA1000C6ACE /* MapaAlertaViewController.swift in Sources */,
 				7DF284DF1EF19624009D1F31 /* DireccionesResponse.swift in Sources */,
 				7D1BF89E1EE20C3F00A032A0 /* Utils.swift in Sources */,
+				7DB58F7F1F29F1CF005D5A10 /* EstadosDAO.swift in Sources */,
 				7DAD18CB1ED439B2009B37E5 /* AppDelegate.swift in Sources */,
 				7DAD18E71ED442B2009B37E5 /* RestService.swift in Sources */,
 				7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */,
@@ -633,15 +655,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nut Systems (S97BV9S8DL)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nut Systems (S97BV9S8DL)";
+				CODE_SIGN_ENTITLEMENTS = DronePolice/DronePolice.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "19f24cc3-aab2-4d08-9549-0e49e1615bd2";
-				PROVISIONING_PROFILE_SPECIFIER = "Drone Developer";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -654,15 +675,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nut Systems (MC2W678MVZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nut Systems (MC2W678MVZ)";
+				CODE_SIGN_ENTITLEMENTS = DronePolice/DronePolice.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9c97a83c-c27d-48a2-9261-649e27c76ab2";
-				PROVISIONING_PROFILE_SPECIFIER = "Drone Production";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
