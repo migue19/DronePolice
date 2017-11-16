@@ -44,7 +44,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
         
         picker.delegate = self
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view.
@@ -85,7 +85,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
         // Dispose of any resources that can be recreated.
     }
     
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -190,7 +190,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
     }
 
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }

@@ -56,7 +56,7 @@ class GenerarQRViewController: UIViewController {
                 filter.setValue(data, forKey: "inputMessage")
                 let transform = CGAffineTransform(scaleX: 3, y: 3)
                 
-                if let output = filter.outputImage?.applying(transform) {
+                if let output = filter.outputImage?.transformed(by: transform) {
                     self.codigoQR.image = UIImage(ciImage: output)
                 }
             }

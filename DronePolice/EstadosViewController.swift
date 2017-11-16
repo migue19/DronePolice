@@ -20,6 +20,7 @@ class EstadosViewController: UIViewController {
     var longitud = 0.0
     var popUpVC: PopupEstadoProtocolo!
     var arrayEstados = [Estado]()
+    let utils = Utils()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,8 +106,8 @@ class EstadosViewController: UIViewController {
         
         func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let headerText = UILabel()
-            //headerText.textColor = UIColor.lightGray
-            headerText.backgroundColor = UIColor.lightGray
+            headerText.textColor = UIColor.white
+            headerText.backgroundColor = utils.colorPrincipal
             headerText.font = UIFont.boldSystemFont(ofSize: 20)
             headerText.adjustsFontSizeToFitWidth = true
             
@@ -123,13 +124,13 @@ class EstadosViewController: UIViewController {
         }
         
         
+        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+             return 50
+        }
+        
         func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
             return "ESTADOS"
         }
-        
-        /*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 60
-         }*/
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             if ( popUpVC != nil) {

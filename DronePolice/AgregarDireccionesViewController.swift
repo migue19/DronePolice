@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate,PopupLocalizacionProtocolo,PopupEstadoProtocolo{
+class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate,PopupLocalizacionProtocolo,PopupEstadoProtocolo,UITextFieldDelegate{
     @IBOutlet weak var identificador: UITextField!
     @IBOutlet weak var telefono: UITextField!
     @IBOutlet weak var referencia: UITextField!
@@ -21,6 +21,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     @IBOutlet weak var cp: UITextField!
     @IBOutlet weak var pais: UITextField!
     @IBOutlet weak var registro: CustomButton!
+    
     var latitud = 0.0
     var longitud = 0.0
     var latitudDireccion = 0.0
@@ -33,6 +34,17 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         super.viewDidLoad()
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
+        
+        identificador.delegate = self
+        telefono.delegate = self
+        referencia.delegate = self
+        calle.delegate = self
+        colonia.delegate = self
+        Ciudad.delegate = self
+        cp.delegate = self
+        pais.delegate = self
+        numexterior.delegate = self
+        numInterior.delegate = self
        
         identificador.text = direccion.identificador
         telefono.text = direccion.telefono
@@ -60,16 +72,13 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         
         self.title = "REGISTRO"
     
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: Utils().colorPrincipal]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
+        let titleDict: NSDictionary = [NSAttributedStringKey.foregroundColor: Utils().colorPrincipal]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedStringKey : Any]
         
         
-        //estado.addTarget(self, action: #selector(buttonAction), for: .touchDown)
-        
-        //self.navigationBar.tintColor = Utils().colorPrincipal
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,10 +86,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
+    
     
     @IBAction func registrarDireccion(_ sender: Any) {
         if identificador.text == "" || telefono.text == "" ||  referencia.text == "" || calle.text == "" || numexterior.text == "" || colonia.text == "" || Ciudad.text == "" || estado.text == "" || cp.text == "" || pais.text == ""{
@@ -211,6 +217,20 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         
         
         
+    }
+    
+   
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+   
+    
+    //Presses return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     

@@ -21,84 +21,59 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     var qrCodeFrameView:UIView?
     
     // Added to support different barcodes
-    let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
+    let supportedBarCodes = [AVMetadataObject.ObjectType.qr, AVMetadataObject.ObjectType.code128, AVMetadataObject.ObjectType.code39, AVMetadataObject.ObjectType.code93, AVMetadataObject.ObjectType.upce, AVMetadataObject.ObjectType.pdf417, AVMetadataObject.ObjectType.ean13, AVMetadataObject.ObjectType.aztec]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let captureDevice = AVCaptureDevice.default(for: .video)
         
-        do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-
-            // Initialize the captureSession object.
-            captureSession = AVCaptureSession()
-            // Set the input device on the capture session.
-            captureSession?.addInput(input)
-
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
-            
-            // Set delegate and use the default dispatch queue to execute the call back
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-
-            // Detect all the supported bar code
-            captureMetadataOutput.metadataObjectTypes = supportedBarCodes
-            
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
-            
-            // Start video capture
-            captureSession?.startRunning()
-            
-            // Move the message label to the top view
-            view.bringSubview(toFront: messageLabel)
-            
-            // Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
+        if (captureDevice != nil){
+            do {
+                // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+                let input = try AVCaptureDeviceInput(device: captureDevice!)
+                
+                captureSession = AVCaptureSession()
+                guard let captureSession = captureSession else { return }
+                captureSession.addInput(input)
+                
+                let captureMetadataOutput = AVCaptureMetadataOutput()
+                captureSession.addOutput(captureMetadataOutput)
+                
+                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: .main)
+                captureMetadataOutput.metadataObjectTypes = [.code128, .qr, .ean13,  .ean8, .code39] //AVMetadataObject.ObjectType
+                
+                captureSession.startRunning()
+                
+                videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                videoPreviewLayer?.videoGravity = .resizeAspectFill
+                videoPreviewLayer?.frame = view.layer.bounds
+                view.layer.addSublayer(videoPreviewLayer!)
+                
+                view.bringSubview(toFront: messageLabel)
+                qrCodeFrameView = UIView()
+                
+                if let qrCodeFrameView = qrCodeFrameView {
+                    qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                    qrCodeFrameView.layer.borderWidth = 2
+                    view.addSubview(qrCodeFrameView)
+                    view.bringSubview(toFront: qrCodeFrameView)
+                }
+                
+            }catch {
+                print("Error Device Input")
             }
             
-        } catch {
-            // If any error occurs, simply print it out and don't continue any more.
-            print(error)
-            return
+            
+             self.view.bringSubview(toFront: closeButton);
         }
-        
-        self.view.bringSubview(toFront: closeButton);
-        
     }
 
     
-   
     
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
     
-    
-    @IBAction func closeView(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
+        if metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No se Detecta Codigo QR"
             return
@@ -111,7 +86,7 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
         // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
         // can be found in the array of supported bar codes.
         if supportedBarCodes.contains(metadataObj.type) {
-//        if metadataObj.type == AVMetadataObjectTypeQRCode {
+            //        if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
@@ -119,16 +94,6 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             if metadataObj.stringValue != nil {
                 
                 captureSession?.stopRunning()
-                /*let alert = UIAlertController(title: "Codigo Detectado",
-                                              message: metadataObj.stringValue,
-                                              preferredStyle: UIAlertControllerStyle.alert)
-                
-                let cancelAction = UIAlertAction(title: "OK",
-                                                 style: .cancel, handler: nil)
-                
-                alert.addAction(cancelAction)
-                self.present(alert, animated: true, completion: nil)*/
-                
                 let location = LocationService.sharedInstance.currentLocation
                 
                 if (location != nil){
@@ -136,15 +101,15 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                     longitud = (location?.coordinate.longitude)!
                 }
                 
-                RestService().AgregarMiembro(latitud: latitud, longitud: longitud, qr: metadataObj.stringValue, tipo: segment) { (response, stringresponse, error) in
+                RestService().AgregarMiembro(latitud: latitud, longitud: longitud, qr: metadataObj.stringValue!, tipo: segment) { (response, stringresponse, error) in
                     if(error != nil){
-                        Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                        self.dismiss(animated: true, completion: nil)
+                        Utils().alertaCloseViewMain(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+                        //self.dismiss(animated: true, completion: nil)
                         return
                     }
                     if(stringresponse != nil){
-                        Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
-                        self.dismiss(animated: true, completion: nil)
+                        Utils().alertaCloseViewMain(context: self, title: "Error", mensaje: stringresponse!)
+                        //self.dismiss(animated: true, completion: nil)
                         return
                     }
                     
@@ -152,11 +117,24 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
-
-            
+                
+                
                 messageLabel.text = metadataObj.stringValue
             }
         }
+        
+        
     }
+    
+    @IBAction func closeView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    
 }
 

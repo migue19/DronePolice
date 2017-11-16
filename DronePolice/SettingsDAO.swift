@@ -58,8 +58,8 @@ class SettingsDAO{
                 print("Insertando Imagen")
                 let image = Imagen(context: context)
                 
-                image.imagen = data as NSData
-                
+               // image.imagen = data as NSData
+                image.imagen = data
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
             }
         }catch{

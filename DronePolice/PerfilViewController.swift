@@ -32,7 +32,8 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     @IBOutlet weak var tableView: UITableView!
     
     
-    var options = ["Direcciones","","",""]
+    var options = ["Direcciones","Historial","",""]
+    var imageCell = ["iconodirecciones","historial","",""]
     
     
     
@@ -63,13 +64,11 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         //navigationController?.setNavigationBarHidden(true, animated: false)
         // Header - Image
         navigationController?.setNavigationBarHidden(true, animated: false)
         //self.LoadImageProfile()
-        
         headerImageView = UIImageView(frame: header.bounds)
         headerImageView?.image = UIImage(named: "city")
         headerImageView?.contentMode = UIViewContentMode.scaleAspectFill
@@ -212,13 +211,16 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     
         let imageView = cell.viewWithTag(10) as! UIImageView
         let textLabel = cell.viewWithTag(20) as! UILabel
+        
+        
     
         
         imageView.layer.borderWidth = 0
         
         switch indexPath.section {
         case 0:
-            imageView.image = UIImage(named: "iconodirecciones")
+            let nameImage = imageCell[row]
+            imageView.image = UIImage(named: nameImage)
             textLabel.text = options[row]
             if(options[row] == ""){
                cell.accessoryType = .none
@@ -259,11 +261,9 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         case 0:
             switch indexPath.row {
             case 0:
-                print("Ir a Ciudad")
                 self.performSegue(withIdentifier: "showDireccion", sender: self)
             case 1:
-                print("Ir a CityPoints")
-                //self.performSegue(withIdentifier: "CityPoints", sender: self)
+                self.performSegue(withIdentifier: "showHistorial", sender: self)
             case 2:
                 print("Ir a Promociones")
                 //self.performSegue(withIdentifier: "showCustom", sender: self)
@@ -297,7 +297,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         cell.selectedBackgroundView = auxView
         
     }*/
-    func CerrarSession(){
+    @objc func CerrarSession(){
         
         let alertController = UIAlertController(title: "Cerrar sesión", message: "Estas Seguro de Cerrar Sesion", preferredStyle: .alert)
         

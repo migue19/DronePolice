@@ -14,7 +14,7 @@ import FirebaseAuth
 import CoreLocation
 import Firebase
 
-class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,GIDSignInDelegate,LocationServiceDelegate{//, CLLocationManagerDelegate{
+class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDelegate,GIDSignInDelegate,LocationServiceDelegate,UITextFieldDelegate{//, CLLocationManagerDelegate{
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var contraseña: UITextField!
     @IBOutlet weak var fbButton: CustomButton!
@@ -25,12 +25,16 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     var latitud = 0.0
     let restService = RestService()
     let settingsDAO = SettingsDAO()
+    let utils = Utils()
     let uuid = UUID().uuidString
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.usuario.delegate = self
+        self.contraseña.delegate = self
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -59,7 +63,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             0.0,sizeButtong - 90, 0.0, 0)
 
         // Do any additional setup after loading the view, typically from a nib.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -376,7 +380,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         print("tracing Location Error : \(error.description)")
     }
 
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
@@ -397,7 +401,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     
     
     
-    func keyboardWillShowForResizing(notification: Notification) {
+    @objc func keyboardWillShowForResizing(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let window = self.view.window?.frame {
             // We're not just minusing the kb height from the view height because
@@ -412,7 +416,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     }
     
     
-    func keyboardWillHideForResizing(notification: Notification) {
+    @objc func keyboardWillHideForResizing(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let viewHeight = self.view.frame.height
             self.view.frame = CGRect(x: self.view.frame.origin.x,
@@ -422,6 +426,12 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         } else {
             debugPrint("We're about to hide the keyboard and the keyboard size is nil. Now is the rapture.")
         }
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     

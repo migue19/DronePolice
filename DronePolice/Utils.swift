@@ -35,6 +35,17 @@ class Utils {
         context.present(alert, animated: true, completion: nil)
     }
     
+    
+    func alertaCloseViewMain(context: UIViewController, title: String, mensaje: String ){
+        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertControllerStyle.alert)
+        //alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:))
+        alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: { (response) in
+            context.dismiss(animated: true, completion: nil)
+        }))
+        context.present(alert, animated: true, completion: nil)
+    }
+    
+    
     func showLoading(context: UIViewController){
         let pending = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         
@@ -193,9 +204,5 @@ class Utils {
             completion(data, response, error)
             }.resume()
     }
-    
-    
-    
-    
     
 }

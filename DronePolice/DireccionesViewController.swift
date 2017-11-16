@@ -36,8 +36,8 @@ class DireccionesViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = Utils().colorPrincipal
         self.title = "DIRECCIONES"
         
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: Utils().colorPrincipal]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [String : Any]
+        let titleDict: NSDictionary = [NSAttributedStringKey.foregroundColor: Utils().colorPrincipal]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedStringKey : Any]
         
         let Nam1BarBtnVar = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDireccion(_:)))
        
@@ -132,7 +132,7 @@ class DireccionesViewController: UIViewController {
     
     
     
-    func addDireccion(_ button: UIButton){
+    @objc func addDireccion(_ button: UIButton){
       self.performSegue(withIdentifier: "showAgregarDireccion", sender: Direccion())
     
     }
@@ -224,7 +224,7 @@ extension DireccionesViewController: UITableViewDataSource{
         tableView.deleteRows(at: [indexPath], with: .left)
     }
     
-    func buttonAction(sender: UIButton!) {
+    @objc func buttonAction(sender: UIButton!) {
         let indice = sender.tag
         //print("Button tapped: \(iddireccion)")
         

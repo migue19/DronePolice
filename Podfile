@@ -8,6 +8,7 @@ target 'DronePolice' do
   # Pods for DronePolice
   pod 'AlamofireSwiftyJSON'
   pod 'CryptoSwift'
+  #pod 'CryptoSwift', '~> 0.6.9'
   pod 'SlideMenuControllerSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
