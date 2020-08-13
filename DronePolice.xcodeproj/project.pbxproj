@@ -55,15 +55,15 @@
 		7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */; };
 		7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */; };
 		7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */; };
-		CB47BDE537E36849F96CC836 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 301B53A985F0D6AD1A4A2B31 /* Pods_DronePolice.framework */; };
+		93081827DE7AB5DD3F33CDC3 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		301B53A985F0D6AD1A4A2B31 /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
 		4934B13F1FB68729005C8871 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 		49D387E51FB4C7C3005A564A /* ImageCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustom.swift; sourceTree = "<group>"; };
-		4C9FCEE4BD60939C4AD08F1E /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
-		63981C9A76917287CF777827 /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
+		4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
+		707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DireccionTableViewCell.swift; sourceTree = "<group>"; };
 		7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotonPanicoUiViewController.swift; sourceTree = "<group>"; };
 		7D1BF8901EE0F58200A032A0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -123,22 +123,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D298BF11EF2B8A3000D5EDC /* AdSupport.framework in Frameworks */,
-				CB47BDE537E36849F96CC836 /* Pods_DronePolice.framework in Frameworks */,
+				93081827DE7AB5DD3F33CDC3 /* Pods_DronePolice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		78D7F779B6639B9D2B5A363B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				63981C9A76917287CF777827 /* Pods-DronePolice.debug.xcconfig */,
-				4C9FCEE4BD60939C4AD08F1E /* Pods-DronePolice.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		7D1BF8941EE1DB2600A032A0 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,8 +210,8 @@
 			children = (
 				7DAD18C91ED439B2009B37E5 /* DronePolice */,
 				7DAD18C81ED439B2009B37E5 /* Products */,
-				78D7F779B6639B9D2B5A363B /* Pods */,
 				B73474C427ABF80E98EDE9ED /* Frameworks */,
+				EB8C90D1E30709C3AFC37477 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,9 +346,19 @@
 			isa = PBXGroup;
 			children = (
 				7D298BF01EF2B8A3000D5EDC /* AdSupport.framework */,
-				301B53A985F0D6AD1A4A2B31 /* Pods_DronePolice.framework */,
+				707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB8C90D1E30709C3AFC37477 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */,
+				46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,12 +368,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DAD18DC1ED439B2009B37E5 /* Build configuration list for PBXNativeTarget "DronePolice" */;
 			buildPhases = (
-				BFB3580D13AD3A3CCA96C9A3 /* [CP] Check Pods Manifest.lock */,
+				302FA86441414767659D6BD8 /* [CP] Check Pods Manifest.lock */,
 				7DAD18C31ED439B2009B37E5 /* Sources */,
 				7DAD18C41ED439B2009B37E5 /* Frameworks */,
 				7DAD18C51ED439B2009B37E5 /* Resources */,
-				3DF57EE4CD6A98CCF4085C7D /* [CP] Embed Pods Frameworks */,
-				F507C4CB4740BAB3CA7F76C6 /* [CP] Copy Pods Resources */,
+				86D550C6048149C97806CE46 /* [CP] Embed Pods Frameworks */,
+				504FA634F38E686B32334925 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -414,6 +415,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -442,13 +444,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DF57EE4CD6A98CCF4085C7D /* [CP] Embed Pods Frameworks */ = {
+		302FA86441414767659D6BD8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DronePolice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		504FA634F38E686B32334925 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86D550C6048149C97806CE46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -481,45 +527,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BFB3580D13AD3A3CCA96C9A3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DronePolice-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F507C4CB4740BAB3CA7F76C6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -706,7 +714,7 @@
 		};
 		7DAD18DD1ED439B2009B37E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63981C9A76917287CF777827 /* Pods-DronePolice.debug.xcconfig */;
+			baseConfigurationReference = 4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -720,13 +728,13 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		7DAD18DE1ED439B2009B37E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C9FCEE4BD60939C4AD08F1E /* Pods-DronePolice.release.xcconfig */;
+			baseConfigurationReference = 46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -739,7 +747,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DronePolice/DronePolice-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

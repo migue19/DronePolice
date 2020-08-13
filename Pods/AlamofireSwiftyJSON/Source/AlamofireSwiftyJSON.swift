@@ -3,9 +3,11 @@
 //  AlamofireSwiftyJSON
 //
 //  Created by Hikaru on 2016/01/29.
-//  Copyright © 2016年 Hikaru. All rights reserved.
+//  Copyright (c) 2016 Hikaru. All rights reserved.
 //
 import Alamofire
+import Dispatch
+import Foundation
 import SwiftyJSON
 
 /// A set of HTTP response status code that do not contain response data.
@@ -82,13 +84,15 @@ extension Request {
             return .failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength))
         }
 
-        do {
-            let json = try JSONSerialization.jsonObject(with: validData, options: options)
+        var res: Result<JSON>!
 
-            return .success(JSON(json))
+        do {
+          let json = try JSONSerialization.jsonObject(with: validData, options: options)
+          res = .success(JSON(json))
         } catch {
-            return .failure(AFError.responseSerializationFailed(
+          res = .failure(AFError.responseSerializationFailed(
                                 reason: .jsonSerializationFailed(error: error)))
         }
+        return res
     }
 }
