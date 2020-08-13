@@ -51,16 +51,16 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         
         let sizeButton = fbButton.bounds.size.width / 2 - sizetext
         
-        fbButton.titleEdgeInsets = UIEdgeInsetsMake(
-            0.0,sizeButton - 90, 0.0, 0)
+        fbButton.titleEdgeInsets = UIEdgeInsets(
+            top: 0.0,left: sizeButton - 90, bottom: 0.0, right: 0)
         
         
         let sizetextg = (googButton.titleLabel?.bounds.size.width)!
         
         let sizeButtong = googButton.bounds.size.width / 2 - sizetextg
         
-        googButton.titleEdgeInsets = UIEdgeInsetsMake(
-            0.0,sizeButtong - 90, 0.0, 0)
+        googButton.titleEdgeInsets = UIEdgeInsets(
+            top: 0.0,left: sizeButtong - 90, bottom: 0.0, right: 0)
 
         // Do any additional setup after loading the view, typically from a nib.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -97,8 +97,8 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             let token = response?.token
             let estatus = response?.estatus
             let nombreCompleto = response?.nombre
-            
-            let nombreCompletoArr = nombreCompleto?.characters.split{$0 == " "}.map(String.init)
+            /// verificar que hace el split
+            let nombreCompletoArr = nombreCompleto?.split(separator: " ")
             // or simply:
             // let fullNameArr = fullName.characters.split{" "}.map(String.init)
             var nombre = ""
@@ -107,18 +107,18 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
             
             
             if(nombreCompletoArr?.count == 3){
-                nombre = (nombreCompletoArr?[0])!
-                paterno = (nombreCompletoArr?[1])!
-                materno = (nombreCompletoArr?[2])!
+                nombre = (String(nombreCompletoArr![0]))
+                paterno = (String(nombreCompletoArr![1]))
+                materno = (String(nombreCompletoArr![2]))
             }
             
             if nombreCompletoArr?.count == 2{
-                nombre = (nombreCompletoArr?[0])!
-                paterno = (nombreCompletoArr?[1])!
+                nombre = (String(nombreCompletoArr![0]))
+                paterno = (String(nombreCompletoArr![1]))
             }
             
             if(nombreCompletoArr?.count == 1){
-                nombre = (nombreCompletoArr?[0])!
+                nombre = (String(nombreCompletoArr![0]))
             }
             
             let urlimage = ""
@@ -219,15 +219,15 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
                     facebookProfileUrl = "http://graph.facebook.com/\(faceid)/picture?type=large"
                 }
                 
-                let lastNameArr = lastName.characters.split{$0 == " "}.map(String.init)
+                let lastNameArr = lastName.split(separator: " ")
                 var paterno = ""
                 var materno = ""
                 
                 if lastNameArr.count > 2{
-                   paterno = lastNameArr[0]
-                   materno = lastNameArr[1]
+                    paterno = String(lastNameArr[0])
+                    materno = String(lastNameArr[1])
                 }else{
-                   paterno = lastNameArr[0]
+                    paterno = String(lastNameArr[0])
                 }
                 
                 let tokenface = FBSDKAccessToken.current().tokenString
@@ -279,7 +279,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         let email = user.profile.email ?? ""
         let urlimage = user.profile.imageURL(withDimension: 400)!
         
-        let lastNameArr = lastName.characters.split{$0 == " "}.map(String.init)
+        let lastNameArr = lastName.split(separator: " ")
         // or simply:
         // let fullNameArr = fullName.characters.split{" "}.map(String.init)
         
@@ -287,10 +287,10 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
         var materno = ""
         
         if lastNameArr.count >= 2{
-            paterno = lastNameArr[0]
-            materno = lastNameArr[1]
+            paterno = String(lastNameArr[0])
+            materno = String(lastNameArr[1])
         }else{
-            paterno = lastNameArr[0]
+            paterno = String(lastNameArr[0])
         }
         
         let authentication = user.authentication
@@ -391,18 +391,18 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     func setupViewResizerOnKeyboardShown() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShowForResizing),
-                                               name: Notification.Name.UIKeyboardWillShow,
+                                               name: UIResponder.keyboardWillShowNotification,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHideForResizing),
-                                               name: Notification.Name.UIKeyboardWillHide,
+                                               name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
     }
     
     
     
     @objc func keyboardWillShowForResizing(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
             let window = self.view.window?.frame {
             // We're not just minusing the kb height from the view height because
             // the view could already have been resized for the keyboard before
@@ -417,7 +417,7 @@ class LoginController: UIViewController,FBSDKLoginButtonDelegate,GIDSignInUIDele
     
     
     @objc func keyboardWillHideForResizing(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let viewHeight = self.view.frame.height
             self.view.frame = CGRect(x: self.view.frame.origin.x,
                                      y: self.view.frame.origin.y,

@@ -22,8 +22,8 @@ class LocalizacionViewController: UIViewController,GMSMapViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        closebutton.imageEdgeInsets = UIEdgeInsetsMake(12, 12, 12, 12);
-        donebutton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        closebutton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12);
+        donebutton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10);
         setupMap()
         //createMarker()
         // Do any additional setup after loading the view.

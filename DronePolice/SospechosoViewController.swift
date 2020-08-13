@@ -31,7 +31,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
         
         
         // top,left,bottom,rigth
-        botonLocalizar.imageEdgeInsets = UIEdgeInsetsMake(5, -1, 5, 15);
+        botonLocalizar.imageEdgeInsets = UIEdgeInsets(top: 5, left: -1, bottom: 5, right: 15);
         /*locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -90,7 +90,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.allowsEditing = false
-            picker.sourceType = UIImagePickerControllerSourceType.camera
+            picker.sourceType = UIImagePickerController.SourceType.camera
             picker.cameraCaptureMode = .photo
             picker.modalPresentationStyle = .fullScreen
             present(picker,animated: true,completion: nil)
@@ -119,7 +119,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage //2
         //imageSospechoso.contentMode = .scaleAspectFit //3
         
         imageSospechoso.clipsToBounds = true

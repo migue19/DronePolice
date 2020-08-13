@@ -30,14 +30,14 @@ class Utils {
     }
     
     func alerta(context: UIViewController, title: String, mensaje: String ){
-        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         context.present(alert, animated: true, completion: nil)
     }
     
     
     func alertaCloseViewMain(context: UIViewController, title: String, mensaje: String ){
-        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: title, message: mensaje, preferredStyle: UIAlertController.Style.alert)
         //alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler:))
         alert.addAction(UIAlertAction.init(title: "Ok", style: .default, handler: { (response) in
             context.dismiss(animated: true, completion: nil)
@@ -52,7 +52,7 @@ class Utils {
         
         //create an activity indicator
         let indicator = UIActivityIndicatorView(frame: pending.view.bounds)
-        indicator.activityIndicatorViewStyle = .white
+        indicator.style = .white
         indicator.color = colorPrincipal
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -61,9 +61,9 @@ class Utils {
         indicator.isUserInteractionEnabled = false // required otherwise if there buttons in the UIAlertController you will not be able to press them
         indicator.startAnimating()
         
-        let height:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 80)
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
         
-        let width:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 80)
+        let width:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
         
         pending.view.addConstraint(height)
         pending.view.addConstraint(width)
@@ -84,7 +84,7 @@ class Utils {
         
         let auximage = resizeImage(image: image)
         
-        let imageData = UIImagePNGRepresentation(auximage)
+        let imageData = auximage.pngData()
         
         let base64String = imageData?.base64EncodedString(options: .endLineWithCarriageReturn)
         return base64String!
@@ -148,7 +148,7 @@ class Utils {
     image.draw(in: rect)
         
     let img = UIGraphicsGetImageFromCurrentImageContext();
-    let imageData = UIImageJPEGRepresentation(img!, CGFloat(compressionQuality))
+        let imageData = img!.jpegData(compressionQuality: CGFloat(compressionQuality))
         
     UIGraphicsEndImageContext();
         

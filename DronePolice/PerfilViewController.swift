@@ -71,14 +71,14 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         //self.LoadImageProfile()
         headerImageView = UIImageView(frame: header.bounds)
         headerImageView?.image = UIImage(named: "city")
-        headerImageView?.contentMode = UIViewContentMode.scaleAspectFill
+        headerImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         header.insertSubview(headerImageView, belowSubview: headerLabel)
         
         // Header - Blurred Image
         
         headerBlurImageView = UIImageView(frame: header.bounds)
         headerBlurImageView?.image = UIImage(named: "city")?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
-        headerBlurImageView?.contentMode = UIViewContentMode.scaleAspectFill
+        headerBlurImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         headerBlurImageView?.alpha = 0.0
         header.insertSubview(headerBlurImageView, belowSubview: headerLabel)
         
@@ -231,7 +231,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             imageView.isHidden = true
             textLabel.isHidden = true
             
-            let button : UIButton = UIButton(type:UIButtonType.custom) as UIButton
+            let button : UIButton = UIButton(type:UIButton.ButtonType.custom) as UIButton
             
             button.frame = CGRect(origin: CGPoint(x: 40,y :60), size: CGSize(width: cell.bounds.width*0.8, height: cell.bounds.height))
             let cellHeight: CGFloat = 44.0
@@ -240,12 +240,12 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             button.layer.cornerRadius = button.bounds.height/2
             
             button.backgroundColor = Utils().colorPrincipal
-            button.addTarget(self, action: #selector(CerrarSession), for: UIControlEvents.touchUpInside)
-            button.setTitle("Cerrar Sesion", for: UIControlState.normal)
+            button.addTarget(self, action: #selector(CerrarSession), for: UIControl.Event.touchUpInside)
+            button.setTitle("Cerrar Sesion", for: UIControl.State.normal)
             
             cell.addSubview(button)
             cell.accessoryType = .none;
-            cell.separatorInset = UIEdgeInsetsMake(0, cell.bounds.size.width, 0, 0);
+            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
  
         default:
             break

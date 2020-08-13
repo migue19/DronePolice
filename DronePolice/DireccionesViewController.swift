@@ -36,8 +36,8 @@ class DireccionesViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = Utils().colorPrincipal
         self.title = "DIRECCIONES"
         
-        let titleDict: NSDictionary = [NSAttributedStringKey.foregroundColor: Utils().colorPrincipal]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedStringKey : Any]
+        let titleDict: NSDictionary = [NSAttributedString.Key.foregroundColor: Utils().colorPrincipal]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedString.Key : Any]
         
         let Nam1BarBtnVar = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addDireccion(_:)))
        
@@ -219,7 +219,7 @@ extension DireccionesViewController: UITableViewDataSource{
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         self.direcciones.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .left)
     }

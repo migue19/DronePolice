@@ -19,7 +19,7 @@ class HistorialViewController: UIViewController {
         super.viewDidLoad()
         
         let dataPicker = UIDatePicker()
-        dataPicker.datePickerMode = UIDatePickerMode.date
+        dataPicker.datePickerMode = UIDatePicker.Mode.date
         
         self.finTxt.inputView = dataPicker
         
@@ -44,7 +44,7 @@ class HistorialViewController: UIViewController {
         self.title = "HISTORIAL"
         
         
-        datePicker.addTarget(self, action: #selector(datePickerChanged), for: UIControlEvents.valueChanged)
+        datePicker.addTarget(self, action: #selector(datePickerChanged), for: UIControl.Event.valueChanged)
 
         // Do any additional setup after loading the view.
     }

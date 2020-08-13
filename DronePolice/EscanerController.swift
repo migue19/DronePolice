@@ -50,14 +50,14 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
                 videoPreviewLayer?.frame = view.layer.bounds
                 view.layer.addSublayer(videoPreviewLayer!)
                 
-                view.bringSubview(toFront: messageLabel)
+                view.bringSubviewToFront(messageLabel)
                 qrCodeFrameView = UIView()
                 
                 if let qrCodeFrameView = qrCodeFrameView {
                     qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                     qrCodeFrameView.layer.borderWidth = 2
                     view.addSubview(qrCodeFrameView)
-                    view.bringSubview(toFront: qrCodeFrameView)
+                    view.bringSubviewToFront(qrCodeFrameView)
                 }
                 
             }catch {
@@ -65,7 +65,7 @@ class EscanerController: UIViewController, AVCaptureMetadataOutputObjectsDelegat
             }
             
             
-             self.view.bringSubview(toFront: closeButton);
+            self.view.bringSubviewToFront(closeButton);
         }
     }
 

@@ -72,8 +72,8 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         
         self.title = "REGISTRO"
     
-        let titleDict: NSDictionary = [NSAttributedStringKey.foregroundColor: Utils().colorPrincipal]
-        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedStringKey : Any]
+        let titleDict: NSDictionary = [NSAttributedString.Key.foregroundColor: Utils().colorPrincipal]
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedString.Key : Any]
         
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

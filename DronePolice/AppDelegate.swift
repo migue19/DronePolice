@@ -32,7 +32,7 @@ UNUserNotificationCenterDelegate{
     
     
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         //UITabBar.appearance().barTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
@@ -213,7 +213,7 @@ UNUserNotificationCenterDelegate{
         let nombre = alertavecinal?["nombre"] as! String
         let latitud = alertavecinal?["latitud"] as? Double ?? 0.0
         let longitud = alertavecinal?["longitud"] as? Double ?? 0.0
-        let tipo = alertavecinal?["tipo"] as! Int!
+        let tipo = alertavecinal?["tipo"] as! Int
         var comentario = ""
         var imagen = ""
         
@@ -233,7 +233,7 @@ UNUserNotificationCenterDelegate{
         vc.Sdescripcion = title
         vc.comentario = comentario
         vc.imagen = imagen
-        vc.tipo = tipo!
+        vc.tipo = tipo
         
         self.window?.rootViewController = vc
     }
@@ -257,7 +257,7 @@ UNUserNotificationCenterDelegate{
         let nombre = alertavecinal?["nombre"] as! String
         let latitud = alertavecinal?["latitud"] as? Double ?? 0.0
         let longitud = alertavecinal?["longitud"] as? Double ?? 0.0
-        let tipo = alertavecinal?["tipo"] as! Int!
+        let tipo = alertavecinal?["tipo"] as! Int
         
         
         
@@ -268,7 +268,7 @@ UNUserNotificationCenterDelegate{
         vc.longitud = longitud
         vc.Snombre = nombre
         vc.Sdescripcion = title
-        vc.tipo = tipo!
+        vc.tipo = tipo
         
         self.window?.rootViewController = vc
         //Handle the notification
@@ -303,11 +303,11 @@ UNUserNotificationCenterDelegate{
     }
     
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         
         GIDSignIn.sharedInstance().handle(url,
-                                          sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!,                                                                                                                annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+                                          sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,                                                                                                                annotation: options[UIApplication.OpenURLOptionsKey.annotation])
         
         
         return handled
