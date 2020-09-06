@@ -67,7 +67,7 @@ class RegistroViewController: UIViewController {
 
             let estatus = response?.estatus
             
-            FIRAuth.auth()?.createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
                 
                 if(error != nil){
                  Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C7AEAE5CE44612C422C4559 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */; };
+		1D2D3A5624E5A23F008FFB16 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D3A5524E5A23F008FFB16 /* SlideMenuController.swift */; };
+		1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3BA6624E7291C006E6A61 /* Constants.swift */; };
+		1DB8D6FC250555390024813E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D6FA250555390024813E /* LoginVC.swift */; };
+		1DB8D6FD250555390024813E /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB8D6FB250555390024813E /* LoginVC.xib */; };
+		1DF4E00024EB1126006E063D /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4DFFF24EB1126006E063D /* LoginEntity.swift */; };
+		1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF4E00124EB3472006E063D /* Colors.xcassets */; };
 		4934B1401FB68729005C8871 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934B13F1FB68729005C8871 /* HistorialViewController.swift */; };
 		49D387E61FB4C7C3005A564A /* ImageCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D387E51FB4C7C3005A564A /* ImageCustom.swift */; };
 		7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */; };
@@ -55,15 +62,17 @@
 		7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */; };
 		7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */; };
 		7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */; };
-		93081827DE7AB5DD3F33CDC3 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
+		1D2D3A5524E5A23F008FFB16 /* SlideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
+		1DA3BA6624E7291C006E6A61 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1DB8D6FA250555390024813E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1DB8D6FB250555390024813E /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		1DF4DFFF24EB1126006E063D /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		1DF4E00124EB3472006E063D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4934B13F1FB68729005C8871 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 		49D387E51FB4C7C3005A564A /* ImageCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCustom.swift; sourceTree = "<group>"; };
-		4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
-		707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DireccionTableViewCell.swift; sourceTree = "<group>"; };
 		7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotonPanicoUiViewController.swift; sourceTree = "<group>"; };
 		7D1BF8901EE0F58200A032A0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -115,6 +124,9 @@
 		7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DronePolice.entitlements; sourceTree = "<group>"; };
 		7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizacionViewController.swift; sourceTree = "<group>"; };
+		B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
+		F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +135,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D298BF11EF2B8A3000D5EDC /* AdSupport.framework in Frameworks */,
-				93081827DE7AB5DD3F33CDC3 /* Pods_DronePolice.framework in Frameworks */,
+				0C7AEAE5CE44612C422C4559 /* Pods_DronePolice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1DA3BA6524E72901006E6A61 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1DA3BA6624E7291C006E6A61 /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		1DC69E0524EA0C5B003EBD40 /* Redesign */ = {
+			isa = PBXGroup;
+			children = (
+				1DF4DFFE24EB1013006E063D /* Entity */,
+				1DC69E0624EA0D11003EBD40 /* Login */,
+			);
+			name = Redesign;
+			sourceTree = "<group>";
+		};
+		1DC69E0624EA0D11003EBD40 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D6FA250555390024813E /* LoginVC.swift */,
+				1DB8D6FB250555390024813E /* LoginVC.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		1DF4DFFE24EB1013006E063D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1DF4DFFF24EB1126006E063D /* LoginEntity.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
 		7D1BF8941EE1DB2600A032A0 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */,
+				1DC69E0524EA0C5B003EBD40 /* Redesign */,
 				7DEE016C1EF58B7B00A4D419 /* AppDelegate */,
 				7DEE016B1EF58B6100A4D419 /* Utils */,
 				7DF285001EF20709009D1F31 /* Location */,
@@ -234,11 +281,13 @@
 				7D1BF8941EE1DB2600A032A0 /* DataBase */,
 				7DEE016F1EF58D8E00A4D419 /* Login */,
 				7DA45AE11ED4773800111A99 /* PruebaViewController.swift */,
+				1DA3BA6524E72901006E6A61 /* Constants */,
 				7D28BC571EE357C0006CF726 /* Librerias */,
 				7D28BC551EE35750006CF726 /* TabBarController */,
 				7D28BC581EE357E1006CF726 /* FireBase */,
 				7DAD18DF1ED43D4F009B37E5 /* CustomViews */,
 				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
+				1DF4E00124EB3472006E063D /* Colors.xcassets */,
 				7DEE016D1EF58BC000A4D419 /* StoryBoard */,
 				7DEE016E1EF58BDC00A4D419 /* Bridge DronePolice */,
 				7DAD18D91ED439B2009B37E5 /* Info.plist */,
@@ -288,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1BF89D1EE20C3F00A032A0 /* Utils.swift */,
+				1D2D3A5524E5A23F008FFB16 /* SlideMenuController.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -346,7 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				7D298BF01EF2B8A3000D5EDC /* AdSupport.framework */,
-				707EFADFC36A5C1FFED517AB /* Pods_DronePolice.framework */,
+				B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,10 +404,9 @@
 		EB8C90D1E30709C3AFC37477 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */,
-				46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */,
+				F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */,
+				B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -368,12 +417,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DAD18DC1ED439B2009B37E5 /* Build configuration list for PBXNativeTarget "DronePolice" */;
 			buildPhases = (
-				302FA86441414767659D6BD8 /* [CP] Check Pods Manifest.lock */,
+				DF874CD02C5BCF26232C3C6B /* [CP] Check Pods Manifest.lock */,
 				7DAD18C31ED439B2009B37E5 /* Sources */,
 				7DAD18C41ED439B2009B37E5 /* Frameworks */,
 				7DAD18C51ED439B2009B37E5 /* Resources */,
-				86D550C6048149C97806CE46 /* [CP] Embed Pods Frameworks */,
-				504FA634F38E686B32334925 /* [CP] Copy Pods Resources */,
+				93A01D6DB3747E9231A21B74 /* [CP] Embed Pods Frameworks */,
+				726B6ADE605E75631D2F18A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -434,8 +483,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB8D6FD250555390024813E /* LoginVC.xib in Resources */,
 				7DAD18D81ED439B2009B37E5 /* LaunchScreen.storyboard in Resources */,
 				7DAD18D51ED439B2009B37E5 /* Assets.xcassets in Resources */,
+				1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */,
 				7DAD18D01ED439B2009B37E5 /* Main.storyboard in Resources */,
 				7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */,
 			);
@@ -444,7 +495,67 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		302FA86441414767659D6BD8 /* [CP] Check Pods Manifest.lock */ = {
+		726B6ADE605E75631D2F18A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93A01D6DB3747E9231A21B74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF874CD02C5BCF26232C3C6B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -466,70 +577,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		504FA634F38E686B32334925 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		86D550C6048149C97806CE46 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SlideMenuControllerSwift/SlideMenuControllerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireSwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SlideMenuControllerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -543,6 +590,7 @@
 				7DF5C7621F29AF4D00436BC2 /* PopUpLocializarViewController.swift in Sources */,
 				49D387E61FB4C7C3005A564A /* ImageCustom.swift in Sources */,
 				7D28BC541EE32220006CF726 /* EscanerController.swift in Sources */,
+				1D2D3A5624E5A23F008FFB16 /* SlideMenuController.swift in Sources */,
 				7D1BF89A1EE1FCF300A032A0 /* FXBlurView.m in Sources */,
 				7D28BC5A1EE35954006CF726 /* LoginResponse.swift in Sources */,
 				7D8A40951F007557000A3178 /* Miembro.swift in Sources */,
@@ -565,12 +613,15 @@
 				7D8A40991F0124C6000A3178 /* SiguemeViewController.swift in Sources */,
 				7D1F0D331EE4B1DD00F308A1 /* GenerateQrResponse.swift in Sources */,
 				7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */,
+				1DF4E00024EB1126006E063D /* LoginEntity.swift in Sources */,
 				7D52142F1EF02CA1000C6ACE /* MapaAlertaViewController.swift in Sources */,
 				7DF284DF1EF19624009D1F31 /* DireccionesResponse.swift in Sources */,
 				7D1BF89E1EE20C3F00A032A0 /* Utils.swift in Sources */,
 				7DB58F7F1F29F1CF005D5A10 /* EstadosDAO.swift in Sources */,
 				7DAD18CB1ED439B2009B37E5 /* AppDelegate.swift in Sources */,
+				1DB8D6FC250555390024813E /* LoginVC.swift in Sources */,
 				7DAD18E71ED442B2009B37E5 /* RestService.swift in Sources */,
+				1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */,
 				7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */,
 				7D31FD481EE9CCBC00102684 /* AgregarDireccionesViewController.swift in Sources */,
 				7DAD18E91ED442D8009B37E5 /* ShortProfileResponse.swift in Sources */,
@@ -714,7 +765,7 @@
 		};
 		7DAD18DD1ED439B2009B37E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CE3FC2872C9059B6DDDE9B9 /* Pods-DronePolice.debug.xcconfig */;
+			baseConfigurationReference = F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -722,6 +773,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -734,7 +786,7 @@
 		};
 		7DAD18DE1ED439B2009B37E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46AAE3336DAEC8D85AEFBDEA /* Pods-DronePolice.release.xcconfig */;
+			baseConfigurationReference = B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -742,6 +794,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";

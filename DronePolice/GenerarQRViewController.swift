@@ -31,27 +31,18 @@ class GenerarQRViewController: UIViewController {
 
     
     func generateQRCode() {
-        
         restService.GenerateQR(context: self) { (response, error) in
             if error != nil{
-             print("errror",error ?? "error")
-                
-             self.dismiss(animated: true, completion: nil)
-                
-                
-                
-             Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Hubo un error al consultar el servicio")
-                
-             self.codigoQR.image = nil
-             return
+                print("errror",error ?? "error")
+                self.dismiss(animated: true, completion: nil)
+                Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Hubo un error al consultar el servicio")
+                self.codigoQR.image = nil
+                return
             }
             
             self.dismiss(animated: true, completion: nil)
-            
             let qr = response?.qr
-            
             let data = qr?.data(using: String.Encoding.ascii)
-            
             if let filter = CIFilter(name: "CIQRCodeGenerator") {
                 filter.setValue(data, forKey: "inputMessage")
                 let transform = CGAffineTransform(scaleX: 3, y: 3)
@@ -60,8 +51,6 @@ class GenerarQRViewController: UIViewController {
                     self.codigoQR.image = UIImage(ciImage: output)
                 }
             }
-
-
         }
     }
 }

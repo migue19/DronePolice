@@ -9,18 +9,9 @@
 import UIKit
 
 class CustomButton: UIButton {
-
     override func awakeFromNib() {
         self.layer.cornerRadius = self.layer.bounds.height/2
+        imageView?.contentMode = .scaleAspectFit
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -25, bottom: 0, right: 0)
     }
-    
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
 }

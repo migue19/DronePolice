@@ -313,7 +313,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             self.settingsDAO.deleteAllSettings()
             
             //Log out Firebase
-            try! FIRAuth.auth()!.signOut()
+            try! Auth.auth().signOut()
             //Regresamos al inicio de la aplicacion
             let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoryBoardStart")
             UIApplication.shared.keyWindow?.rootViewController = loginViewController

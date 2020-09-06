@@ -18,15 +18,13 @@ class Utils {
     
     let colorCellGris: UIColor = UIColor.white
     
-    func FechaActual() -> String{
-        
+    func currentDate() -> String{
         let fecha = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
         let dateString = dateFormatter.string(from: fecha)
         print(dateString)
         return dateString
-    
     }
     
     func alerta(context: UIViewController, title: String, mensaje: String ){

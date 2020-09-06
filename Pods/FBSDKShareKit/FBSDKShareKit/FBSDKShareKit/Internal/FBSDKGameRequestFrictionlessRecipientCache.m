@@ -16,11 +16,23 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKGameRequestFrictionlessRecipientCache.h"
 
+#if defined BUCK || defined FBSDKCOCOAPODS
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#else
+@import FBSDKCoreKit;
+#endif
 
+#ifdef FBSDKCOCOAPODS
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
 #import "FBSDKCoreKit+Internal.h"
+#endif
 
 @implementation FBSDKGameRequestFrictionlessRecipientCache
 {
@@ -57,8 +69,13 @@
   if (!recipientIDArray && [recipients isKindOfClass:[NSString class]]) {
     recipientIDArray = [recipients componentsSeparatedByString:@","];
   }
-  NSSet *recipientIDs = [[NSSet alloc] initWithArray:recipientIDArray];
-  return [recipientIDs isSubsetOfSet:_recipientIDs];
+  if (recipientIDArray) {
+    NSSet *recipientIDs = [[NSSet alloc]
+                           initWithArray:recipientIDArray];
+    return [recipientIDs isSubsetOfSet:_recipientIDs];
+  } else {
+    return NO;
+  }
 }
 
 - (void)updateWithResults:(NSDictionary *)results
@@ -72,7 +89,7 @@
 
 - (void)_accessTokenDidChangeNotification:(NSNotification *)notification
 {
-  if (![notification.userInfo[FBSDKAccessTokenDidChangeUserID] boolValue]) {
+  if (![notification.userInfo[FBSDKAccessTokenDidChangeUserIDKey] boolValue]) {
     return;
   }
   _recipientIDs = nil;
@@ -83,6 +100,7 @@
 {
   if (![FBSDKAccessToken currentAccessToken]) {
     _recipientIDs = nil;
+    return;
   }
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/apprequestformerrecipients"
                                                                  parameters:@{@"fields":@""}
@@ -92,9 +110,11 @@
     if (!error) {
       NSArray *items = [FBSDKTypeUtility arrayValue:result[@"data"]];
       NSArray *recipientIDs = [items valueForKey:@"recipient_id"];
-      _recipientIDs = [[NSSet alloc] initWithArray:recipientIDs];
+      self->_recipientIDs = [[NSSet alloc] initWithArray:recipientIDs];
     }
   }];
 }
 
 @end
+
+#endif

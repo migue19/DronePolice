@@ -42,7 +42,7 @@ UNUserNotificationCenterDelegate{
       
         
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         registerForPushNotifications(application: application)
         
@@ -96,9 +96,9 @@ UNUserNotificationCenterDelegate{
         
         GMSPlacesClient.provideAPIKey("AIzaSyA_phjhBV0r7ng3Hnlwyb377Jpn9X831M0");//"AIzaSyA6BUpLFoU6tlMcAsSqhYtw46WEKHnOBAg")
         
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //self.connectToFcm()
         
@@ -304,12 +304,8 @@ UNUserNotificationCenterDelegate{
     
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-        
-        GIDSignIn.sharedInstance().handle(url,
-                                          sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,                                                                                                                annotation: options[UIApplication.OpenURLOptionsKey.annotation])
-        
-        
+        let handled = ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+        GIDSignIn.sharedInstance()?.handle(url)
         return handled
     }
     
