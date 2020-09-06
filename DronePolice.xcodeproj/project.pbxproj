@@ -18,6 +18,7 @@
 		1DB8D70D25055B940024813E /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70C25055B940024813E /* LoginProtocols.swift */; };
 		1DB8D70F2505756E0024813E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70E2505756E0024813E /* UIColor.swift */; };
 		1DF15DD22505871C00E073A5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF15DD12505871C00E073A5 /* BaseViewController.swift */; };
+		1DF15DD425058D4800E073A5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF15DD325058D4800E073A5 /* CustomTextField.swift */; };
 		1DF4E00024EB1126006E063D /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4DFFF24EB1126006E063D /* LoginEntity.swift */; };
 		1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF4E00124EB3472006E063D /* Colors.xcassets */; };
 		4934B1401FB68729005C8871 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934B13F1FB68729005C8871 /* HistorialViewController.swift */; };
@@ -81,6 +82,7 @@
 		1DB8D70C25055B940024813E /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		1DB8D70E2505756E0024813E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		1DF15DD12505871C00E073A5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1DF15DD325058D4800E073A5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		1DF4DFFF24EB1126006E063D /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		1DF4E00124EB3472006E063D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4934B13F1FB68729005C8871 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
@@ -224,7 +226,7 @@
 			children = (
 				1DF15DD0250586FB00E073A5 /* Base */,
 				1DB8D710250576410024813E /* Extensions */,
-				7DAD18DF1ED43D4F009B37E5 /* CustomViews */,
+				7DAD18DF1ED43D4F009B37E5 /* Components */,
 				1DC69E0624EA0D11003EBD40 /* Login */,
 			);
 			name = Redesign;
@@ -369,14 +371,15 @@
 			path = DronePolice;
 			sourceTree = "<group>";
 		};
-		7DAD18DF1ED43D4F009B37E5 /* CustomViews */ = {
+		7DAD18DF1ED43D4F009B37E5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				7DAD18E01ED43D76009B37E5 /* CustomButton.swift */,
 				7D8A409A1F012D69000A3178 /* SiguemeButton.swift */,
 				49D387E51FB4C7C3005A564A /* ImageCustom.swift */,
+				1DF15DD325058D4800E073A5 /* CustomTextField.swift */,
 			);
-			name = CustomViews;
+			name = Components;
 			sourceTree = "<group>";
 		};
 		7DAD18EA1ED442E0009B37E5 /* Service Rest */ = {
@@ -666,6 +669,7 @@
 				7D28BC541EE32220006CF726 /* EscanerController.swift in Sources */,
 				1D2D3A5624E5A23F008FFB16 /* SlideMenuController.swift in Sources */,
 				7D1BF89A1EE1FCF300A032A0 /* FXBlurView.m in Sources */,
+				1DF15DD425058D4800E073A5 /* CustomTextField.swift in Sources */,
 				7D28BC5A1EE35954006CF726 /* LoginResponse.swift in Sources */,
 				7D8A40951F007557000A3178 /* Miembro.swift in Sources */,
 				7DAD18E11ED43D76009B37E5 /* CustomButton.swift in Sources */,
