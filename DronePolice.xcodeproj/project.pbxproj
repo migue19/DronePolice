@@ -12,6 +12,12 @@
 		1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3BA6624E7291C006E6A61 /* Constants.swift */; };
 		1DB8D6FC250555390024813E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D6FA250555390024813E /* LoginVC.swift */; };
 		1DB8D6FD250555390024813E /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DB8D6FB250555390024813E /* LoginVC.xib */; };
+		1DB8D70425055AA20024813E /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70325055AA20024813E /* LoginInteractor.swift */; };
+		1DB8D70725055B0F0024813E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70625055B0F0024813E /* LoginPresenter.swift */; };
+		1DB8D70925055B330024813E /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70825055B330024813E /* LoginRouter.swift */; };
+		1DB8D70D25055B940024813E /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70C25055B940024813E /* LoginProtocols.swift */; };
+		1DB8D70F2505756E0024813E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D70E2505756E0024813E /* UIColor.swift */; };
+		1DF15DD22505871C00E073A5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF15DD12505871C00E073A5 /* BaseViewController.swift */; };
 		1DF4E00024EB1126006E063D /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF4DFFF24EB1126006E063D /* LoginEntity.swift */; };
 		1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF4E00124EB3472006E063D /* Colors.xcassets */; };
 		4934B1401FB68729005C8871 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934B13F1FB68729005C8871 /* HistorialViewController.swift */; };
@@ -69,6 +75,12 @@
 		1DA3BA6624E7291C006E6A61 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1DB8D6FA250555390024813E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		1DB8D6FB250555390024813E /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		1DB8D70325055AA20024813E /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		1DB8D70625055B0F0024813E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		1DB8D70825055B330024813E /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		1DB8D70C25055B940024813E /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		1DB8D70E2505756E0024813E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		1DF15DD12505871C00E073A5 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1DF4DFFF24EB1126006E063D /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
 		1DF4E00124EB3472006E063D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4934B13F1FB68729005C8871 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
@@ -150,10 +162,69 @@
 			name = Constants;
 			sourceTree = "<group>";
 		};
+		1DB8D6FE25055A490024813E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D6FB250555390024813E /* LoginVC.xib */,
+				1DB8D6FA250555390024813E /* LoginVC.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1DB8D6FF25055A530024813E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D70325055AA20024813E /* LoginInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		1DB8D70025055A5B0024813E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D70625055B0F0024813E /* LoginPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		1DB8D70125055A630024813E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				1DF4DFFF24EB1126006E063D /* LoginEntity.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		1DB8D70225055A6B0024813E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D70825055B330024813E /* LoginRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		1DB8D70A25055B460024813E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D70C25055B940024813E /* LoginProtocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		1DB8D710250576410024813E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DB8D70E2505756E0024813E /* UIColor.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		1DC69E0524EA0C5B003EBD40 /* Redesign */ = {
 			isa = PBXGroup;
 			children = (
-				1DF4DFFE24EB1013006E063D /* Entity */,
+				1DF15DD0250586FB00E073A5 /* Base */,
+				1DB8D710250576410024813E /* Extensions */,
+				7DAD18DF1ED43D4F009B37E5 /* CustomViews */,
 				1DC69E0624EA0D11003EBD40 /* Login */,
 			);
 			name = Redesign;
@@ -162,18 +233,22 @@
 		1DC69E0624EA0D11003EBD40 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				1DB8D6FA250555390024813E /* LoginVC.swift */,
-				1DB8D6FB250555390024813E /* LoginVC.xib */,
+				1DB8D70A25055B460024813E /* Protocols */,
+				1DB8D70225055A6B0024813E /* Router */,
+				1DB8D70125055A630024813E /* Entity */,
+				1DB8D70025055A5B0024813E /* Presenter */,
+				1DB8D6FF25055A530024813E /* Interactor */,
+				1DB8D6FE25055A490024813E /* View */,
 			);
 			name = Login;
 			sourceTree = "<group>";
 		};
-		1DF4DFFE24EB1013006E063D /* Entity */ = {
+		1DF15DD0250586FB00E073A5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				1DF4DFFF24EB1126006E063D /* LoginEntity.swift */,
+				1DF15DD12505871C00E073A5 /* BaseViewController.swift */,
 			);
-			name = Entity;
+			name = Base;
 			sourceTree = "<group>";
 		};
 		7D1BF8941EE1DB2600A032A0 /* DataBase */ = {
@@ -285,7 +360,6 @@
 				7D28BC571EE357C0006CF726 /* Librerias */,
 				7D28BC551EE35750006CF726 /* TabBarController */,
 				7D28BC581EE357E1006CF726 /* FireBase */,
-				7DAD18DF1ED43D4F009B37E5 /* CustomViews */,
 				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
 				1DF4E00124EB3472006E063D /* Colors.xcassets */,
 				7DEE016D1EF58BC000A4D419 /* StoryBoard */,
@@ -599,17 +673,22 @@
 				7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */,
 				7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */,
 				7DAD18D31ED439B2009B37E5 /* DronePolice.xcdatamodeld in Sources */,
+				1DF15DD22505871C00E073A5 /* BaseViewController.swift in Sources */,
 				7D31FD461EE86A8700102684 /* DireccionesViewController.swift in Sources */,
 				7DF5C7641F29D6DF00436BC2 /* EstadosViewController.swift in Sources */,
 				7DA45ADA1ED44C1F00111A99 /* UserResponse.swift in Sources */,
 				7DAD18CD1ED439B2009B37E5 /* LoginController.swift in Sources */,
 				7D8A409B1F012D69000A3178 /* SiguemeButton.swift in Sources */,
+				1DB8D70425055AA20024813E /* LoginInteractor.swift in Sources */,
+				1DB8D70F2505756E0024813E /* UIColor.swift in Sources */,
 				7D52142B1EEB3737000C6ACE /* ResponseGeneric.swift in Sources */,
 				7DEE016A1EF2F44500A4D419 /* RegistroViewController.swift in Sources */,
+				1DB8D70725055B0F0024813E /* LoginPresenter.swift in Sources */,
 				7DF5C7661F29DE0D00436BC2 /* Estado.swift in Sources */,
 				7D52142D1EEB3C9C000C6ACE /* SospechosoViewController.swift in Sources */,
 				7DF284E11EF1970B009D1F31 /* Direccion.swift in Sources */,
 				7D28BC521EE31C6A006CF726 /* AdminUserViewController.swift in Sources */,
+				1DB8D70925055B330024813E /* LoginRouter.swift in Sources */,
 				7D8A40991F0124C6000A3178 /* SiguemeViewController.swift in Sources */,
 				7D1F0D331EE4B1DD00F308A1 /* GenerateQrResponse.swift in Sources */,
 				7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */,
@@ -623,6 +702,7 @@
 				7DAD18E71ED442B2009B37E5 /* RestService.swift in Sources */,
 				1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */,
 				7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */,
+				1DB8D70D25055B940024813E /* LoginProtocols.swift in Sources */,
 				7D31FD481EE9CCBC00102684 /* AgregarDireccionesViewController.swift in Sources */,
 				7DAD18E91ED442D8009B37E5 /* ShortProfileResponse.swift in Sources */,
 				7D9965FF1EF2B29700BB10E4 /* LocationService.swift in Sources */,

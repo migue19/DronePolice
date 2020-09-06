@@ -17,9 +17,7 @@ import FirebaseMessaging
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,
-UNUserNotificationCenterDelegate{
-
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     static var persistentContainer: NSPersistentContainer = {
@@ -30,278 +28,38 @@ UNUserNotificationCenterDelegate{
         return persistentContainer.viewContext
     }
     
-    
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        //UITabBar.appearance().barTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
-        UITabBar.appearance().tintColor = UIColor.black
-        
-        
-      
-        
-        
         FirebaseApp.configure()
-        
-        registerForPushNotifications(application: application)
-        
-        /*if #available(iOS 10.0, *) {
-            let authOptions : UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_,_ in })
-            
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            // For iOS 10 data message (sent via FCM)
-            FIRMessaging.messaging().remoteMessageDelegate = self as? FIRMessagingDelegate
-            
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }*/
-        
-        //application.registerForRemoteNotifications()
-        
-       // NotificationCenter.default.addObserver(self,
-                                               //selector: #selector(self.tokenRefreshNotification),
-                                               //name: .firInstanceIDTokenRefresh,
-                                               //object: nil)
-        
-        /*if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
-            // For iOS 10 data message (sent via FCM
-            FIRMessaging.messaging().remoteMessageDelegate = self
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
-        application.registerForRemoteNotifications()
-        
-        FIRApp.configure()*/
-        
-        
-      
-        //AIzaSyCEwgYTGfBPKjg0UkyjSrBe_HjWm_qW5r0
-        GMSServices.provideAPIKey("AIzaSyA_phjhBV0r7ng3Hnlwyb377Jpn9X831M0");//"AIzaSyA6BUpLFoU6tlMcAsSqhYtw46WEKHnOBAg")
-        
-        GMSPlacesClient.provideAPIKey("AIzaSyA_phjhBV0r7ng3Hnlwyb377Jpn9X831M0");//"AIzaSyA6BUpLFoU6tlMcAsSqhYtw46WEKHnOBAg")
-        
+        GMSServices.provideAPIKey("AIzaSyA_phjhBV0r7ng3Hnlwyb377Jpn9X831M0");
+        GMSPlacesClient.provideAPIKey("AIzaSyA_phjhBV0r7ng3Hnlwyb377Jpn9X831M0");
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        //self.connectToFcm()
         
         let context = AppDelegate.viewContext
         do{
             let settings = try context.fetch(Settings.fetchRequest())
             if settings.count > 0 {
-                
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let main = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarController
-                self.window!.rootViewController = main
+                self.window?.rootViewController = main
+            } else {
+                let login = LoginVC()
+                self.window?.rootViewController = login
             }
         }
         catch{
             print("Error al obtener los Datos de la DB-> AppDelegate ")
         }
- 
         return true
     }
-    
-    
-    func registerForPushNotifications(application: UIApplication) {
-        
-        if #available(iOS 10.0, *){
-            UNUserNotificationCenter.current().delegate = self
-            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .sound, .alert], completionHandler: {(granted, error) in
-                if (granted)
-                {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-                else{
-                    //Do stuff if unsuccessful...
-                }
-            })
-        }
-            
-        else{ //If user is not on iOS 10 use the old methods we've been using
-            let notificationSettings = UIUserNotificationSettings(
-                types: [.badge, .sound, .alert], categories: nil)
-            application.registerUserNotificationSettings(notificationSettings)
-            
-        }
-        
-    }
-    
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         print(userInfo)
     }
     
-    
-    
-    /*func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        
-        /*let characterSet = CharacterSet(charactersIn: "<>")
-        let deviceTokenString = deviceToken.description.trimmingCharacters(in: characterSet).replacingOccurrences(of: " ", with: "");
-        print("token device: ", deviceTokenString)*/
-        
-        let characterSet = CharacterSet( charactersIn: "<>" )
-        
-        let deviceTokenString2 = NSString(format: "%@", deviceToken as CVarArg) as String
-        
-        let auxtoken = deviceTokenString2.trimmingCharacters(in: characterSet).replacingOccurrences(of: " ", with: "")
-        
-        print(auxtoken)
-        
-        let token = FIRInstanceID.instanceID().token()
-
-        
-        let deviceTokenString: String = ( deviceToken.description as NSString ).trimmingCharacters(in: characterSet).replacingOccurrences(of: " ", with: "");
-        
-        RestService().RegisterDevice(token: auxtoken, completionHandler: { (respose, error) in
-            print(respose ?? "error")
-        })
-        
-        
-        print(deviceTokenString2)
-        
-        FIRInstanceID.instanceID().setAPNSToken(deviceToken as Data, type: FIRInstanceIDAPNSTokenType.sandbox)
-    }*/
-    
-    
-    
-    
-    /*func tokenRefreshNotification(notification: NSNotification) {
-        // NOTE: It can be nil here
-        let refreshedToken = FIRInstanceID.instanceID().token()
-        print("InstanceID token: \(refreshedToken)")
-        
-        connectToFcm()
-    }*/
-    
-    
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        
-        print(notification.request.content.userInfo)
-        
-        let userInfo = notification.request.content.userInfo
-        
-        let title = userInfo["title"] as! String
-        
-        //let aps = userInfo["aps"] as! [String: Any]
-        //let alerta = aps["alert"] as! [String: Any]
-        //let descripcion = alerta["body"] as! String
-        
-        
-        let message = userInfo["message"] as! String
-        let alertavecinal =  Utils().convertToDictionary(text: message)
-        
-        let nombre = alertavecinal?["nombre"] as! String
-        let latitud = alertavecinal?["latitud"] as? Double ?? 0.0
-        let longitud = alertavecinal?["longitud"] as? Double ?? 0.0
-        let tipo = alertavecinal?["tipo"] as! Int
-        var comentario = ""
-        var imagen = ""
-        
-        if(tipo == 2){
-            comentario = alertavecinal?["comentario"] as! String
-            imagen = alertavecinal?["imagen"] as! String
-        }
-        
-     
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: MapaAlertaViewController = storyboard.instantiateViewController(withIdentifier: "MapaAlerta") as! MapaAlertaViewController
-        
-        vc.latitud = latitud
-        vc.longitud = longitud
-        vc.Snombre = nombre
-        vc.Sdescripcion = title
-        vc.comentario = comentario
-        vc.imagen = imagen
-        vc.tipo = tipo
-        
-        self.window?.rootViewController = vc
-    }
-    
-    @available(iOS 10.0, *)
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("notificacion push: ",response.notification.request.content.userInfo)
-        
-        let userInfo = response.notification.request.content.userInfo
-        
-        let title = userInfo["title"] as! String
-        
-        //let aps = userInfo["aps"] as! [String: Any]
-        //let alerta = aps["alert"] as! [String: Any]
-        //let descripcion = alerta["body"] as! String
-        
-        
-        let message = userInfo["message"] as! String
-        let alertavecinal =  Utils().convertToDictionary(text: message)
-        
-        let nombre = alertavecinal?["nombre"] as! String
-        let latitud = alertavecinal?["latitud"] as? Double ?? 0.0
-        let longitud = alertavecinal?["longitud"] as? Double ?? 0.0
-        let tipo = alertavecinal?["tipo"] as! Int
-        
-        
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc: MapaAlertaViewController = storyboard.instantiateViewController(withIdentifier: "MapaAlerta") as! MapaAlertaViewController
-        
-        vc.latitud = latitud
-        vc.longitud = longitud
-        vc.Snombre = nombre
-        vc.Sdescripcion = title
-        vc.tipo = tipo
-        
-        self.window?.rootViewController = vc
-        //Handle the notification
-    }
-    
-    
-    
-    
-    
-    
-    /*func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-        let d : [String : Any] = remoteMessage.appData["notification"] as! [String : Any]
-        print(d)
-        let body : String = d["body"] as! String
-        print(body)
-    }*/
-    
-    
-    /*func connectToFcm() {
-        FIRMessaging.messaging().connect { (error) in
-            if (error != nil) {
-                print("Unable to connect with FCM. \(String(describing: error))")
-            } else {
-                print("Connected to FCM.")
-            }
-        }
-    }*/
-    
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         print(userInfo)
     }
-    
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         let handled = ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation])
@@ -309,7 +67,6 @@ UNUserNotificationCenterDelegate{
         return handled
     }
     
-
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -379,5 +136,9 @@ UNUserNotificationCenterDelegate{
         }
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
 }
 

@@ -118,7 +118,7 @@ UINavigationControllerDelegate,LocationServiceDelegate, PopupUbicacionProtocolo{
     
     
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage //2
         //imageSospechoso.contentMode = .scaleAspectFit //3
         

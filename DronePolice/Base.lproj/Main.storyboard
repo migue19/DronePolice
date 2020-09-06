@@ -26,7 +26,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUv-K2-cwE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_azul" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-4H-37Y">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-4H-37Y">
                                                 <rect key="frame" x="62.5" y="58.5" width="250" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="U8Y-Cu-1Vk"/>
@@ -106,14 +106,14 @@
                                                     <segue destination="LPC-k0-suB" kind="show" id="jpJ-Rc-0qI"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="durango" translatesAutoresizingMaskIntoConstraints="NO" id="2Gy-6R-jXm">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_durango" translatesAutoresizingMaskIntoConstraints="NO" id="2Gy-6R-jXm">
                                                 <rect key="frame" x="45" y="442.5" width="60" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="QRA-rt-Gng"/>
                                                     <constraint firstAttribute="height" constant="70" id="r42-SQ-bDC"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drone" translatesAutoresizingMaskIntoConstraints="NO" id="l5a-b8-r5g">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_drone" translatesAutoresizingMaskIntoConstraints="NO" id="l5a-b8-r5g">
                                                 <rect key="frame" x="215" y="459.5" width="150" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="ZuT-9k-il5"/>
@@ -276,7 +276,7 @@
                         <viewControllerLayoutGuide type="bottom" id="OlC-pw-UoE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nBP-Px-HnF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zsc-R7-Zmk">
@@ -402,7 +402,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5SD-eZ-a95"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UE9-Do-wnc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DMgenerarcod" translatesAutoresizingMaskIntoConstraints="NO" id="NFR-Kc-vUc">
@@ -447,7 +447,7 @@
                         <viewControllerLayoutGuide type="bottom" id="JGu-cM-pzb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eIm-HN-ywV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HhI-U5-OEr">
@@ -905,7 +905,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ozf-Ga-pcM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v08-FC-4W6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="US4-dh-2hh" customClass="GMSMapView">
@@ -979,7 +979,7 @@
                         <viewControllerLayoutGuide type="bottom" id="frV-G9-ODH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DHj-Ay-d0B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="751"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iZ-uM-Maj">
@@ -1367,7 +1367,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1sQ-FV-IdS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="adE-Wl-YKF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bkU-Q1-8Kf">
@@ -1453,7 +1453,7 @@
                         <viewControllerLayoutGuide type="bottom" id="TXz-PA-K4A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lwx-R3-luz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCx-Gi-Gm0">
@@ -1646,7 +1646,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L2y-zT-Oyi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dr7-qT-t4a">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No se Detecta Codigo QR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R3-XX-X2s">
@@ -1700,7 +1700,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZOM-A1-qgq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pRp-d4-pwG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD/MM/AAAA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-I1-arB">
@@ -1856,8 +1856,6 @@
         <image name="close" width="30" height="30"/>
         <image name="configu" width="25" height="25"/>
         <image name="done" width="30" height="30"/>
-        <image name="drone" width="242" height="53"/>
-        <image name="durango" width="100" height="140"/>
         <image name="enestelugar" width="36" height="36"/>
         <image name="ic_close" width="512" height="512"/>
         <image name="ic_facebook" width="32" height="32"/>
@@ -1869,7 +1867,9 @@
         <image name="iconocasa" width="50" height="50"/>
         <image name="iconoeliminar_usuario" width="50" height="50"/>
         <image name="icperfiles" width="25" height="25"/>
-        <image name="logo_azul" width="360" height="126"/>
+        <image name="img_drone" width="242" height="53"/>
+        <image name="img_durango" width="100" height="140"/>
+        <image name="img_main_logo" width="360" height="126"/>
         <image name="menu" width="22" height="22"/>
         <image name="profile" width="16" height="16"/>
         <image name="profile_pic" width="16" height="16"/>
