@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+final class LoginInteractor {
+    var presenter: LoginInteractorOutputProtocol?
+    
+}
+extension LoginInteractor: LoginInteractorInputProtocol {
+    
+}

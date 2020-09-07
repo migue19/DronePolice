@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+final class LoginPresenter {
+    var view: LoginViewProtocol?
+    var interactor: LoginInteractorInputProtocol?
+    var router: LoginRouterProtocol?
+    
+}
+extension LoginPresenter: LoginPresenterProtocol {
+    
+}
+extension LoginPresenter: LoginInteractorOutputProtocol {
+    
+}
+

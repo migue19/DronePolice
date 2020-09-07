@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let main = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarController
                 self.window?.rootViewController = main
             } else {
-                let login = LoginVC()
-                self.window?.rootViewController = login
+                let login = LoginRouter()
+                self.window?.rootViewController = login.view
             }
         }
         catch{
