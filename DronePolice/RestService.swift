@@ -37,7 +37,7 @@ class RestService{
             "id": id
         ]
         restConnction.SendRequetService(url: Path.ELIMINARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -76,7 +76,7 @@ class RestService{
             ]
         
         restConnction.SendRequetService(url: Path.AGREGARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -112,7 +112,7 @@ class RestService{
             ]
         
         restConnction.SendRequetService(url: Path.MIEMBROSFAMILIARES, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -170,7 +170,7 @@ class RestService{
             ]
         
         restConnction.SendRequetService(url: Path.MIEMBROSVECINOS, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -232,7 +232,7 @@ class RestService{
         ]
         
         restConnction.SendRequetService(url: Path.OBTENERDIRECCIONES, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -308,7 +308,7 @@ class RestService{
             ]
         
         restConnction.SendRequetService(url: Path.ALERTASOSPECHOSO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil ,error)
@@ -348,7 +348,7 @@ class RestService{
         ]
 
         restConnction.SendRequetService(url: Path.REGISTERDEVICE, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil, error)
@@ -390,7 +390,7 @@ class RestService{
             "eliminar": eliminar
         ]
         restConnction.SendRequetService(url: Path.ACTUALIZARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil ,error)
@@ -437,7 +437,7 @@ class RestService{
                      "pais": pais ]
         ]
         restConnction.SendRequetService(url: Path.AGREGARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                completionHandler(nil,nil,error)
@@ -471,7 +471,7 @@ class RestService{
         
         //Utils().showLoading(context: context)
         restConnction.SendRequetService(url: Path.BOTONPANICO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error en el servicio: ", error!)
 //                completionHandler(nil,nil,error)
@@ -535,7 +535,7 @@ class RestService{
         
         
         restConnction.SendRequetService(url: Path.ESTADOS, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error!)
 //                return
@@ -599,7 +599,7 @@ class RestService{
         ]
         
         restConnction.SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil{
 //                print("Ocurrio un error al validar el usuario: ", error.debugDescription)
 //                completionHandler(nil,nil,error)
@@ -699,7 +699,7 @@ class RestService{
         
 
         RestConnection().SendRequetService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response)
+            print(response ?? "Algo")
 //            if(error != nil){
 //                print("Ocurrio un error al obtener el registro: ", error!)
 //                completionHandler(nil,error)
@@ -740,7 +740,7 @@ class RestService{
         ]
         
         RestConnection().SendRequetService(url: Path.SERVICE_TEST, body: parameters, secure: true, method: .post){ response, error in
-            print(response)
+            print(response ?? "Algo")
 //            if error != nil
 //            {
 //                print("Ocurrio un error al obtener el short Profile: ", error!)

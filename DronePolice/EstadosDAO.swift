@@ -6,7 +6,7 @@
 //  Copyright © 2017 Miguel Mexicano Herrera. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 
@@ -28,10 +28,8 @@ class EstadosDAO{
             }else{
                 print("Insertando Setting")
                 let estadoData = Estados(context: context)
-                
                 estadoData.estadoid = Int32(estado.estadoid)
                 estadoData.nombre = estado.nombre
-                
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
             }
         }

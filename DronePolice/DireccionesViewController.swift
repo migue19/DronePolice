@@ -194,24 +194,15 @@ extension DireccionesViewController: UITableViewDataSource{
 
    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: DireccionTableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DireccionTableViewCell
-        //let cell = Bundle.main.loadNibNamed("PromocionesTableViewCell", owner: self, options: nil)?.first as! PromocionesTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? DireccionTableViewCell else {
+            return UITableViewCell()
+        }
         let indice = indexPath.row
-        
-        
-        
         cell.direccionTxt.numberOfLines = 0;
         cell.direccionTxt.lineBreakMode = .byWordWrapping
         cell.direccionTxt.text = direcciones[indice].calle
-        
         cell.eliminarDir.tag = indice
         cell.eliminarDir.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        
-        //cell.imagen.image = promociones[indice].image
-        //cell.descripcion.text = promociones[indice].descripcion
-        //cell.fecha.text = promociones[indice].fecha
-        //cell.textLabel?.text = array[indexPath.row]
-        
         return cell
     }
     
@@ -226,8 +217,6 @@ extension DireccionesViewController: UITableViewDataSource{
     
     @objc func buttonAction(sender: UIButton!) {
         let indice = sender.tag
-        //print("Button tapped: \(iddireccion)")
-        
         RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono, referencia: direcciones[indice].referencia, calle: direcciones[indice].calle, numinterior: direcciones[indice].noInt, numexterior: direcciones[indice].noExt, colonia: direcciones[indice].colonia, ciudad: direcciones[indice].municipio, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais, eliminar: true, completionHandler: { (response,stringresponse ,error) in
             
             self.dismiss(animated: true, completion: nil)

@@ -46,8 +46,6 @@ class Utils {
     
     func showLoading(context: UIViewController){
         let pending = UIAlertController(title: "", message: nil, preferredStyle: .alert)
-        
-        
         //create an activity indicator
         let indicator = UIActivityIndicatorView(frame: pending.view.bounds)
         indicator.style = .white
@@ -59,9 +57,9 @@ class Utils {
         indicator.isUserInteractionEnabled = false // required otherwise if there buttons in the UIAlertController you will not be able to press them
         indicator.startAnimating()
         
-        let height:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
+        let height:NSLayoutConstraint = NSLayoutConstraint(item: pending.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
         
-        let width:NSLayoutConstraint = NSLayoutConstraint(item: pending.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
+        let width:NSLayoutConstraint = NSLayoutConstraint(item: pending.view!, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 80)
         
         pending.view.addConstraint(height)
         pending.view.addConstraint(width)

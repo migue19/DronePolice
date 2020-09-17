@@ -20,6 +20,10 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
+    static var sharedInstance = {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
+    
     static var persistentContainer: NSPersistentContainer = {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     }()

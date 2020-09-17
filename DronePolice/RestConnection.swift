@@ -5,6 +5,8 @@
 //  Created by Miguel Mexicano Herrera on 14/04/17.
 //  Copyright © 2017 Miguel Mexicano Herrera. All rights reserved.
 //
+import Foundation
+import UIKit
 public struct HTTPMethod: RawRepresentable, Equatable, Hashable {
     /// `CONNECT` method.
     public static let connect = HTTPMethod(rawValue: "CONNECT")

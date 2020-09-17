@@ -6,7 +6,7 @@
 //  Copyright © 2017 Miguel Mexicano Herrera. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 class SettingsDAO{

@@ -7,8 +7,8 @@ target 'DronePolice' do
 
   pod 'CryptoSwift'
   pod 'Firebase/Core'
-  pod 'Firebase/Auth'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Auth'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'

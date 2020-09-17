@@ -28,7 +28,6 @@
 		7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8901EE0F58200A032A0 /* TabBarController.swift */; };
 		7D1BF8931EE1D48500A032A0 /* SettingsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8921EE1D48500A032A0 /* SettingsDAO.swift */; };
 		7D1BF8971EE1FA3500A032A0 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8961EE1FA3500A032A0 /* PerfilViewController.swift */; };
-		7D1BF89A1EE1FCF300A032A0 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8991EE1FCF300A032A0 /* FXBlurView.m */; };
 		7D1BF89C1EE1FDF900A032A0 /* AvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF89B1EE1FDF900A032A0 /* AvatarImageView.swift */; };
 		7D1BF89E1EE20C3F00A032A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF89D1EE20C3F00A032A0 /* Utils.swift */; };
 		7D1BF8A01EE21BA100A032A0 /* GenerarQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */; };
@@ -92,8 +91,6 @@
 		7D1BF8901EE0F58200A032A0 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7D1BF8921EE1D48500A032A0 /* SettingsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDAO.swift; sourceTree = "<group>"; };
 		7D1BF8961EE1FA3500A032A0 /* PerfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
-		7D1BF8981EE1FCF300A032A0 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
-		7D1BF8991EE1FCF300A032A0 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		7D1BF89B1EE1FDF900A032A0 /* AvatarImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarImageView.swift; sourceTree = "<group>"; };
 		7D1BF89D1EE20C3F00A032A0 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7D1BF89F1EE21BA100A032A0 /* GenerarQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerarQRViewController.swift; sourceTree = "<group>"; };
@@ -311,15 +308,6 @@
 			name = Tabs;
 			sourceTree = "<group>";
 		};
-		7D28BC571EE357C0006CF726 /* Librerias */ = {
-			isa = PBXGroup;
-			children = (
-				7D1BF8981EE1FCF300A032A0 /* FXBlurView.h */,
-				7D1BF8991EE1FCF300A032A0 /* FXBlurView.m */,
-			);
-			name = Librerias;
-			sourceTree = "<group>";
-		};
 		7D28BC581EE357E1006CF726 /* FireBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +355,6 @@
 				7DEE016F1EF58D8E00A4D419 /* Login */,
 				7DA45AE11ED4773800111A99 /* PruebaViewController.swift */,
 				1DA3BA6524E72901006E6A61 /* Constants */,
-				7D28BC571EE357C0006CF726 /* Librerias */,
 				7D28BC551EE35750006CF726 /* TabBarController */,
 				7D28BC581EE357E1006CF726 /* FireBase */,
 				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
@@ -675,7 +662,6 @@
 				49D387E61FB4C7C3005A564A /* ImageCustom.swift in Sources */,
 				7D28BC541EE32220006CF726 /* EscanerController.swift in Sources */,
 				1D2D3A5624E5A23F008FFB16 /* SlideMenuController.swift in Sources */,
-				7D1BF89A1EE1FCF300A032A0 /* FXBlurView.m in Sources */,
 				1DF15DD425058D4800E073A5 /* CustomTextField.swift in Sources */,
 				7D28BC5A1EE35954006CF726 /* LoginResponse.swift in Sources */,
 				7D8A40951F007557000A3178 /* Miembro.swift in Sources */,
@@ -798,7 +784,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -853,7 +839,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

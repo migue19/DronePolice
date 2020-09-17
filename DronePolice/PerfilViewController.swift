@@ -77,7 +77,8 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         // Header - Blurred Image
         
         headerBlurImageView = UIImageView(frame: header.bounds)
-        headerBlurImageView?.image = UIImage(named: "city")?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
+        headerBlurImageView?.image = UIImage(named: "city")
+            //?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
         headerBlurImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         headerBlurImageView?.alpha = 0.0
         header.insertSubview(headerBlurImageView, belowSubview: headerLabel)
