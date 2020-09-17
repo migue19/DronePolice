@@ -6,8 +6,8 @@
 //  Copyright © 2017 Miguel Mexicano Herrera. All rights reserved.
 //
 
-import Foundation
-import Firebase
+import UIKit
+//import Firebase
 
 class RestService{
     let restConnction = RestConnection()

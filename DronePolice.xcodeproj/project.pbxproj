@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C7AEAE5CE44612C422C4559 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */; };
 		1D2D3A5624E5A23F008FFB16 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2D3A5524E5A23F008FFB16 /* SlideMenuController.swift */; };
 		1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3BA6624E7291C006E6A61 /* Constants.swift */; };
 		1DB8D6FC250555390024813E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB8D6FA250555390024813E /* LoginVC.swift */; };
@@ -23,6 +22,7 @@
 		1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF4E00124EB3472006E063D /* Colors.xcassets */; };
 		4934B1401FB68729005C8871 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4934B13F1FB68729005C8871 /* HistorialViewController.swift */; };
 		49D387E61FB4C7C3005A564A /* ImageCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D387E51FB4C7C3005A564A /* ImageCustom.swift */; };
+		5B1ACE75148B91BF35F66784 /* Pods_DronePolice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E43DBB0B57A17B97FF643C /* Pods_DronePolice.framework */; };
 		7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D157CBE1F1BE37D0033B52A /* DireccionTableViewCell.swift */; };
 		7D1BF88D1EDE01E800A032A0 /* BotonPanicoUiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF88C1EDE01E800A032A0 /* BotonPanicoUiViewController.swift */; };
 		7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1BF8901EE0F58200A032A0 /* TabBarController.swift */; };
@@ -135,9 +135,9 @@
 		7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DronePolice.entitlements; sourceTree = "<group>"; };
 		7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizacionViewController.swift; sourceTree = "<group>"; };
-		B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
-		F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
+		8DCE8B55B61A79854F685A60 /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
+		B8E43DBB0B57A17B97FF643C /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8D75CD81C7138C8EB9D92EF /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D298BF11EF2B8A3000D5EDC /* AdSupport.framework in Frameworks */,
-				0C7AEAE5CE44612C422C4559 /* Pods_DronePolice.framework in Frameworks */,
+				5B1ACE75148B91BF35F66784 /* Pods_DronePolice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				7D298BF01EF2B8A3000D5EDC /* AdSupport.framework */,
-				B03270F3BA9C68CC0A2B808A /* Pods_DronePolice.framework */,
+				B8E43DBB0B57A17B97FF643C /* Pods_DronePolice.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,8 +476,8 @@
 		EB8C90D1E30709C3AFC37477 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */,
-				B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */,
+				C8D75CD81C7138C8EB9D92EF /* Pods-DronePolice.debug.xcconfig */,
+				8DCE8B55B61A79854F685A60 /* Pods-DronePolice.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -489,12 +489,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DAD18DC1ED439B2009B37E5 /* Build configuration list for PBXNativeTarget "DronePolice" */;
 			buildPhases = (
-				DF874CD02C5BCF26232C3C6B /* [CP] Check Pods Manifest.lock */,
+				4073F5870F6A0414161656E9 /* [CP] Check Pods Manifest.lock */,
 				7DAD18C31ED439B2009B37E5 /* Sources */,
 				7DAD18C41ED439B2009B37E5 /* Frameworks */,
 				7DAD18C51ED439B2009B37E5 /* Resources */,
-				93A01D6DB3747E9231A21B74 /* [CP] Embed Pods Frameworks */,
-				726B6ADE605E75631D2F18A3 /* [CP] Copy Pods Resources */,
+				7ED9ED49F73A325F67BB8B1F /* [CP] Embed Pods Frameworks */,
+				FFD25E5A70E3095F9B2CCC4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -566,29 +566,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		726B6ADE605E75631D2F18A3 /* [CP] Copy Pods Resources */ = {
+		4073F5870F6A0414161656E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"$(DERIVED_FILE_DIR)/Pods-DronePolice-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		93A01D6DB3747E9231A21B74 /* [CP] Embed Pods Frameworks */ = {
+		7ED9ED49F73A325F67BB8B1F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,26 +626,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF874CD02C5BCF26232C3C6B /* [CP] Check Pods Manifest.lock */ = {
+		FFD25E5A70E3095F9B2CCC4C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DronePolice-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DronePolice/Pods-DronePolice-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -850,7 +850,7 @@
 		};
 		7DAD18DD1ED439B2009B37E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F56CCF3AF929D1E6114C2A2C /* Pods-DronePolice.debug.xcconfig */;
+			baseConfigurationReference = C8D75CD81C7138C8EB9D92EF /* Pods-DronePolice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -871,7 +871,7 @@
 		};
 		7DAD18DE1ED439B2009B37E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7F6053EE588B84199908D48 /* Pods-DronePolice.release.xcconfig */;
+			baseConfigurationReference = 8DCE8B55B61A79854F685A60 /* Pods-DronePolice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
