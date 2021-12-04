@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="DronePolice" customModuleProvider="target">
             <connections>
+                <outlet property="facebookButton" destination="9Zj-Do-RrQ" id="ncF-iJ-vKi"/>
+                <outlet property="googleButton" destination="bne-Xb-3Es" id="6cb-MG-AiK"/>
+                <outlet property="passwordTextField" destination="Ttn-zZ-PoO" id="knw-gp-Mnf"/>
+                <outlet property="userTextField" destination="fjS-sV-frw" id="CuK-2n-ALg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -38,7 +42,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <color key="textColor" name="TextButtonColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zj-Do-RrQ" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="242" width="382" height="40"/>
@@ -49,6 +53,9 @@
                             <state key="normal" title="Continuar" image="ic_facebook">
                                 <color key="titleColor" name="TextButtonColor"/>
                             </state>
+                            <connections>
+                                <action selector="pressFacebookButton:" destination="-1" eventType="touchUpInside" id="6YS-X8-0Ru"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bne-Xb-3Es" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="298" width="382" height="40"/>
@@ -60,6 +67,9 @@
                             <state key="normal" title="Continuar" image="ic_google">
                                 <color key="titleColor" name="TextButtonColor"/>
                             </state>
+                            <connections>
+                                <action selector="pressGoogleButton:" destination="-1" eventType="touchUpInside" id="Dsf-Xb-rkj"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -79,6 +89,9 @@
                                 <constraint firstAttribute="height" constant="40" id="fBs-bg-BRe"/>
                             </constraints>
                             <state key="normal" title="Ingresar"/>
+                            <connections>
+                                <action selector="pressLoginButton:" destination="-1" eventType="touchUpInside" id="gus-6c-uDw"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -100,6 +113,9 @@
                                 <constraint firstAttribute="height" constant="40" id="aUp-cM-bgf"/>
                             </constraints>
                             <state key="normal" title="Registrar"/>
+                            <connections>
+                                <action selector="pressRegisterButton:" destination="-1" eventType="touchUpInside" id="Vx2-ce-cTB"/>
+                            </connections>
                         </button>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_drone" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-JX-Ur7">
                             <rect key="frame" x="0.0" y="52" width="150" height="30"/>

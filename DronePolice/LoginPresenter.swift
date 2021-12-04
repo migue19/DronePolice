@@ -15,9 +15,13 @@ final class LoginPresenter {
     
 }
 extension LoginPresenter: LoginPresenterProtocol {
-    
+    func sendLoginInformation(request: LoginRequest) {
+        interactor?.requestLogin(request: request)
+    }
 }
 extension LoginPresenter: LoginInteractorOutputProtocol {
-    
+    func showError(message: String) {
+        view?.showToast(message: message)
+    }
 }
 

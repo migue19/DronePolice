@@ -10,15 +10,15 @@ import Foundation
 
 /// VIEW --> PRESENTER
 protocol LoginPresenterProtocol {
-    
+    func sendLoginInformation(request: LoginRequest)
 }
 /// PRESENTER --> VIEW
-protocol LoginViewProtocol {
+protocol LoginViewProtocol: GeneralViewProtocol {
     
 }
 /// PRESENTER --> INTERACTOR
 protocol LoginInteractorInputProtocol {
-    
+    func requestLogin(request: LoginRequest)
 }
 /// PRESENTER --> ROUTER
 protocol LoginRouterProtocol {
@@ -26,7 +26,19 @@ protocol LoginRouterProtocol {
 }
 /// INTERACTOR --> PRESENTER
 protocol LoginInteractorOutputProtocol {
-    
+    func showError(message: String)
+}
+protocol GeneralViewProtocol {
+    /// Función para mostrar el progress general.
+    func showHUD()
+    /// Función para ocultar el progress general.
+    func hideHUD()
+    /// Función para mostrar un mensaje en una alerta
+    /// - Parameters:
+    ///   - title: Título de la alerta
+    ///   - message: Cadena con el mensaje a mostrarse en la alerta.
+    func showAlert(title: String, message: String)
+    func showToast(message: String)
 }
 
 

@@ -9,10 +9,8 @@ target 'DronePolice' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Firebase/Auth'
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKShareKit'
-  pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'ConnectionLayer', :path => '~/Documents/Nut Systems/ConnectionLayer'
 end

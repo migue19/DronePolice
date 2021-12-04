@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ConnectionLayer
 //import Firebase
 
 class RestService{
@@ -584,28 +585,34 @@ class RestService{
     
     
     
-    func AccessUser(latitud: Double,longitud: Double,imei:String,usuario: String, password: String, completionHandler: @escaping (LoginResponse?,String?, Error?) -> ()){
-        
+    func AccessUser(request: LoginRequest, completionHandler: @escaping (LoginResponse?,String?, Error?) -> ()){
         let fecha = Utils().currentDate()
-  
-        
         let parameters: [String: Any]  = [
-            "imei": imei,
+            "imei": request.imei,
             "fecha": fecha,
-            "email": usuario,
-            "password": password,
-            "latitud": latitud,
-            "longitud": longitud
+            "email": request.user,
+            "password": request.password.md5(),
+            "latitud": request.latitude,
+            "longitud": request.longitude
         ]
         
-        restConnction.SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-//            if error != nil{
-//                print("Ocurrio un error al validar el usuario: ", error.debugDescription)
-//                completionHandler(nil,nil,error)
-//                return
-//            }
-//
+        RestConnection().SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
+            guard let data = response else {
+                return
+            }
+            do {
+//                if let response = try JSONDecoder().decode(SocialLoginResponse.self, from: data) {
+//                    if response.estatus == 1 {
+//                        let loginResponse = LoginResponse(token: response.token, estatus: response.estatus)
+//                        completionHandler(loginResponse,nil,nil)
+//                    } else {
+//                        let error: Error = NSError(domain: "service Error", code: -1, userInfo: nil)
+//                        completionHandler(nil, nil, error)
+//                    }
+//                }
+            } catch {
+                completionHandler(nil, nil, error)
+            }
 //            let estatus: Int = response!["estatus"].intValue
 //
 //            if(estatus == 0){

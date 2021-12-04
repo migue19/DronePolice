@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import FBSDKCoreKit
+import FacebookCore
 import GoogleSignIn
 import GoogleMaps
 import GooglePlaces

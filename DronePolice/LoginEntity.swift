@@ -23,7 +23,17 @@ struct SocialLoginRequest: Codable {
     let longitud: Double
     let urlImage: URL?
 }
+struct LoginRequest: Codable {
+    let latitude: Double
+    let longitude: Double
+    let imei: String
+    let user: String
+    let password: String
+}
 struct QRServiceResponse: Codable {
     let estatus: Int
     let qr: String
+}
+struct GenericError: Codable {
+    let error: String
 }

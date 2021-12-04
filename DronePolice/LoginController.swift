@@ -62,7 +62,8 @@ class LoginController: UIViewController,LoginButtonDelegate,GIDSignInDelegate,Lo
             Utils().alerta(context: self,title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
             return
         }
-        restService.AccessUser(latitud: latitud, longitud: longitud, imei: uuid,usuario: usuario.text!, password: contraseña.text!.md5(), completionHandler: { (response, stringresponse ,error) in
+        let request = LoginRequest(latitude: latitud, longitude: longitud, imei: uuid, user: usuario.text!, password: contraseña.text!.md5())
+        restService.AccessUser(request: request, completionHandler: { (response, stringresponse ,error) in
             if error != nil{
                 Utils().alerta(context: self, title: "Errror en el server", mensaje: error.debugDescription)
                 return
