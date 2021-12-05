@@ -13,7 +13,7 @@ class CustomButton: UIButton {
         layer.cornerRadius = layer.bounds.height/2
         imageView?.contentMode = .scaleAspectFit
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -25, bottom: 0, right: 0)
-        changeColor()
+        //changeColor()
     }
     private func changeColor(){
         if #available(iOS 13.0, *) {

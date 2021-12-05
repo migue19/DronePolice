@@ -2705,6 +2705,17 @@ Fuller's blog&lt;/a&gt;
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright 2021 Nut Systems, Inc. All rights reserved.
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>NutUtils</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>
                                  Apache License
                            Version 2.0, January 2004

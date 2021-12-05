@@ -109,6 +109,13 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - NutUtils (1.1.3):
+    - NutUtils/Optionals (= 1.1.3)
+    - NutUtils/UIImage (= 1.1.3)
+    - NutUtils/UIView (= 1.1.3)
+  - NutUtils/Optionals (1.1.3)
+  - NutUtils/UIImage (1.1.3)
+  - NutUtils/UIView (1.1.3)
   - PromisesObjC (1.2.10)
   - Protobuf (3.13.0)
 
@@ -121,6 +128,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - GoogleSignIn
+  - NutUtils
 
 SPEC REPOS:
   trunk:
@@ -144,6 +152,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - nanopb
+    - NutUtils
     - PromisesObjC
     - Protobuf
 
@@ -168,9 +177,10 @@ SPEC CHECKSUMS:
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  NutUtils: d49175f79ff7c734a883929916d60d403450bb3f
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
 
-PODFILE CHECKSUM: 42cc42d8093555e566a07620e4f7958f512b600c
+PODFILE CHECKSUM: 8018973e2b81327b82e618c12ee6b25ef8c37cc1
 
 COCOAPODS: 1.11.2

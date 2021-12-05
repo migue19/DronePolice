@@ -25,25 +25,25 @@ class RegistroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
+    
     @IBAction func Registro(_ sender: Any) {
         if(nombre.text! == "" || apePaterno.text! == "" || apeMaterno.text! == "" || telefono.text! == "" || email.text! == "" || contraseña.text! == "" || repetirContraseña.text! == ""){
-        Utils().alerta(context: self, title: "Errror", mensaje: "Los campos son obligatorios")
+            Utils().alerta(context: self, title: "Errror", mensaje: "Los campos son obligatorios")
             return
         }
         
@@ -61,36 +61,26 @@ class RegistroViewController: UIViewController {
             }
             let token = response?.token
             if(token == nil){
-              Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
-              return
+                Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
+                return
             }
-
+            
             let estatus = response?.estatus
             
             Auth.auth().createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
                 
                 if(error != nil){
-                 Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+                    Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
                 }
                 
             }
             
             if(estatus == 1){
-              Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
+                Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
             }
             
             
             
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

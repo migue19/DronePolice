@@ -8,8 +8,7 @@
 
 import UIKit
 import ConnectionLayer
-//import Firebase
-
+import NutUtils
 class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
@@ -102,11 +101,11 @@ class RestService{
     func ObtenerMiembrosFamiliares(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()){
         
         //Utils().showLoading(context: context)
-        let imei = settingsDAO.getDateForDescription(description: "imei")!
+        let imei = settingsDAO.getDateForDescription(description: "imei")
         let fecha = Utils().currentDate()
         
         let parameters: [String: Any]  = [
-            "imei": imei,
+            "imei": imei.valueOrEmpty,
             "fecha": fecha,
             "latitud": latitud,
             "longitud": longitud,
