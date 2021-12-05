@@ -29,6 +29,9 @@ class RegistroViewController: BaseViewController {
     }
     
     func setupView() {
+        nombre.autocapitalizationType = .words
+        apePaterno.autocapitalizationType = .words
+        apeMaterno.autocapitalizationType = .words
         email.tag = 100
         contraseña.tag = 200
         repetirContraseña.tag = 300
@@ -39,6 +42,7 @@ class RegistroViewController: BaseViewController {
     }
     
     @IBAction func Registro(_ sender: Any) {
+        view.endEditing(true)
         if(nombre.text! == "" || apePaterno.text! == "" || apeMaterno.text! == "" || telefono.text! == "" || email.text! == "" || contraseña.text! == "" || repetirContraseña.text! == ""){
             Utils().alerta(context: self, title: "Error", mensaje: "Los campos son obligatorios")
             return

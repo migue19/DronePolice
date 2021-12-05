@@ -236,7 +236,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="L7C-NJ-uQd"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetir Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAG-Uu-6ih">
                                                 <rect key="frame" x="16" y="450" width="343" height="50"/>
@@ -244,7 +244,7 @@
                                                     <constraint firstAttribute="height" constant="50" id="6UQ-VB-jdq"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZD-UY-ui3" customClass="CustomButton" customModule="DronePolice" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="550" width="343" height="50"/>
@@ -315,7 +315,7 @@
                     <navigationItem key="navigationItem" id="W0s-ic-d2p"/>
                     <connections>
                         <outlet property="apeMaterno" destination="8SJ-We-6Lp" id="LTZ-Pe-RYJ"/>
-                        <outlet property="apePaterno" destination="8SJ-We-6Lp" id="N7i-2K-Fbz"/>
+                        <outlet property="apePaterno" destination="dJJ-ak-Wi8" id="Yfe-nE-IRh"/>
                         <outlet property="contraseña" destination="SS7-v0-YAS" id="71k-eY-wgX"/>
                         <outlet property="email" destination="0j3-89-KnJ" id="sYl-Nq-CmL"/>
                         <outlet property="nombre" destination="EeL-oy-exG" id="t6e-Uo-mkY"/>

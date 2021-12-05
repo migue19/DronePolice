@@ -97,7 +97,6 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     func printKeyboardWillShow() -> Bool {
         if let firstResponder = self.findFirstResponder(inView: self.view) {
-            print("keyboardWillShow for \(firstResponder)")
             let tag = firstResponder.tag
             return tagsShowKeyboard.contains(tag)
         }

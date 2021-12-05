@@ -17,7 +17,7 @@ class ProgressViewCustom {
     var contentView: UIView
     init(inView: UIView) {
         self.contentView = inView
-        loader = AnimationView(name: "loader2")
+        loader = AnimationView(name: "loader")
         loader.contentMode = .scaleAspectFit
         loader.loopMode = .loop
         loader.animationSpeed = animationSpeed
