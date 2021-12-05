@@ -4,7 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - ConnectionLayer (0.0.2)
+  - ConnectionLayer (0.0.3)
   - CryptoSwift (1.3.1)
   - Firebase/Auth (6.32.2):
     - Firebase/CoreOnly
@@ -113,7 +113,7 @@ PODS:
   - Protobuf (3.13.0)
 
 DEPENDENCIES:
-  - ConnectionLayer (from `~/Documents/Nut Systems/ConnectionLayer`)
+  - ConnectionLayer
   - CryptoSwift
   - Firebase/Auth
   - Firebase/Core
@@ -125,6 +125,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AppAuth
+    - ConnectionLayer
     - CryptoSwift
     - Firebase
     - FirebaseAnalytics
@@ -146,13 +147,9 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
 
-EXTERNAL SOURCES:
-  ConnectionLayer:
-    :path: "~/Documents/Nut Systems/ConnectionLayer"
-
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  ConnectionLayer: 6e211e10e5e921a2797256b3ad1ba37cf43d1e52
+  ConnectionLayer: 1993c356ebc8d7c99ef59f9a89822d5d21dd360f
   CryptoSwift: f12f037f6d0fcd6d48c96db0071b653de64e6c4d
   Firebase: 47176280bfba198e531f909cfb1612dad216cb96
   FirebaseAnalytics: 3c2fee6a922023ccfda7af87e4e641bad1fc11ba
@@ -174,6 +171,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
 
-PODFILE CHECKSUM: be48db3036c95505e960889d6c2057c222eddcf6
+PODFILE CHECKSUM: 42cc42d8093555e566a07620e4f7958f512b600c
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

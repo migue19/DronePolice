@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FacebookLogin
+//import FacebookLogin
 /// Clase para controlar el Acceso de Usuarios
 class LoginVC: BaseViewController {
     @IBOutlet weak var userTextField: CustomTextField!
