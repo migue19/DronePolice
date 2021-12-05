@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegistroViewController: UIViewController {
+class RegistroViewController: BaseViewController {
     @IBOutlet weak var nombre: UITextField!
     @IBOutlet weak var apePaterno: UITextField!
     @IBOutlet weak var apeMaterno: UITextField!
@@ -25,36 +25,24 @@ class RegistroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
     }
     
     @IBAction func Registro(_ sender: Any) {
         if(nombre.text! == "" || apePaterno.text! == "" || apeMaterno.text! == "" || telefono.text! == "" || email.text! == "" || contraseña.text! == "" || repetirContraseña.text! == ""){
-            Utils().alerta(context: self, title: "Errror", mensaje: "Los campos son obligatorios")
+            Utils().alerta(context: self, title: "Error", mensaje: "Los campos son obligatorios")
             return
         }
-        
         if(contraseña.text != repetirContraseña.text){
             Utils().alerta(context: self, title: "Error", mensaje: "Las contraseñas deben ser iguales")
             return
         }
-        
-        
+        showHUD()
         restService.Registro(email: email.text!, password: contraseña.text!, nombre: nombre.text!, apePaterno: apePaterno.text!, apeMaterno: apeMaterno.text!, numCel: telefono.text!, idSocial: email.text!, social: "", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
-            
+            self.hideHUD()
             if(error != nil){
                 Utils().alerta(context: self, title: "Error en el Servidor", mensaje: error.debugDescription)
                 return
@@ -64,9 +52,7 @@ class RegistroViewController: UIViewController {
                 Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
                 return
             }
-            
             let estatus = response?.estatus
-            
             Auth.auth().createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
                 
                 if(error != nil){
@@ -74,13 +60,9 @@ class RegistroViewController: UIViewController {
                 }
                 
             }
-            
             if(estatus == 1){
                 Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
             }
-            
-            
-            
         }
     }
 }

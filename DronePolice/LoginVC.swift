@@ -37,9 +37,4 @@ class LoginVC: BaseViewController {
     }
 }
 extension LoginVC: LoginViewProtocol {
-    func showHUD() {
-    }
-    
-    func hideHUD() {
-    }
 }

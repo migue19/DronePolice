@@ -1,6 +1,6 @@
 # Uncomment the next line to define a global platform for your project
-source 'https://github.com/CocoaPods/Specs.git’
-source 'https://github.com/migue19/NutPodSpecs.git’
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/migue19/NutPodSpecs.git'
 platform :ios, '14.0'
 
 target 'DronePolice' do
@@ -16,6 +16,8 @@ target 'DronePolice' do
   pod 'GooglePlaces'
   pod 'ConnectionLayer'
   pod 'NutUtils'
+  pod 'lottie-ios'
+  pod 'SwiftMessages'
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|

@@ -68,6 +68,8 @@
 		7DF5C7681F29E0BF00436BC2 /* EstadosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5C7671F29E0BF00436BC2 /* EstadosResponse.swift */; };
 		7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7DF94CE51F152DF7003EC207 /* GoogleService-Info.plist */; };
 		7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */; };
+		F2290396275C6492008A2F2B /* ProgressViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2290395275C6492008A2F2B /* ProgressViewCustom.swift */; };
+		F2290399275C68B8008A2F2B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F2290398275C68B8008A2F2B /* loader.json */; };
 		F2E368B5275C382B002EA52F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B4275C382B002EA52F /* FacebookCore */; };
 		F2E368B7275C382B002EA52F /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B6275C382B002EA52F /* FacebookLogin */; };
 		F2E368B9275C382B002EA52F /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B8275C382B002EA52F /* FacebookShare */; };
@@ -141,6 +143,8 @@
 		8DCE8B55B61A79854F685A60 /* Pods-DronePolice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.release.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.release.xcconfig"; sourceTree = "<group>"; };
 		B8E43DBB0B57A17B97FF643C /* Pods_DronePolice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DronePolice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D75CD81C7138C8EB9D92EF /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
+		F2290395275C6492008A2F2B /* ProgressViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewCustom.swift; sourceTree = "<group>"; };
+		F2290398275C68B8008A2F2B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 		1DC69E0524EA0C5B003EBD40 /* Redesign */ = {
 			isa = PBXGroup;
 			children = (
+				F2290397275C6780008A2F2B /* Animations */,
+				F2290394275C6445008A2F2B /* Commons */,
 				1DF15DD0250586FB00E073A5 /* Base */,
 				1DB8D710250576410024813E /* Extensions */,
 				7DAD18DF1ED43D4F009B37E5 /* Components */,
@@ -486,6 +492,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		F2290394275C6445008A2F2B /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F2290395275C6492008A2F2B /* ProgressViewCustom.swift */,
+			);
+			name = Commons;
+			sourceTree = "<group>";
+		};
+		F2290397275C6780008A2F2B /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F2290398275C68B8008A2F2B /* loader.json */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		F2E368BA275C42AF002EA52F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +601,7 @@
 				1DB8D6FD250555390024813E /* LoginVC.xib in Resources */,
 				7DAD18D81ED439B2009B37E5 /* LaunchScreen.storyboard in Resources */,
 				7DAD18D51ED439B2009B37E5 /* Assets.xcassets in Resources */,
+				F2290399275C68B8008A2F2B /* loader.json in Resources */,
 				1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */,
 				7DAD18D01ED439B2009B37E5 /* Main.storyboard in Resources */,
 				7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */,
@@ -626,6 +649,8 @@
 				"${BUILT_PRODUCTS_DIR}/NutUtils/NutUtils.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -639,6 +664,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NutUtils.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,6 +732,7 @@
 				7D52142D1EEB3C9C000C6ACE /* SospechosoViewController.swift in Sources */,
 				7DF284E11EF1970B009D1F31 /* Direccion.swift in Sources */,
 				7D28BC521EE31C6A006CF726 /* AdminUserViewController.swift in Sources */,
+				F2290396275C6492008A2F2B /* ProgressViewCustom.swift in Sources */,
 				1DB8D70925055B330024813E /* LoginRouter.swift in Sources */,
 				7D8A40991F0124C6000A3178 /* SiguemeViewController.swift in Sources */,
 				7D1F0D331EE4B1DD00F308A1 /* GenerateQrResponse.swift in Sources */,
