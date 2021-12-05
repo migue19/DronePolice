@@ -48,7 +48,7 @@ class Utils {
         let pending = UIAlertController(title: "", message: nil, preferredStyle: .alert)
         //create an activity indicator
         let indicator = UIActivityIndicatorView(frame: pending.view.bounds)
-        indicator.style = .white
+        indicator.style = .medium
         indicator.color = colorPrincipal
         indicator.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -75,33 +75,42 @@ class Utils {
     
     
     func convertImageToBase64(image: UIImage) -> String{
-        
-        
-        
         let auximage = resizeImage(image: image)
-        
         let imageData = auximage.pngData()
-        
         let base64String = imageData?.base64EncodedString(options: .endLineWithCarriageReturn)
         return base64String!
-        
     }
     
     
     func setGradientBackground(context: UIViewController) {
         let colorTop =  Utils().colorBackground.cgColor
         let colorBottom = Utils().colorDegradado.cgColor
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [ colorTop, colorBottom]
         gradientLayer.locations = [ 0.60, 1.0]
         gradientLayer.frame = context.view.bounds
-        
         context.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
-    
-    
+    static func decode<T: Codable>(_ type: T.Type, from data: Data, serviceName: String) -> T? {
+        do {
+            return try JSONDecoder().decode(type, from: data)
+        } catch let DecodingError.dataCorrupted(context) {
+            print("DecodingError in \(serviceName) - Context:", context.codingPath)
+        } catch let DecodingError.keyNotFound(key, context) {
+            print("DecodingError in \(serviceName) - Key '\(key)' not found:", context.debugDescription)
+            print("DecodingError in \(serviceName) - CodingPath:", context.codingPath)
+        } catch let DecodingError.valueNotFound(value, context) {
+            print("DecodingError in \(serviceName) - Value '\(value)' not found:", context.debugDescription)
+            print("DecodingError in \(serviceName) - CodingPath:", context.codingPath)
+        } catch let DecodingError.typeMismatch(type, context) {
+            print("DecodingError in \(serviceName) - Type '\(type)' mismatch:", context.debugDescription)
+            print("DecodingError in \(serviceName) - CodingPath:", context.codingPath)
+        } catch {
+            print("DecodingError in \(serviceName) - Error: ", error)
+        }
+        return nil
+    }
     
     func resizeImage(image: UIImage) -> UIImage
     {

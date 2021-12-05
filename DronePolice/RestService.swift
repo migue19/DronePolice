@@ -9,6 +9,7 @@
 import UIKit
 import ConnectionLayer
 import NutUtils
+import Firebase
 class RestService{
     let restConnction = RestConnection()
     let settingsDAO = SettingsDAO()
@@ -594,7 +595,7 @@ class RestService{
             "longitud": request.longitude
         ]
         
-        RestConnection().SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnction.SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
             guard let data = response else {
                 return
             }
@@ -683,10 +684,8 @@ class RestService{
         }
     }
     
-    func Registro(email: String, password: String,nombre: String, apePaterno: String,apeMaterno: String,numCel: String,idSocial: String, social: String, imei: String, latitud: Double, longitud: Double, completionHandler: @escaping (LoginResponse?, Error?) -> ()){
-        
+    func Registro(email: String, password: String,nombre: String, apePaterno: String,apeMaterno: String,numCel: String,idSocial: String, social: String, imei: String, latitud: Double, longitud: Double, completion: @escaping (RegisterResponse?, String?) -> ()){
         let fecha = Utils().currentDate()
-        
         let parameters: [String: Any] = [
             "email": email,
             "password": password,
@@ -701,41 +700,37 @@ class RestService{
             "latitud": latitud,
             "longitud": longitud
         ]
-        
-        
-        RestConnection().SendRequetService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
-            //            if(error != nil){
-            //                print("Ocurrio un error al obtener el registro: ", error!)
-            //                completionHandler(nil, error)
-            //                return
-            //            }
-            //            let estatus: Int = response!["estatus"].intValue
-            //
-            //            if(estatus == 0){
-            //              let resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror as? Error)
-            //                return
-            //            }
-            //
-            //            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            //                if(error != nil){
-            //                    completionHandler(nil,error)
-            //                    return
-            //                }
-            //            }
-            //
-            //            let token: String = response!["token"].string!
-            //
-            //            let loginResponse = LoginResponse(token: token, estatus: estatus)
-            //
-            //          print(response ?? "")
-            //
-            //         completionHandler(loginResponse,nil)
-        }
-        
+        executeRegister(email: email, password: password, parameters: parameters, completionHandler: completion)
     }
-    
-    
+    func executeRegister(email: String, password: String,parameters: [String: Any], completionHandler: @escaping (RegisterResponse?, String?) -> ()) {
+        restConnction.SendRequetService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
+            if let error = error {
+                print("Ocurrio un error al obtener el registro: ", error)
+                completionHandler(nil, error)
+                return
+            }
+            guard let response = response else {
+                return
+            }
+            if let entity = Utils.decode(RegisterResponse.self, from: response, serviceName: "register_service".localized) {
+                if(entity.estatus == 0){
+                    let resperror = entity.error
+                    completionHandler(nil,resperror)
+                    return
+                }
+                Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    if(error != nil){
+                        completionHandler(nil, error?.localizedDescription)
+                        return
+                    }
+                }
+                completionHandler(entity, nil)
+            } else {
+                let error = "decode_error".localized
+                completionHandler(nil, error)
+            }
+        }
+    }
     func ServiceTest(usuario: String, isProfile: Bool, imei: String, completionHandler: @escaping (ShortProfileResponse?, Error?) -> ()){
         let parameters: [String: Any] = [
             "userId": usuario,

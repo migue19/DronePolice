@@ -53,26 +53,28 @@ class RegistroViewController: BaseViewController {
         }
         showHUD()
         restService.Registro(email: email.text!, password: contraseña.text!, nombre: nombre.text!, apePaterno: apePaterno.text!, apeMaterno: apeMaterno.text!, numCel: telefono.text!, idSocial: email.text!, social: "", imei: uuid, latitud: latitud, longitud: longitud) { (response, error) in
-            self.hideHUD()
-            if(error != nil){
-                Utils().alerta(context: self, title: "Error en el Servidor", mensaje: error.debugDescription)
-                return
-            }
-            let token = response?.token
-            if(token == nil){
-                Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
-                return
-            }
-            let estatus = response?.estatus
-            Auth.auth().createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
-                
-                if(error != nil){
-                    Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+            DispatchQueue.main.async {
+                self.hideHUD()
+                if let error = error {
+                    Utils().alerta(context: self, title: "Error en el Servidor", mensaje: error)
+                    return
                 }
-                
-            }
-            if(estatus == 1){
-                Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
+                let token = response?.token
+                if(token == nil){
+                    Utils().alerta(context: self, title: "Error en el Servidor", mensaje: "Error al registrar cliente.")
+                    return
+                }
+                let estatus = response?.estatus
+                Auth.auth().createUser(withEmail: self.email.text!, password: self.contraseña.text!) { (user, error) in
+                    
+                    if(error != nil){
+                        Utils().alerta(context: self, title: "Error Firebase", mensaje: error.debugDescription)
+                    }
+                    
+                }
+                if(estatus == 1){
+                    Utils().alerta(context: self, title: "Registro Exitoso", mensaje: "El registro fue correcto")
+                }
             }
         }
     }

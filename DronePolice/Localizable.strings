@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  DronePolice
+
+  Created by Miguel Mexicano Herrera on 05/12/21.
+  Copyright © 2021 Miguel Mexicano Herrera. All rights reserved.
+*/
+
+// MARK: - Service Name
+"register_service" = "Register Service";
+// MARK: - Errors
+"self_not_found" = "self-reference not found";
+"data_not_found" = "data not found";
+"decode_error" = "Error al decodificar los datos";

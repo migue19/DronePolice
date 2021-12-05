@@ -260,7 +260,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="oZD-UY-ui3" firstAttribute="top" secondItem="DAG-Uu-6ih" secondAttribute="bottom" constant="50" id="325-Ui-900"/>
                                             <constraint firstAttribute="trailing" secondItem="8SJ-We-6Lp" secondAttribute="trailing" constant="16" id="3WL-ew-J13"/>

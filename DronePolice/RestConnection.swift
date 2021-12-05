@@ -83,11 +83,6 @@ class RestConnection{
         let credentialData = "\(user):\(password)".data(using: String.Encoding.utf8)!
         let base64Credentials = credentialData.base64EncodedString()
         print(base64Credentials)
-//        let headers = [
-//            "Authorization": "Basic \(base64Credentials)",
-//            "Content-Type": "application/json",
-//            "Accept": "application/json"
-//        ]
         let headers: HTTPHeaders = HTTPHeaders([
             HTTPHeaders.authorization(username: user, password: password),
             HTTPHeaders.contentTypeJson,

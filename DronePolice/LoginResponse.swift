@@ -25,3 +25,9 @@ class LoginResponse {
        self.nombre = nombre
     }
 }
+
+struct RegisterResponse: Codable {
+    var estatus: Int
+    var error: String
+    var token: String
+}

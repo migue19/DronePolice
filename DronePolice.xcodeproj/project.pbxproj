@@ -70,6 +70,8 @@
 		7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF94CE81F190851003EC207 /* LocalizacionViewController.swift */; };
 		F2290396275C6492008A2F2B /* ProgressViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2290395275C6492008A2F2B /* ProgressViewCustom.swift */; };
 		F2290399275C68B8008A2F2B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F2290398275C68B8008A2F2B /* loader.json */; };
+		F234E1D1275D505C007C80F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F234E1D0275D505C007C80F6 /* Localizable.strings */; };
+		F234E1D3275D5086007C80F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234E1D2275D5086007C80F6 /* String.swift */; };
 		F2E368B5275C382B002EA52F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B4275C382B002EA52F /* FacebookCore */; };
 		F2E368B7275C382B002EA52F /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B6275C382B002EA52F /* FacebookLogin */; };
 		F2E368B9275C382B002EA52F /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B8275C382B002EA52F /* FacebookShare */; };
@@ -145,6 +147,8 @@
 		C8D75CD81C7138C8EB9D92EF /* Pods-DronePolice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DronePolice.debug.xcconfig"; path = "Target Support Files/Pods-DronePolice/Pods-DronePolice.debug.xcconfig"; sourceTree = "<group>"; };
 		F2290395275C6492008A2F2B /* ProgressViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewCustom.swift; sourceTree = "<group>"; };
 		F2290398275C68B8008A2F2B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		F234E1D0275D505C007C80F6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F234E1D2275D5086007C80F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB8D70E2505756E0024813E /* UIColor.swift */,
+				F234E1D2275D5086007C80F6 /* String.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 		1DC69E0524EA0C5B003EBD40 /* Redesign */ = {
 			isa = PBXGroup;
 			children = (
+				F234E1CF275D5013007C80F6 /* Localizables */,
 				F2290397275C6780008A2F2B /* Animations */,
 				F2290394275C6445008A2F2B /* Commons */,
 				1DF15DD0250586FB00E073A5 /* Base */,
@@ -508,6 +514,14 @@
 			name = Animations;
 			sourceTree = "<group>";
 		};
+		F234E1CF275D5013007C80F6 /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				F234E1D0275D505C007C80F6 /* Localizable.strings */,
+			);
+			name = Localizables;
+			sourceTree = "<group>";
+		};
 		F2E368BA275C42AF002EA52F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +617,7 @@
 				7DAD18D51ED439B2009B37E5 /* Assets.xcassets in Resources */,
 				F2290399275C68B8008A2F2B /* loader.json in Resources */,
 				1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */,
+				F234E1D1275D505C007C80F6 /* Localizable.strings in Resources */,
 				7DAD18D01ED439B2009B37E5 /* Main.storyboard in Resources */,
 				7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */,
 			);
@@ -714,6 +729,7 @@
 				7D8A40951F007557000A3178 /* Miembro.swift in Sources */,
 				7DAD18E11ED43D76009B37E5 /* CustomButton.swift in Sources */,
 				7DAD18E51ED442A7009B37E5 /* RestConnection.swift in Sources */,
+				F234E1D3275D5086007C80F6 /* String.swift in Sources */,
 				7DF94CE91F190851003EC207 /* LocalizacionViewController.swift in Sources */,
 				7D157CBF1F1BE37D0033B52A /* DireccionTableViewCell.swift in Sources */,
 				7DAD18D31ED439B2009B37E5 /* DronePolice.xcdatamodeld in Sources */,
