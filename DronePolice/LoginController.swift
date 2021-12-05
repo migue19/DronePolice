@@ -14,7 +14,7 @@ import FirebaseAuth
 import CoreLocation
 import Firebase
 
-class LoginController: UIViewController,LoginButtonDelegate,GIDSignInDelegate,LocationServiceDelegate,UITextFieldDelegate{//, CLLocationManagerDelegate{
+class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,LocationServiceDelegate,UITextFieldDelegate{//, CLLocationManagerDelegate{
     @IBOutlet weak var usuario: UITextField!
     @IBOutlet weak var contraseña: UITextField!
     @IBOutlet weak var fbButton: CustomButton!
@@ -39,17 +39,6 @@ class LoginController: UIViewController,LoginButtonDelegate,GIDSignInDelegate,Lo
         self.setGradientBackground()
         self.setupViewResizerOnKeyboardShown()
         settingsDAO.getData()
-//        let sizetext = (fbButton.titleLabel?.bounds.size.width)!
-//        let sizeButton = fbButton.bounds.size.width / 2 - sizetext
-//        fbButton.titleEdgeInsets = UIEdgeInsets(
-//            top: 0.0,left: sizeButton - 90, bottom: 0.0, right: 0)
-//        let sizetextg = (googButton.titleLabel?.bounds.size.width)!
-//        let sizeButtong = googButton.bounds.size.width / 2 - sizetextg
-//        googButton.titleEdgeInsets = UIEdgeInsets(
-//            top: 0.0,left: sizeButtong - 90, bottom: 0.0, right: 0)
-        // Do any additional setup after loading the view, typically from a nib.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,11 +48,13 @@ class LoginController: UIViewController,LoginButtonDelegate,GIDSignInDelegate,Lo
     @IBAction func AccessUser(_ sender: Any) {
         if usuario.text == "" || contraseña.text == ""
         {
-            Utils().alerta(context: self,title: "Error en la Informacion", mensaje: "\nLos campos son obligatorios")
+            showMessage(message: "Los campos son obligatorios", type: .error)
             return
         }
         let request = LoginRequest(latitude: latitud, longitude: longitud, imei: uuid, user: usuario.text!, password: contraseña.text!.md5())
+        showHUD()
         restService.AccessUser(request: request, completionHandler: { (response, stringresponse ,error) in
+            self.hideHUD()
             if error != nil{
                 Utils().alerta(context: self, title: "Errror en el server", mensaje: error.debugDescription)
                 return
@@ -329,14 +320,6 @@ class LoginController: UIViewController,LoginButtonDelegate,GIDSignInDelegate,Lo
     func tracingLocationDidFailWithError(_ error: NSError) {
         print("tracing Location Error : \(error.description)")
     }
-
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
-    
-   
    // MARK: keyboard autoresizing
     func setupViewResizerOnKeyboardShown() {
         NotificationCenter.default.addObserver(self,

@@ -581,9 +581,6 @@ class RestService{
         
         
     }
-    
-    
-    
     func AccessUser(request: LoginRequest, completionHandler: @escaping (LoginResponse?,String?, Error?) -> ()){
         let fecha = Utils().currentDate()
         let parameters: [String: Any]  = [
@@ -594,41 +591,28 @@ class RestService{
             "latitud": request.latitude,
             "longitud": request.longitude
         ]
-        
         restConnction.SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
-            guard let data = response else {
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al obtener el registro: ", error)
+                    completionHandler(nil, error, nil)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(LoginResponse.self, from: data, serviceName: "register_service".localized) {
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror,nil)
+                        return
+                    }
+                    completionHandler(entity, nil, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error, nil)
+                }
             }
-            do {
-                //                if let response = try JSONDecoder().decode(SocialLoginResponse.self, from: data) {
-                //                    if response.estatus == 1 {
-                //                        let loginResponse = LoginResponse(token: response.token, estatus: response.estatus)
-                //                        completionHandler(loginResponse,nil,nil)
-                //                    } else {
-                //                        let error: Error = NSError(domain: "service Error", code: -1, userInfo: nil)
-                //                        completionHandler(nil, nil, error)
-                //                    }
-                //                }
-            } catch {
-                completionHandler(nil, nil, error)
-            }
-            //            let estatus: Int = response!["estatus"].intValue
-            //
-            //            if(estatus == 0){
-            //                let resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //            let token: String  = response!["token"].stringValue
-            //
-            //            let nombre: String = response!["nombre"].stringValue
-            //
-            //
-            //            let loginResponse = LoginResponse.init(token: token, estatus: estatus,nombre: nombre)
-            //
-            //            completionHandler(loginResponse,nil,nil)
-            
             //print(response ?? "")
             /*if response?.dictionaryObject?.count == nil
              {
@@ -645,7 +629,6 @@ class RestService{
              let user = UserResponse(usuarioid: usuarioId,rol_id: rol_id,name: name,middlename: middlename,surname: surname,email: email)
              completionHandler(user, nil, nil)
              }*/
-            
         }
     }
     
@@ -672,7 +655,7 @@ class RestService{
             do {
                 let response = try JSONDecoder().decode(SocialLoginResponse.self, from: data)
                 if response.estatus == 1 {
-                    let loginResponse = LoginResponse(token: response.token, estatus: response.estatus)
+                    let loginResponse = LoginResponse(estatus: response.estatus, error: nil, token: response.token, nombre: nil)
                     completionHandler(loginResponse,nil)
                 } else {
                     let error: Error = NSError(domain: "service Error", code: -1, userInfo: nil)

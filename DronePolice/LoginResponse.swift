@@ -7,27 +7,15 @@
 //
 
 import Foundation
-
-class LoginResponse {
-    var token = String()
-    var estatus = Int()
-    var nombre = String()
-    
-    init(token: String, estatus: Int) {
-        self.token = token
-        self.estatus = estatus
-    }
-    
-    
-    init(token:String,estatus: Int, nombre:String){
-       self.token = token
-       self.estatus = estatus
-       self.nombre = nombre
-    }
-}
-
 struct RegisterResponse: Codable {
     var estatus: Int
-    var error: String
-    var token: String
+    var error: String?
+    var token: String?
+}
+
+struct LoginResponse: Codable {
+    var estatus: Int
+    var error: String?
+    var token: String?
+    var nombre: String?
 }
