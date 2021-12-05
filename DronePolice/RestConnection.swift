@@ -94,7 +94,7 @@ class RestConnection{
             HTTPHeaders.acceptJson
         ])
         
-        connectionLayer.connectionRequest(url: url, method: method, headers: headers, data: nil) { data, respString in
+        connectionLayer.connectionRequest(url: url, method: method, headers: headers, parameters: body) { data, respString in
             guard let data = data else {
                 completion(nil, respString)
                 return

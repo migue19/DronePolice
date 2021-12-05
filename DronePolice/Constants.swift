@@ -11,7 +11,7 @@ import Foundation
 struct Path {
     /// Url principal de microservicios.
     static private var base: String {
-        return "http://canisoft.org/dronpolice-core/secured/dronpoliceService"
+        return "http://pay.inovaweb.com.mx/dronpolice-core"
     }
     /// Url para modulo de pago de servicios.
     static var SERVICE_TEST: String {
