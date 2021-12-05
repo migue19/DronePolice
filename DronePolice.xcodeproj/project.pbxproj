@@ -352,21 +352,19 @@
 			isa = PBXGroup;
 			children = (
 				7DF94CE71F153EB1003EC207 /* DronePolice.entitlements */,
+				7DEE016E1EF58BDC00A4D419 /* Bridge DronePolice */,
+				1DF4E00124EB3472006E063D /* Colors.xcassets */,
+				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
+				7D28BC581EE357E1006CF726 /* FireBase */,
+				1DA3BA6524E72901006E6A61 /* Constants */,
 				1DC69E0524EA0C5B003EBD40 /* Redesign */,
 				7DEE016C1EF58B7B00A4D419 /* AppDelegate */,
 				7DEE016B1EF58B6100A4D419 /* Utils */,
 				7DF285001EF20709009D1F31 /* Location */,
 				7DAD18EA1ED442E0009B37E5 /* Service Rest */,
 				7D1BF8941EE1DB2600A032A0 /* DataBase */,
-				7DEE016F1EF58D8E00A4D419 /* Login */,
 				7DA45AE11ED4773800111A99 /* PruebaViewController.swift */,
-				1DA3BA6524E72901006E6A61 /* Constants */,
-				7D28BC551EE35750006CF726 /* TabBarController */,
-				7D28BC581EE357E1006CF726 /* FireBase */,
-				7DAD18D41ED439B2009B37E5 /* Assets.xcassets */,
-				1DF4E00124EB3472006E063D /* Colors.xcassets */,
-				7DEE016D1EF58BC000A4D419 /* StoryBoard */,
-				7DEE016E1EF58BDC00A4D419 /* Bridge DronePolice */,
+				F2E368BA275C42AF002EA52F /* Feature */,
 				7DAD18D91ED439B2009B37E5 /* Info.plist */,
 			);
 			path = DronePolice;
@@ -486,6 +484,16 @@
 				8DCE8B55B61A79854F685A60 /* Pods-DronePolice.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F2E368BA275C42AF002EA52F /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				7DEE016D1EF58BC000A4D419 /* StoryBoard */,
+				7DEE016F1EF58D8E00A4D419 /* Login */,
+				7D28BC551EE35750006CF726 /* TabBarController */,
+			);
+			name = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
