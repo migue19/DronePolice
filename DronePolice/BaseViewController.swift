@@ -9,6 +9,7 @@
 import UIKit
 import SwiftMessages
 class BaseViewController: UIViewController {
+    var tagsShowKeyboard = [100, 200 ,300]
     var progress: ProgressViewCustom?
     override func viewDidLoad() {
         progress = ProgressViewCustom(inView: self.view)
@@ -54,12 +55,20 @@ class BaseViewController: UIViewController {
         view.endEditing(true)
     }
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            self.view.frame.origin.y -= keyboardSize.height
+        if printKeyboardWillShow() {
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                if self.view.frame.origin.y == 0 {
+                    self.view.frame.origin.y -= keyboardSize.height
+                }
+            }
         }
     }
     @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+        if printKeyboardWillShow() {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
     }
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -83,5 +92,28 @@ class BaseViewController: UIViewController {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+    }
+}
+extension BaseViewController {
+    func printKeyboardWillShow() -> Bool {
+        if let firstResponder = self.findFirstResponder(inView: self.view) {
+            print("keyboardWillShow for \(firstResponder)")
+            let tag = firstResponder.tag
+            return tagsShowKeyboard.contains(tag)
+        }
+        return false
+    }
+    func findFirstResponder(inView view: UIView) -> UIView? {
+        for subView in view.subviews {
+            if subView.isFirstResponder {
+                return subView
+            }
+
+            if let recursiveSubView = self.findFirstResponder(inView: subView) {
+                return recursiveSubView
+            }
+        }
+
+        return nil
     }
 }

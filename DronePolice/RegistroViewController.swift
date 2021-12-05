@@ -25,6 +25,13 @@ class RegistroViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    func setupView() {
+        email.tag = 100
+        contraseña.tag = 200
+        repetirContraseña.tag = 300
     }
     
     override func didReceiveMemoryWarning() {
