@@ -44,23 +44,23 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
     override func viewDidAppear(_ animated: Bool) {
         LocationService.sharedInstance.startUpdatingLocation()
     }
-
+    
     @IBAction func AccessUser(_ sender: Any) {
         if usuario.text == "" || contraseña.text == ""
         {
             showMessage(message: "Los campos son obligatorios", type: .error)
             return
         }
-        let request = LoginRequest(latitude: latitud, longitude: longitud, imei: uuid, user: usuario.text!, password: contraseña.text!.md5())
+        let request = LoginRequest(latitude: latitud, longitude: longitud, imei: uuid, user: usuario.text!, password: contraseña.text!)
         showHUD()
-        restService.AccessUser(request: request, completionHandler: { (response, stringresponse ,error) in
+        restService.AccessUser(request: request, completionHandler: { (response, stringResponse ,error) in
             self.hideHUD()
             if error != nil{
                 Utils().alerta(context: self, title: "Errror en el server", mensaje: error.debugDescription)
                 return
             }
-            if(stringresponse != nil){
-                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+            if let stringResponse = stringResponse{
+                self.showMessage(message: stringResponse, type: .error)
                 return
             }
             let token = response?.token
@@ -113,8 +113,8 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
                     
                     print(respose ?? "error")
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBar") as! TabBarController
-                    
-                    self.present(vc, animated: true, completion: nil)
+                    UIApplication.shared.windows.first?.rootViewController = vc
+                    UIApplication.shared.windows.first?.makeKeyAndVisible()
                 })
             }
         })
@@ -123,15 +123,12 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Login Facebook
-    
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
         print("Salio de Facebook")
     }
-    
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if error != nil {
             print(error ?? "")
@@ -139,7 +136,6 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
         }
         print("Logueado Correctamente Con Facebook")
     }
-    
     @IBAction func CustomLoginFB(_ sender: Any) {
         LoginManager().logIn(permissions: ["read_stream","email", "public_profile"], from: self){
             (result,error) in
@@ -235,19 +231,19 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
         
         let authentication = user.authentication
         let credential = GoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
-                                                          accessToken: (authentication?.accessToken)!)
+                                                       accessToken: (authentication?.accessToken)!)
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if(error != nil){
-            Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
+                Utils().alerta(context: self, title: "Error", mensaje: "Error con logueo firebase: \(error.debugDescription)")
                 return
             }
             print("se agrego a firebase")
             
             /*if(self.latitud == 0 || self.longitud == 0 ){
-                Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
-                return
-            }*/
+             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
+             return
+             }*/
             let request = SocialLoginRequest(email: email, name: firstName, apePaterno: paterno, apeMaterno: materno, numberCell: "", idSocial: idgoogle, social: "google", imei: self.uuid, latitud: self.latitud, longitud: self.longitud, urlImage: urlimage)
             self.registerWithSocialNetwork(request: request)
             
@@ -314,13 +310,13 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
     func tracingLocation(_ currentLocation: CLLocation) {
         latitud = currentLocation.coordinate.latitude
         longitud = currentLocation.coordinate.longitude
-
+        
     }
     
     func tracingLocationDidFailWithError(_ error: NSError) {
         print("tracing Location Error : \(error.description)")
     }
-   // MARK: keyboard autoresizing
+    // MARK: keyboard autoresizing
     func setupViewResizerOnKeyboardShown() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShowForResizing),
@@ -336,7 +332,7 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
     
     @objc func keyboardWillShowForResizing(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-            let window = self.view.window?.frame {
+           let window = self.view.window?.frame {
             // We're not just minusing the kb height from the view height because
             // the view could already have been resized for the keyboard before
             self.view.frame = CGRect(x: self.view.frame.origin.x,
@@ -347,7 +343,6 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
             debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
         }
     }
-    
     
     @objc func keyboardWillHideForResizing(notification: Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -361,14 +356,9 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
         }
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
-    
-
-
 }
 

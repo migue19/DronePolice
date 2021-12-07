@@ -332,33 +332,43 @@ class RestService{
     
     
     
-    func RegisterDevice(latitud: Double,longitud: Double,imei: String, token: String,completionHandler: @escaping (ResponseGeneric?, Error?) -> ()){
-        
-        //Utils().showLoading(context: context)
+    func RegisterDevice(latitud: Double, longitud: Double, imei: String, token: String, completionHandler: @escaping (ResponseGeneric?, String?) -> ()) {
         let imei = imei
         let fecha = Utils().currentDate()
-        
         let parameters: [String: Any] = [
             "tokenDispositivo": token,
             "imei": imei,
             "fecha": fecha,
             "latitud": latitud,
             "longitud": longitud,
-            
         ]
-        
         restConnction.SendRequetService(url: Path.REGISTERDEVICE, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil, error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            let response = ResponseGeneric(estatus: estatus, error: "")
-            //
-            //            completionHandler(response,nil)
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(LoginResponse.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error {
+                        completionHandler(nil, error)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror)
+                        return
+                    }
+                    let response = ResponseGeneric(estatus: entity.estatus.valueOrZero, error: "")
+                    completionHandler(response, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error)
+                }
+            }
         }
     }
     
@@ -602,6 +612,10 @@ class RestService{
                     return
                 }
                 if let entity = Utils.decode(LoginResponse.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error {
+                        completionHandler(nil, error, nil)
+                        return
+                    }
                     if(entity.estatus == 0){
                         let resperror = entity.error
                         completionHandler(nil,resperror,nil)
@@ -696,6 +710,10 @@ class RestService{
                 return
             }
             if let entity = Utils.decode(RegisterResponse.self, from: response, serviceName: "register_service".localized) {
+                if let error = entity.error {
+                    completionHandler(nil, error)
+                    return
+                }
                 if(entity.estatus == 0){
                     let resperror = entity.error
                     completionHandler(nil,resperror)

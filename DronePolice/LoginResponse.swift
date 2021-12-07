@@ -8,13 +8,13 @@
 
 import Foundation
 struct RegisterResponse: Codable {
-    var estatus: Int
+    var estatus: Int?
     var error: String?
     var token: String?
 }
 
 struct LoginResponse: Codable {
-    var estatus: Int
+    var estatus: Int?
     var error: String?
     var token: String?
     var nombre: String?
