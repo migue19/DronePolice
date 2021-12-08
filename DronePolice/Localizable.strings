@@ -8,6 +8,7 @@
 
 // MARK: - Service Name
 "register_service" = "Register Service";
+"members_service" = "Members Service";
 // MARK: - Errors
 "self_not_found" = "self-reference not found";
 "data_not_found" = "data not found";

@@ -72,6 +72,9 @@
 		F2290399275C68B8008A2F2B /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = F2290398275C68B8008A2F2B /* loader.json */; };
 		F234E1D1275D505C007C80F6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F234E1D0275D505C007C80F6 /* Localizable.strings */; };
 		F234E1D3275D5086007C80F6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234E1D2275D5086007C80F6 /* String.swift */; };
+		F28349682761031400E136C5 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28349672761031400E136C5 /* Entities.swift */; };
+		F283496C276110B900E136C5 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283496A276110B900E136C5 /* ProfileTableViewCell.swift */; };
+		F283496D276110B900E136C5 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F283496B276110B900E136C5 /* ProfileTableViewCell.xib */; };
 		F2E368B5275C382B002EA52F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B4275C382B002EA52F /* FacebookCore */; };
 		F2E368B7275C382B002EA52F /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B6275C382B002EA52F /* FacebookLogin */; };
 		F2E368B9275C382B002EA52F /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = F2E368B8275C382B002EA52F /* FacebookShare */; };
@@ -149,6 +152,9 @@
 		F2290398275C68B8008A2F2B /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		F234E1D0275D505C007C80F6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		F234E1D2275D5086007C80F6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F28349672761031400E136C5 /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		F283496A276110B900E136C5 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		F283496B276110B900E136C5 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,7 @@
 		1DC69E0524EA0C5B003EBD40 /* Redesign */ = {
 			isa = PBXGroup;
 			children = (
+				F2834966276102FE00E136C5 /* Entities */,
 				F234E1CF275D5013007C80F6 /* Localizables */,
 				F2290397275C6780008A2F2B /* Animations */,
 				F2290394275C6445008A2F2B /* Commons */,
@@ -467,6 +474,7 @@
 		7DEE01701EF5BFE600A4D419 /* Configuracion */ = {
 			isa = PBXGroup;
 			children = (
+				F28349692761103600E136C5 /* Cell */,
 				7D1BF8961EE1FA3500A032A0 /* PerfilViewController.swift */,
 			);
 			name = Configuracion;
@@ -520,6 +528,23 @@
 				F234E1D0275D505C007C80F6 /* Localizable.strings */,
 			);
 			name = Localizables;
+			sourceTree = "<group>";
+		};
+		F2834966276102FE00E136C5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F28349672761031400E136C5 /* Entities.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		F28349692761103600E136C5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F283496A276110B900E136C5 /* ProfileTableViewCell.swift */,
+				F283496B276110B900E136C5 /* ProfileTableViewCell.xib */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		F2E368BA275C42AF002EA52F /* Feature */ = {
@@ -617,6 +642,7 @@
 				7DAD18D51ED439B2009B37E5 /* Assets.xcassets in Resources */,
 				F2290399275C68B8008A2F2B /* loader.json in Resources */,
 				1DF4E00224EB3472006E063D /* Colors.xcassets in Resources */,
+				F283496D276110B900E136C5 /* ProfileTableViewCell.xib in Resources */,
 				F234E1D1275D505C007C80F6 /* Localizable.strings in Resources */,
 				7DAD18D01ED439B2009B37E5 /* Main.storyboard in Resources */,
 				7DF94CE61F152DF7003EC207 /* GoogleService-Info.plist in Resources */,
@@ -762,7 +788,9 @@
 				1DB8D6FC250555390024813E /* LoginVC.swift in Sources */,
 				7DAD18E71ED442B2009B37E5 /* RestService.swift in Sources */,
 				1DA3BA6724E7291C006E6A61 /* Constants.swift in Sources */,
+				F283496C276110B900E136C5 /* ProfileTableViewCell.swift in Sources */,
 				7D1BF8911EE0F58200A032A0 /* TabBarController.swift in Sources */,
+				F28349682761031400E136C5 /* Entities.swift in Sources */,
 				1DB8D70D25055B940024813E /* LoginProtocols.swift in Sources */,
 				7D31FD481EE9CCBC00102684 /* AgregarDireccionesViewController.swift in Sources */,
 				7DAD18E91ED442D8009B37E5 /* ShortProfileResponse.swift in Sources */,

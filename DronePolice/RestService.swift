@@ -99,8 +99,6 @@ class RestService{
     
     
     func ObtenerMiembrosFamiliares(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()){
-        
-        //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")
         let fecha = Utils().currentDate()
         
@@ -110,106 +108,71 @@ class RestService{
             "latitud": latitud,
             "longitud": longitud,
         ]
-        
         restConnction.SendRequetService(url: Path.MIEMBROSFAMILIARES, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil,nil,error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //
-            //            let miembros = response!["miembros"].arrayValue
-            //
-            //
-            //            var ArrayMiembros = [Miembro]()
-            //
-            //
-            //            for miembro in miembros{
-            //                //let auxestado = estado.dictionaryValue
-            //                let id = miembro["id"].intValue
-            //                let nombre = miembro["nombre"].stringValue
-            //
-            //
-            //                let auxMiembro = Miembro.init(id: id, nombre: nombre)
-            //
-            //                ArrayMiembros.append(auxMiembro)
-            //                //print(estadoid)
-            //
-            //            }
-            //
-            //            let miembroResponse = MiembrosResponse.init(estatus: estatus, error: resperror, miembros: ArrayMiembros)
-            //
-            //
-            //
-            //            completionHandler(miembroResponse,nil, nil)
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error, nil)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(MiembrosResponse.self, from: data, serviceName: "members_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error, nil)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror, nil)
+                        return
+                    }
+                    completionHandler(entity, nil, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error, nil)
+                }
+            }
         }
     }
     
     
-    func ObtenerMiembrosVecinos(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()){
-        
-        //Utils().showLoading(context: context)
+    func ObtenerMiembrosVecinos(latitud: Double,longitud: Double ,completionHandler: @escaping (MiembrosResponse?,String?,Error?) -> ()) {
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().currentDate()
-        
         let parameters: [String: Any]  = [
             "imei": imei,
             "fecha": fecha,
             "latitud": latitud,
             "longitud": longitud,
         ]
-        
         restConnction.SendRequetService(url: Path.MIEMBROSVECINOS, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil,nil,error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //
-            //            let miembros = response!["miembros"].arrayValue
-            //
-            //
-            //            var ArrayMiembros = [Miembro]()
-            //
-            //
-            //            for miembro in miembros{
-            //                //let auxestado = estado.dictionaryValue
-            //                let id = miembro["id"].intValue
-            //                let nombre = miembro["nombre"].stringValue
-            //
-            //
-            //                let auxMiembro = Miembro.init(id: id, nombre: nombre)
-            //
-            //                ArrayMiembros.append(auxMiembro)
-            //                //print(estadoid)
-            //
-            //            }
-            //
-            //            let miembroResponse = MiembrosResponse.init(estatus: estatus, error: resperror, miembros: ArrayMiembros)
-            //
-            //
-            //
-            //            completionHandler(miembroResponse,nil, nil)
+            DispatchQueue.main.async {
+                if let error = error, error != "" {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error, nil)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(MiembrosResponse.self, from: data, serviceName: "members_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error, nil)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror, nil)
+                        return
+                    }
+                    completionHandler(entity, nil, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error, nil)
+                }
+            }
         }
     }
     

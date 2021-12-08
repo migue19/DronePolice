@@ -8,17 +8,13 @@
 
 import Foundation
 
-class MiembrosResponse {
-    
-    var estatus = Int()
-    var error:String! = String()
-    var miembros = [Miembro]()
-    
-    
-    init(estatus: Int, error: String, miembros: [Miembro]){
-        self.estatus = estatus
-        self.error = error
-        self.miembros = miembros
-    }
-    
+struct MiembrosResponse: Codable {
+    var error: String?
+    var estatus: Int?
+    var miembros: [MiembroDetail]
+}
+
+struct MiembroDetail: Codable {
+    var id: Int
+    var nombre: String
 }

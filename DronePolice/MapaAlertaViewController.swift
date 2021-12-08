@@ -108,7 +108,8 @@ class MapaAlertaViewController: UIViewController,GMSMapViewDelegate{
     @IBAction func CloseView(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let main = storyboard.instantiateViewController(withIdentifier: "TabBar") as! TabBarController
-        UIApplication.shared.keyWindow?.rootViewController = main
+        UIApplication.shared.windows.first?.rootViewController = main
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
   
     

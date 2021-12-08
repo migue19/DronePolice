@@ -470,7 +470,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wrC-te-cxc"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NFR-Kc-vUc" firstAttribute="top" secondItem="ZQU-P6-0CO" secondAttribute="bottom" constant="20" id="DnD-UL-Drg"/>
                             <constraint firstItem="NFR-Kc-vUc" firstAttribute="centerY" secondItem="UE9-Do-wnc" secondAttribute="centerY" id="M3r-NA-YZC"/>
@@ -499,7 +499,7 @@
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HhI-U5-OEr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
-                                <color key="backgroundColor" red="1" green="0.99008873490000004" blue="0.92020879830000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="PrimaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iHt-eR-VXA"/>
                                 </constraints>
@@ -507,7 +507,7 @@
                                     <segment title="FAMILIARES"/>
                                     <segment title="VECINOS"/>
                                 </segments>
-                                <color key="tintColor" red="0.12597623469999999" green="0.19764959809999999" blue="0.37331181759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="GetMiembros:" destination="bhQ-Wb-Lxm" eventType="valueChanged" id="5xH-By-CNj"/>
                                 </connections>
@@ -546,7 +546,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yNL-2F-pHE"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HhI-U5-OEr" firstAttribute="width" secondItem="eIm-HN-ywV" secondAttribute="width" id="6N8-Hv-QDk"/>
                             <constraint firstItem="HhI-U5-OEr" firstAttribute="top" secondItem="yNL-2F-pHE" secondAttribute="top" id="Avp-2Q-ki0"/>
@@ -576,17 +576,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="LgQ-p3-en2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" name="PrimaryColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.052448235449999998" green="0.40634542699999998" blue="0.46399104600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.99855531939999997" green="0.57488920779999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" systemColor="systemPurpleColor"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
+                        <color key="barTintColor" name="PrimaryColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="akh-KD-nQl" kind="relationship" relationship="viewControllers" id="5sq-Or-pqv"/>
@@ -1889,14 +1881,14 @@
         <namedColor name="BackgroundColor">
             <color red="0.16078431372549021" green="0.20392156862745098" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="PrimaryColor">
+            <color red="0.16078431372549021" green="0.20392156862745098" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

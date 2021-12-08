@@ -10,50 +10,41 @@ import UIKit
 import CoreLocation
 
 class AdminUserViewController: UIViewController {
-    var miembros = [Miembro]()
+    var miembros = [MiembroDetail]()
     var longitud = 0.0
     var latitud = 0.0
     var segment = 1
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.backgroundColor = .white
         getMiembrosFamiliares()
         // Do any additional setup after loading the view.
     }
-
-    
     override func viewDidAppear(_ animated: Bool) {
         print(segment)
     }
-    
-    
-    
-    
-    
     func getMiembrosFamiliares(){
         let location = LocationService.sharedInstance.currentLocation
-        
         if (location != nil){
             latitud = (location?.coordinate.latitude)!
             longitud = (location?.coordinate.longitude)!
         }
-        
         RestService().ObtenerMiembrosFamiliares(latitud: latitud, longitud: longitud) { (response, stringresponse, error) in
-            if(error != nil){
-                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+            if let error = error {
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.localizedDescription)
                 return
             }
-            if(stringresponse != nil){
-                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+            if let stringresponse = stringresponse, stringresponse != "" {
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse)
                 return
             }
             
-            
-            self.miembros = (response?.miembros)!
+            guard let response = response else {
+                return
+            }
+            self.miembros = response.miembros
             
             if(self.miembros.count == 0){
                 self.tableView.reloadData()
@@ -65,34 +56,30 @@ class AdminUserViewController: UIViewController {
                 self.present(alerta, animated: true, completion: nil)
                 return
             }
-            
             self.tableView.reloadData()
-            
         }
-    
     }
     
     
     func getMiembrosVecinos(){
         let location = LocationService.sharedInstance.currentLocation
-        
         if (location != nil){
             latitud = (location?.coordinate.latitude)!
             longitud = (location?.coordinate.longitude)!
         }
-        
         RestService().ObtenerMiembrosVecinos(latitud: latitud, longitud: longitud) { (response, stringresponse, error) in
-            if(error != nil){
-                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
+            if let error = error {
+                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.localizedDescription)
                 return
             }
-            if(stringresponse != nil){
-                Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
+            if let stringresponse = stringresponse, stringresponse != "" {
+                Utils().alerta(context: self, title: "Error", mensaje: stringresponse)
                 return
             }
-            
-            
-            self.miembros = (response?.miembros)!
+            guard let response = response else {
+                return
+            }
+            self.miembros = response.miembros
             
             if(self.miembros.count == 0){
                 self.tableView.reloadData()
@@ -106,9 +93,7 @@ class AdminUserViewController: UIViewController {
             }
             
             self.tableView.reloadData()
-            
         }
-    
     }
     
     
@@ -177,30 +162,19 @@ extension AdminUserViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return miembros.count
     }
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        //let cell = Bundle.main.loadNibNamed("PromocionesTableViewCell", owner: self, options: nil)?.first as! PromocionesTableViewCell
         let indice = indexPath.row
-        
-        
+        cell.backgroundColor = .white
+        cell.textLabel?.textColor = .black
         cell.textLabel?.numberOfLines = 0;
         cell.textLabel?.lineBreakMode = .byWordWrapping;
         cell.textLabel?.text = miembros[indice].nombre
-        //cell.imagen.image = promociones[indice].image
-        //cell.descripcion.text = promociones[indice].descripcion
-        //cell.fecha.text = promociones[indice].fecha
-        //cell.textLabel?.text = array[indexPath.row]
-        
         return cell
     }
-    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let idmiembro = miembros[indexPath.row].id
         self.miembros.remove(at: indexPath.row)

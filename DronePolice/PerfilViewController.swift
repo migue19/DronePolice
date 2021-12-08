@@ -42,6 +42,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         scrollView.delegate = self
+        tableView.register(UINib(nibName: ProfileTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ProfileTableViewCell.identifier)
         tableView.dataSource = self
         tableView.dataSource = self
         tableView.backgroundColor = Utils().colorCellGris
@@ -56,7 +57,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         
         headerLabel.text = name
         labelName.text = name
-    
+        
         self.LoadImageProfile()
         
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -78,7 +79,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         
         headerBlurImageView = UIImageView(frame: header.bounds)
         headerBlurImageView?.image = UIImage(named: "city")
-            //?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
+        //?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
         headerBlurImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         headerBlurImageView?.alpha = 0.0
         header.insertSubview(headerBlurImageView, belowSubview: headerLabel)
@@ -107,9 +108,9 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             
             header.layer.transform = headerTransform
         }
-            
-            // SCROLL UP/DOWN ------------
-            
+        
+        // SCROLL UP/DOWN ------------
+        
         else {
             
             // Header -----------
@@ -174,19 +175,16 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-             return options.count
+            return options.count
         case 1:
             return 1
         default:
             return 0
         }
     }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
-        
-         headerView.backgroundColor = Utils().colorCellGris
- 
+        headerView.backgroundColor = Utils().colorCellGris
         return headerView
     }
     
@@ -204,58 +202,34 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        let row = (indexPath as NSIndexPath).row
-        
-        cell.backgroundColor = Utils().colorCellGris
-    
-        let imageView = cell.viewWithTag(10) as! UIImageView
-        let textLabel = cell.viewWithTag(20) as! UILabel
-        
-        
-    
-        
-        imageView.layer.borderWidth = 0
-        
         switch indexPath.section {
         case 0:
-            let nameImage = imageCell[row]
-            imageView.image = UIImage(named: nameImage)
-            textLabel.text = options[row]
-            if(options[row] == ""){
-               cell.accessoryType = .none
-               imageView.isHidden = true
-               textLabel.isHidden = true
+            guard let cell = self.tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier) as? ProfileTableViewCell else {
+                return UITableViewCell()
             }
+            let image = imageCell[indexPath.row]
+            let option = options[indexPath.row]
+            cell.setupCell(image: image, description: option)
+            return cell
         case 1:
-            imageView.isHidden = true
-            textLabel.isHidden = true
-            
-            let button : UIButton = UIButton(type:UIButton.ButtonType.custom) as UIButton
-            
+            let cell = UITableViewCell()
+            let button : UIButton = UIButton(type:UIButton.ButtonType.custom)
             button.frame = CGRect(origin: CGPoint(x: 40,y :60), size: CGSize(width: cell.bounds.width*0.8, height: cell.bounds.height))
             let cellHeight: CGFloat = 44.0
             button.center = CGPoint(x: view.bounds.width / 2.0, y: cellHeight / 2.0)
-            
             button.layer.cornerRadius = button.bounds.height/2
-            
             button.backgroundColor = Utils().colorPrincipal
-            button.addTarget(self, action: #selector(CerrarSession), for: UIControl.Event.touchUpInside)
             button.setTitle("Cerrar Sesion", for: UIControl.State.normal)
-            
+            cell.selectionStyle = .none
             cell.addSubview(button)
             cell.accessoryType = .none;
             cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
- 
+            return cell
         default:
-            break
+            return UITableViewCell()
         }
-
-        return cell
         
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.section {
@@ -278,6 +252,8 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             default:
                 break
             }
+        case 1:
+            CerrarSession()
         default:
             break
         }
@@ -286,18 +262,18 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     
     
     /*func tableView(_ tableView: UITableView,
-                   willDisplay cell: UITableViewCell,
-                   forRowAt indexPath: IndexPath) {
-        
-        let auxView = UIView()
-        auxView.backgroundColor = UIColor(red: 100/255.0,
-                                          green: 127/255.0,
-                                          blue: 164/255.0,
-                                          alpha: 0.3)
-        
-        cell.selectedBackgroundView = auxView
-        
-    }*/
+     willDisplay cell: UITableViewCell,
+     forRowAt indexPath: IndexPath) {
+     
+     let auxView = UIView()
+     auxView.backgroundColor = UIColor(red: 100/255.0,
+     green: 127/255.0,
+     blue: 164/255.0,
+     alpha: 0.3)
+     
+     cell.selectedBackgroundView = auxView
+     
+     }*/
     @objc func CerrarSession(){
         
         let alertController = UIAlertController(title: "Cerrar sesión", message: "Estas Seguro de Cerrar Sesion", preferredStyle: .alert)
@@ -337,7 +313,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     func LoadImageProfile(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do{
-             imagenes = try context.fetch(Imagen.fetchRequest())
+            imagenes = try context.fetch(Imagen.fetchRequest())
             
             if imagenes.count > 0 {
                 for image in imagenes{
