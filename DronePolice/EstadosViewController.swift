@@ -31,7 +31,7 @@ class EstadosViewController: UIViewController {
             if estados.count > 0 {
                print(estados.count)
                 
-                let responseData = estados as! [Estados]
+                let responseData = estados
                 for estado in responseData {
                   let auxestado = Estado.init(estadoid: Int(estado.estadoid), nombre: estado.nombre!)
                     

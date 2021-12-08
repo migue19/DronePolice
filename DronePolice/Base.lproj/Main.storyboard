@@ -514,7 +514,7 @@
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y1m-bo-bPE">
                                 <rect key="frame" x="0.0" y="41" width="375" height="527"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="73Y-Yu-kfU">
                                         <rect key="frame" x="0.0" y="44.5" width="375" height="44"/>
@@ -577,7 +577,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" name="BackgroundColor"/>
+                        <color key="barTintColor" red="0.052448235449999998" green="0.40634542699999998" blue="0.46399104600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.99855531939999997" green="0.57488920779999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -1691,7 +1691,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="imQ-rb-rAz"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="imQ-rb-rAz" firstAttribute="trailing" secondItem="7R3-XX-X2s" secondAttribute="trailing" id="J7W-Hf-RLZ"/>
                             <constraint firstItem="7R3-XX-X2s" firstAttribute="leading" secondItem="imQ-rb-rAz" secondAttribute="leading" id="QyA-eI-kTt"/>

@@ -14,8 +14,8 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         //self.tabBarController?.selectedIndex = 1
         self.selectedIndex = 3
-        self.tabBar.tintColor = .red
-        self.tabBar.unselectedItemTintColor = .cyan
+        self.tabBar.tintColor = .white
+        self.tabBar.unselectedItemTintColor = .black
         
         
         //self.tabBar.isTranslucent = false

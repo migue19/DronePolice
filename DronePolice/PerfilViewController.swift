@@ -317,8 +317,8 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             try! Auth.auth().signOut()
             //Regresamos al inicio de la aplicacion
             let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoryBoardStart")
-            UIApplication.shared.keyWindow?.rootViewController = loginViewController
-            
+            UIApplication.shared.windows.first?.rootViewController = loginViewController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
             
         })
         alertController.addAction(cerrarSesion)

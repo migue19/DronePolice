@@ -25,6 +25,7 @@ class DireccionesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // LocationService.sharedInstance.delegate = self
+        self.view.backgroundColor = .white
         LocationService.sharedInstance.startUpdatingLocation()
         self.tableView.delegate = self
         self.tableView.dataSource = self
