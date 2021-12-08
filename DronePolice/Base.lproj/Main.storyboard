@@ -1491,7 +1491,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsm-j7-47p">
                                 <rect key="frame" x="0.0" y="24" width="375" height="594"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic" translatesAutoresizingMaskIntoConstraints="NO" id="skJ-7z-tbq" customClass="AvatarImageView" customModule="DronePolice" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_profile" translatesAutoresizingMaskIntoConstraints="NO" id="skJ-7z-tbq" customClass="AvatarImageView" customModule="DronePolice" customModuleProvider="target">
                                         <rect key="frame" x="152.5" y="120" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="56m-aH-M7f"/>
@@ -1874,10 +1874,10 @@
         <image name="img_main_logo" width="360" height="126"/>
         <image name="menu" width="22" height="22"/>
         <image name="profile" width="16" height="16"/>
-        <image name="profile_pic" width="16" height="16"/>
         <image name="tabalerta" width="79" height="30"/>
         <image name="tabsigueme" width="85" height="30"/>
         <image name="tabsospechoso" width="120" height="30"/>
+        <image name="user_profile" width="200" height="200"/>
         <namedColor name="BackgroundColor">
             <color red="0.16078431372549021" green="0.20392156862745098" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

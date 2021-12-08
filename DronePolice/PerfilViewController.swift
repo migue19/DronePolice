@@ -35,22 +35,12 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         tableView.dataSource = self
         tableView.backgroundColor = Utils().colorCellGris
         self.view.backgroundColor = Utils().colorCellGris
-        
         print("El numero de imagens en la db es: ", self.settingsDAO.numberOfImageDB())
-        
-        
         tableView.tableFooterView = UIView()
-        
         let name = settingsDAO.getDateForDescription(description: "Name")
-        
         headerLabel.text = name
         labelName.text = name
-        
         self.LoadImageProfile()
-        
-        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        ///appDelegate.shouldRotate = false // or false to disable rotation
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
