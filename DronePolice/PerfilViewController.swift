@@ -12,35 +12,23 @@ import Firebase
 let offset_HeaderStop:CGFloat = 40.0
 let offset_B_LabelHeader:CGFloat = 95.0
 let distance_W_LabelHeader:CGFloat = 35.0
-
 class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource {
+    var headerImageView: UIImageView!
+    var headerBlurImageView: UIImageView!
+    var imagenes: [Imagen] = []
+    let settingsDAO = SettingsDAO()
+    var blurredHeaderImageView:UIImageView?
     @IBOutlet var scrollView:UIScrollView!
     @IBOutlet var avatarImage:UIImageView!
     @IBOutlet var header:UIView!
     @IBOutlet var headerLabel:UILabel!
     @IBOutlet weak var labelName: UILabel!
-    var headerImageView: UIImageView!
-    var headerBlurImageView: UIImageView!
-    
-    
-    var imagenes: [Imagen] = []
-    let settingsDAO = SettingsDAO()
-    
-    
-    var blurredHeaderImageView:UIImageView?
-    
     @IBOutlet weak var tableView: UITableView!
-    
-    
     var options = ["Direcciones","Historial","",""]
     var imageCell = ["iconodirecciones","historial","",""]
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        
         scrollView.delegate = self
         tableView.register(UINib(nibName: ProfileTableViewCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: ProfileTableViewCell.identifier)
         tableView.dataSource = self
@@ -66,24 +54,22 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //navigationController?.setNavigationBarHidden(true, animated: false)
-        // Header - Image
         navigationController?.setNavigationBarHidden(true, animated: false)
         //self.LoadImageProfile()
+        var newFrame = header.frame
+        newFrame.size.width = self.view.frame.width
+        header.frame = newFrame
         headerImageView = UIImageView(frame: header.bounds)
         headerImageView?.image = UIImage(named: "city")
         headerImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         header.insertSubview(headerImageView, belowSubview: headerLabel)
-        
         // Header - Blurred Image
-        
         headerBlurImageView = UIImageView(frame: header.bounds)
         headerBlurImageView?.image = UIImage(named: "city")
         //?.blurredImage(withRadius: 10, iterations: 20, tintColor: UIColor.clear)
         headerBlurImageView?.contentMode = UIView.ContentMode.scaleAspectFill
         headerBlurImageView?.alpha = 0.0
         header.insertSubview(headerBlurImageView, belowSubview: headerLabel)
-        
         header.clipsToBounds = true
     }
     
@@ -231,7 +217,6 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         switch indexPath.section {
         case 0:
             switch indexPath.row {
@@ -259,62 +244,35 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
-    /*func tableView(_ tableView: UITableView,
-     willDisplay cell: UITableViewCell,
-     forRowAt indexPath: IndexPath) {
-     
-     let auxView = UIView()
-     auxView.backgroundColor = UIColor(red: 100/255.0,
-     green: 127/255.0,
-     blue: 164/255.0,
-     alpha: 0.3)
-     
-     cell.selectedBackgroundView = auxView
-     
-     }*/
     @objc func CerrarSession(){
-        
         let alertController = UIAlertController(title: "Cerrar sesión", message: "Estas Seguro de Cerrar Sesion", preferredStyle: .alert)
-        
         //Cancelar
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alertController.addAction(cancelar)
-        
         //Cerrar sesion
-        let cerrarSesion = UIAlertAction(title: "Cerrar sesión", style: .destructive, handler: { (action: UIAlertAction!) in
-            
-            //Cerramos persistencia de sesion
-            self.settingsDAO.deleteAllImageDB()
-            self.settingsDAO.deleteAllSettings()
-            
-            //Log out Firebase
-            try! Auth.auth().signOut()
-            //Regresamos al inicio de la aplicacion
-            let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoryBoardStart")
-            UIApplication.shared.windows.first?.rootViewController = loginViewController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
-            
+        let cerrarSesion = UIAlertAction(title: "Cerrar sesión", style: .destructive, handler: { action in
+            self.closeSession()
         })
         alertController.addAction(cerrarSesion)
-        
         //Show alert
         present(alertController, animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
+    func closeSession() {
+        //Cerramos persistencia de sesion
+        self.settingsDAO.deleteAllImageDB()
+        self.settingsDAO.deleteAllSettings()
+        //Log out Firebase
+        try! Auth.auth().signOut()
+        //Regresamos al inicio de la aplicacion
+        let loginViewController = self.storyboard!.instantiateViewController(withIdentifier: "StoryBoardStart")
+        UIApplication.shared.windows.first?.rootViewController = loginViewController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
     //Core Data
-    
-    
     func LoadImageProfile(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         do{
             imagenes = try context.fetch(Imagen.fetchRequest())
-            
             if imagenes.count > 0 {
                 for image in imagenes{
                     //print(image.imagen ?? "")
@@ -328,15 +286,5 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
         catch{
             print("Failed feching")
         }
-        
     }
-    
-    
-    
-    
-    
-    
 }
-
-
-
