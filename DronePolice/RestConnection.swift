@@ -13,7 +13,7 @@ class RestConnection{
     let connectionLayer = ConnectionLayer()
     
     
-    func SendRequetService(url: String, body: [String: Any], secure:Bool, method: HTTPMethod, completionHandler: @escaping (Data?, String?) -> ())
+    func SendRequestService(url: String, body: [String: Any], secure:Bool, method: HTTPMethod, completionHandler: @escaping (Data?, String?) -> ())
     {
         if(secure){
             MethodHTTPSecure(url: url, body: body, method: method, completion: completionHandler)

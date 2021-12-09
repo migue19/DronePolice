@@ -8,14 +8,11 @@
 
 import Foundation
 
-class ResponseGeneric {
-    var estatus = Int()
-    var error:String! = String()
-    
-    
+class ResponseGeneric: Codable {
+    var estatus: Int?
+    var error: String?
     init(estatus: Int, error: String){
        self.estatus = estatus
        self.error = error
     }
-    
 }

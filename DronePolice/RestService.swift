@@ -11,11 +11,11 @@ import ConnectionLayer
 import NutUtils
 import Firebase
 class RestService{
-    let restConnction = RestConnection()
+    let restConnection = RestConnection()
     let settingsDAO = SettingsDAO()
     
     func dowloadImage(url: String,completionHandler: @escaping (UIImage?,String?) -> ()){
-        restConnction.MethodHTTPSecureImage(url: url, method: .get) { (response, error) in
+        restConnection.MethodHTTPSecureImage(url: url, method: .get) { (response, error) in
             if(error != nil){
                 completionHandler(nil,error)
                 return
@@ -36,7 +36,7 @@ class RestService{
             "longitud": longitud,
             "id": id
         ]
-        restConnction.SendRequetService(url: Path.ELIMINARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.ELIMINARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "algo")
             //            if error != nil{
             //                print("Ocurrio un error al validar el usuario: ", error!)
@@ -75,7 +75,7 @@ class RestService{
             "tipo": tipo
         ]
         
-        restConnction.SendRequetService(url: Path.AGREGARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.AGREGARMIEMBRO, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "Algo")
             //            if error != nil{
             //                print("Ocurrio un error al validar el usuario: ", error!)
@@ -108,7 +108,7 @@ class RestService{
             "latitud": latitud,
             "longitud": longitud,
         ]
-        restConnction.SendRequetService(url: Path.MIEMBROSFAMILIARES, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.MIEMBROSFAMILIARES, body: parameters, secure: true, method: .post) { (response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Ocurrio un error al validar el usuario: ", error)
@@ -147,7 +147,7 @@ class RestService{
             "latitud": latitud,
             "longitud": longitud,
         ]
-        restConnction.SendRequetService(url: Path.MIEMBROSVECINOS, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.MIEMBROSVECINOS, body: parameters, secure: true, method: .post) { (response, error) in
             DispatchQueue.main.async {
                 if let error = error, error != "" {
                     print("Ocurrio un error al validar el usuario: ", error)
@@ -175,12 +175,6 @@ class RestService{
             }
         }
     }
-    
-    
-    
-    
-    
-    
     func ObtenerDirecciones(context: UIViewController,latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().currentDate()
@@ -192,7 +186,7 @@ class RestService{
             "longitud": longitud,
         ]
         
-        restConnction.SendRequetService(url: Path.OBTENERDIRECCIONES, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.OBTENERDIRECCIONES, body: parameters, secure: true, method: .post) { (response, error) in
             DispatchQueue.main.async {
                 if let error = error, error != "" {
                     print("Ocurrio un error al validar el usuario: ", error)
@@ -226,8 +220,6 @@ class RestService{
     
     
     func EnviarSospechoso(comentarios: String, foto: String,latitud: Double, longitud: Double , latitudAlerta: Double,longitudAlerta: Double,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
-        
-        //Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().currentDate()
         
@@ -241,27 +233,32 @@ class RestService{
             "latitudAlerta":latitudAlerta,
             "longitudAlerta": longitudAlerta
         ]
-        
-        restConnction.SendRequetService(url: Path.ALERTASOSPECHOSO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil,nil ,error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //
-            //            let response = ResponseGeneric(estatus: estatus, error: "")
-            //
-            //            completionHandler(response,nil,nil)
+        restConnection.SendRequestService(url: Path.ALERTASOSPECHOSO, body: parameters, secure: true, method: .post) { (response, error) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error, nil)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(ResponseGeneric.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error, nil)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror, nil)
+                        return
+                    }
+                    completionHandler(entity, nil, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error, nil)
+                }
+            }
         }
     }
     
@@ -277,7 +274,7 @@ class RestService{
             "latitud": latitud,
             "longitud": longitud,
         ]
-        restConnction.SendRequetService(url: Path.REGISTERDEVICE, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.REGISTERDEVICE, body: parameters, secure: true, method: .post) { (response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Ocurrio un error al validar el usuario: ", error)
@@ -334,7 +331,7 @@ class RestService{
                          "pais": pais ],
             "eliminar": eliminar
         ]
-        restConnction.SendRequetService(url: Path.ACTUALIZARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.ACTUALIZARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "Algo")
             //            if error != nil{
             //                print("Ocurrio un error al validar el usuario: ", error!)
@@ -381,7 +378,7 @@ class RestService{
                          "cp": cp,
                          "pais": pais ]
         ]
-        restConnction.SendRequetService(url: Path.AGREGARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.AGREGARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "Algo")
             //            if error != nil{
             //                print("Ocurrio un error al validar el usuario: ", error!)
@@ -415,7 +412,7 @@ class RestService{
         ]
         
         //Utils().showLoading(context: context)
-        restConnction.SendRequetService(url: Path.BOTONPANICO, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.BOTONPANICO, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "Algo")
             //            if error != nil{
             //                print("Ocurrio un error en el servicio: ", error!)
@@ -447,7 +444,7 @@ class RestService{
             "imei": imei ?? "",
             "fecha": fecha
         ]
-        restConnction.SendRequetService(url: Path.GENERARCODIGO, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.GENERARCODIGO, body: parameters, secure: true, method: .post) { (response, error) in
             guard let data = response else {
                 return
             }
@@ -479,7 +476,7 @@ class RestService{
         let parameters: [String: Any] = [:]
         
         
-        restConnction.SendRequetService(url: Path.ESTADOS, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.ESTADOS, body: parameters, secure: true, method: .post) { (response, error) in
             print(response ?? "Algo")
             //            if error != nil{
             //                print("Ocurrio un error al validar el usuario: ", error!)
@@ -536,7 +533,7 @@ class RestService{
             "latitud": request.latitude,
             "longitud": request.longitude
         ]
-        restConnction.SendRequetService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.ACCESS_USER, body: parameters, secure: true, method: .post) { (response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     print("Ocurrio un error al obtener el registro: ", error)
@@ -597,7 +594,7 @@ class RestService{
             "latitud": request.latitud,
             "longitud": request.longitud
         ]
-        RestConnection().SendRequetService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
+        RestConnection().SendRequestService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
             guard let data = response else {
                 return
             }
@@ -635,7 +632,7 @@ class RestService{
         executeRegister(email: email, password: password, parameters: parameters, completionHandler: completion)
     }
     func executeRegister(email: String, password: String,parameters: [String: Any], completionHandler: @escaping (RegisterResponse?, String?) -> ()) {
-        restConnction.SendRequetService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
+        restConnection.SendRequestService(url: Path.REGISTRO_SOCIAL, body: parameters, secure: true, method: .post) { (response, error) in
             if let error = error {
                 print("Ocurrio un error al obtener el registro: ", error)
                 completionHandler(nil, error)
@@ -674,7 +671,7 @@ class RestService{
             "imei": imei
         ]
         
-        RestConnection().SendRequetService(url: Path.SERVICE_TEST, body: parameters, secure: true, method: .post){ response, error in
+        RestConnection().SendRequestService(url: Path.SERVICE_TEST, body: parameters, secure: true, method: .post){ response, error in
             print(response ?? "Algo")
             //            if error != nil
             //            {
