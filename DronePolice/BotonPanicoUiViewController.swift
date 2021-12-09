@@ -40,16 +40,10 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{
             latitud = (location?.coordinate.latitude)!
             longitud = (location?.coordinate.longitude)!
         }
-        
-        
         if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
         }else{
-            restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response,stringresponse,error) in
-                if (error != nil){
-                    Utils().alerta(context: self, title: "Error en el servicio", mensaje: error.debugDescription)
-                    return
-                }
+            restService.BotondePanico(context: self, latitud: latitud, longitud: longitud, completionHandler: { (response, stringresponse) in
                 if(stringresponse != nil){
                     Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                    return
@@ -62,8 +56,6 @@ class BotonPanicoUiViewController: UIViewController,LocationServiceDelegate{
             })
         }
     }
-
-    
     func setGradientBackground() {
         let colorTop =  Utils().colorBackground.cgColor
         let colorBottom = Utils().colorDegradado.cgColor

@@ -371,8 +371,6 @@ class RestService{
             }
         }
     }
-    
-    
     func AgregarDirecciones(context: UIViewController,latitud: Double ,longitud: Double,latitudDir:Double,longitudDir: Double,identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,completionHandler: @escaping (ResponseGeneric?, String?) -> ()){
         
         Utils().showLoading(context: context)
@@ -426,37 +424,40 @@ class RestService{
     }
     
     
-    func BotondePanico(context: UIViewController, latitud: Double, longitud: Double,completionHandler: @escaping (ResponseGeneric?,String?,Error?) -> ()){
+    func BotondePanico(context: UIViewController, latitud: Double, longitud: Double,completionHandler: @escaping (ResponseGeneric?, String?) -> ()){
         let imei = settingsDAO.getDateForDescription(description: "imei")
         let fecha = Utils().currentDate()
-        
         let parameters: [String: Any]  = ["imei": imei ?? "",
                                           "fecha": fecha,
                                           "latitud": latitud,
                                           "longitud": longitud
         ]
-        
-        //Utils().showLoading(context: context)
         restConnection.SendRequestService(url: Path.BOTONPANICO, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error en el servicio: ", error!)
-            //                completionHandler(nil,nil,error)
-            //                return
-            //            }
-            //
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //            let response = ResponseGeneric(estatus: estatus, error: resperror)
-            //
-            //            completionHandler(response,nil,nil)
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(ResponseGeneric.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror)
+                        return
+                    }
+                    completionHandler(entity, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error)
+                }
+            }
         }
     }
     
