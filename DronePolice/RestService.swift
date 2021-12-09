@@ -274,9 +274,6 @@ class RestService{
             }
         }
     }
-    
-    
-    
     func RegisterDevice(latitud: Double, longitud: Double, imei: String, token: String, completionHandler: @escaping (ResponseGeneric?, String?) -> ()) {
         let imei = imei
         let fecha = Utils().currentDate()
@@ -315,9 +312,6 @@ class RestService{
             }
         }
     }
-    
-    
-    
     func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double,latitudDir: Double, longitudDir: Double,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,eliminar: Bool,completionHandler: @escaping (ResponseGeneric?, String?) -> ()){
         
         Utils().showLoading(context: context)
@@ -689,48 +683,6 @@ class RestService{
                 completionHandler(nil, error)
             }
         }
-    }
-    func ServiceTest(usuario: String, isProfile: Bool, imei: String, completionHandler: @escaping (ShortProfileResponse?, Error?) -> ()){
-        let parameters: [String: Any] = [
-            "userId": usuario,
-            "isProfile": isProfile,
-            "imei": imei
-        ]
-        
-        RestConnection().SendRequestService(url: Path.SERVICE_TEST, body: parameters, secure: true, method: .post){ response, error in
-            print(response ?? "Algo")
-            //            if error != nil
-            //            {
-            //                print("Ocurrio un error al obtener el short Profile: ", error!)
-            //                return
-            //            }
-            //
-            //
-            //            //response?.stringValue
-            //
-            //            //print(response!)
-            //            //print(response?.stringValue)
-            //
-            //            //if let object = ShortProfileResponse.deserialize(from: response) {
-            //                // …
-            //            //}
-            //
-            //            let contact: Int = response!["contact"].intValue
-            //            let existeRegistro: Int = response!["existeRegistro"].intValue
-            //            let mySubscription: Int = response!["mySubscription"].intValue
-            //            let name: String = response!["name"].string!
-            //            let pitcher: Int = response!["pitcher"].intValue
-            //            let publicProfile: Int = response!["publicProfile"].intValue
-            //            let total: Int = response!["total"].intValue
-            //            let visitaPerfil: Int = response!["visitaPerfil"].intValue
-            //
-            //            let profile = ShortProfileResponse(contacto: contact, existeRegistro: existeRegistro, mySubscription: mySubscription, name: name, pitcher: pitcher, publicProfile: publicProfile, total: total, visitaPerfil: visitaPerfil)
-            //
-            //
-            //            completionHandler(profile, nil)
-            
-        }
-        
     }
     
     
