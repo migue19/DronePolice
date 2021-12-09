@@ -29,7 +29,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     var direccion: Direccion = Direccion()
     var Auxestado = Estado()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -46,7 +46,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         pais.delegate = self
         numexterior.delegate = self
         numInterior.delegate = self
-       
+        
         identificador.text = direccion.identificador
         telefono.text = direccion.telefono
         referencia.text = direccion.referencia
@@ -68,11 +68,11 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         
         
         self.navigationController?.navigationBar.tintColor = Utils().colorPrincipal
-         self.navigationController?.navigationBar.backItem?.title = " "
+        self.navigationController?.navigationBar.backItem?.title = " "
         
         
         self.title = "REGISTRO"
-    
+        
         let titleDict: NSDictionary = [NSAttributedString.Key.foregroundColor: Utils().colorPrincipal]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict as? [NSAttributedString.Key : Any]
         
@@ -81,7 +81,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         view.addGestureRecognizer(tap)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,23 +92,16 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     @IBAction func registrarDireccion(_ sender: Any) {
         if identificador.text == "" || telefono.text == "" ||  referencia.text == "" || calle.text == "" || numexterior.text == "" || colonia.text == "" || Ciudad.text == "" || estado.text == "" || cp.text == "" || pais.text == ""{
             Utils().alerta(context: self, title: "Error", mensaje: "Los campos con * son obligatorios")
-        return
+            return
         }
         if(latitud == 0 || longitud == 0 ){
             Utils().alerta(context: self, title: "Error de Ubicacion", mensaje: "No se puede obtener la Ubicacion")
             return
         }
-        
-        
         if(direccion.direccionid == 0){
-            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud,latitudDir: latitudDireccion, longitudDir: longitudDireccion,identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!) { (response,stringresponse ,error) in
-            
+            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud,latitudDir: latitudDireccion, longitudDir: longitudDireccion,identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!) { (response,stringresponse) in
+                
                 self.dismiss(animated: true, completion: nil)
-
-                if(error != nil){
-                    Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                    return
-                }
                 if(stringresponse != nil){
                     Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                     return
@@ -118,7 +111,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
                     Utils().alerta(context: self, title: "Exito", mensaje: "Se Agrego Correctamente la Direccion")
                 }
                 self.navigationController?.popViewController(animated: true)
-            
+                
             }
         }
         else{
@@ -135,7 +128,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
                     
                 }
                 
-             self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popViewController(animated: true)
                 
             })
         }
@@ -146,7 +139,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     func tracingLocation(_ currentLocation: CLLocation) {
         latitud = currentLocation.coordinate.latitude
         longitud = currentLocation.coordinate.longitude
- 
+        
     }
     
     func tracingLocationDidFailWithError(_ error: NSError) {
