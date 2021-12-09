@@ -185,56 +185,28 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
         print("Listo")
         
     }
-    
-    
     func muestraEstado(estadoAux: Estado) {
         Auxestado = estadoAux
         estado.text = estadoAux.nombre
         
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "popLocalizacion"
-        {
+        if segue.identifier == "popLocalizacion" {
             let popup = segue.destination as! LocalizacionViewController
             popup.popUpVC = self
         }
-        
-        if segue.identifier == "popUpEstado"
-        {
+        if segue.identifier == "popUpEstado" {
             let popup = segue.destination as! EstadosViewController
             popup.popUpVC = self
         }
-        
-        
-        
     }
-    
-   
-    
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-   
-    
     //Presses return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-    
-    
-    
-        
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
