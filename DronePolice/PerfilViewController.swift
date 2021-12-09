@@ -200,6 +200,7 @@ class PerfilViewController: UIViewController,UIScrollViewDelegate,UITableViewDel
             cell.addSubview(button)
             cell.accessoryType = .none;
             cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.size.width, bottom: 0, right: 0);
+            cell.backgroundColor = .white
             return cell
         default:
             return UITableViewCell()

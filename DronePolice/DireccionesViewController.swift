@@ -29,7 +29,7 @@ class DireccionesViewController: UIViewController {
         LocationService.sharedInstance.startUpdatingLocation()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        self.tableView.backgroundColor = .white
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.navigationBar.backItem?.title = " "
@@ -191,9 +191,6 @@ extension DireccionesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return direcciones.count
     }
-    
-
-   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? DireccionTableViewCell else {
             return UITableViewCell()
@@ -218,7 +215,7 @@ extension DireccionesViewController: UITableViewDataSource{
     
     @objc func buttonAction(sender: UIButton!) {
         let indice = sender.tag
-        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono, referencia: direcciones[indice].referencia, calle: direcciones[indice].calle, numinterior: direcciones[indice].noInt, numexterior: direcciones[indice].noExt, colonia: direcciones[indice].colonia, ciudad: direcciones[indice].municipio, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais, eliminar: true, completionHandler: { (response,stringresponse ,error) in
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono.valueOrEmpty, referencia: direcciones[indice].referencia.valueOrEmpty, calle: direcciones[indice].calle.valueOrEmpty, numinterior: direcciones[indice].noInt.valueOrEmpty, numexterior: direcciones[indice].noExt.valueOrEmpty, colonia: direcciones[indice].colonia.valueOrEmpty, ciudad: direcciones[indice].municipio.valueOrEmpty, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais.valueOrEmpty, eliminar: true, completionHandler: { (response,stringresponse ,error) in
             
             self.dismiss(animated: true, completion: nil)
             
@@ -236,50 +233,5 @@ extension DireccionesViewController: UITableViewDataSource{
                 self.ActulizarDirecciones()
             }
         })
-        
-        
     }
-    
-  /*  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hola")
-        
-        let direccion = direcciones[indexPath.row]
-        
-        self.performSegue(withIdentifier: "showAgregarDireccion", sender: direccion)
-        
-    }*/
-    
-    // MARK: LocationService Delegate
-    /*func tracingLocation(_ currentLocation: CLLocation) {
-        latitud = currentLocation.coordinate.latitude
-        longitud = currentLocation.coordinate.longitude
-        
-        LocationService.sharedInstance.stopUpdatingLocation()
-        
-        restService.ObtenerDirecciones(latitud: latitud, longitud: longitud) { (response, error) in
-            if(error != nil){
-                print(error ?? "")
-                return
-            }
-            self.direcciones = (response?.direccion)!
-            self.tableView.reloadData()
-        }
-        
-    }
-    
-    func tracingLocationDidFailWithError(_ error: NSError) {
-        print("tracing Location Error : \(error.description)")
-    }*/
-
-    
-   
-    
-    
-    
-    
-    
-    
-    
 }
-
-

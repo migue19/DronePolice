@@ -182,8 +182,6 @@ class RestService{
     
     
     func ObtenerDirecciones(context: UIViewController,latitud: Double,longitud: Double ,completionHandler: @escaping (DireccionResponse?,String?,Error?) -> ()){
-        
-        // Utils().showLoading(context: context)
         let imei = settingsDAO.getDateForDescription(description: "imei")!
         let fecha = Utils().currentDate()
         
@@ -195,57 +193,31 @@ class RestService{
         ]
         
         restConnction.SendRequetService(url: Path.OBTENERDIRECCIONES, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil,nil,error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //
-            //            let direcciones = response!["direccion"].arrayValue
-            //             print(direcciones)
-            //
-            //
-            //
-            //        var ArrayDirecciones = [Direccion]()
-            //
-            //
-            //            for direccion in direcciones{
-            //                //print(direccion)
-            //                //let auxestado = estado.dictionaryValue
-            //                let calle = direccion["calle"].string!
-            //                let colonia = direccion["colonia"].string!
-            //                let cp = direccion["cp"].string!
-            //                let direccionid = direccion["direccionid"].int!
-            //                let identificador = direccion["identificador"].string!
-            //                let municipio = direccion["municipio"].string!
-            //                let pais = direccion["pais"].string!
-            //                let referencia = direccion["referencia"].string!
-            //                let telefono = direccion["telefono"].string!
-            //                let noInt = direccion["noInt"].stringValue
-            //                let noExt = direccion["noExt"].stringValue
-            //
-            //                let auxDireccion = Direccion.init(identificador: identificador, telefono: telefono, calle: calle, referencia: referencia, colonia: colonia, municipio: municipio, cp: cp, pais: pais, direccionid: direccionid,noInt: noInt,noExt: noExt)
-            //
-            //                ArrayDirecciones.append(auxDireccion)
-            //                //print(estadoid)
-            //
-            //            }
-            //
-            //            let dirResponse = DireccionResponse.init(estatus: estatus, error: resperror, direccion: ArrayDirecciones)
-            //
-            //
-            //
-            //            completionHandler(dirResponse,nil, nil)
+            DispatchQueue.main.async {
+                if let error = error, error != "" {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error, nil)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(DireccionResponse.self, from: data, serviceName: "members_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error, nil)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror, nil)
+                        return
+                    }
+                    completionHandler(entity, nil, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error, nil)
+                }
+            }
         }
     }
     

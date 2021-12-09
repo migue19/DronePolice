@@ -32,6 +32,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         LocationService.sharedInstance.delegate = self
         LocationService.sharedInstance.startUpdatingLocation()
         

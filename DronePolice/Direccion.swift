@@ -8,21 +8,20 @@
 
 import Foundation
 
-class Direccion{
-    var identificador = String()
-    var telefono = String()
-    var referencia = String()
-    var calle = String()
-    var colonia = String()
-    var municipio = String()
-    var cp = String()
-    var pais = String()
-    var direccionid = Int()
-    var noInt = String()
-    var noExt = String()
+struct Direccion: Codable {
+    var identificador: String = ""
+    var telefono: String?
+    var referencia: String?
+    var calle: String?
+    var colonia: String?
+    var municipio: String?
+    var cp: String = ""
+    var pais: String?
+    var direccionid: Int = -1
+    var noInt: String?
+    var noExt: String?
     
-    init(){
-    }
+    init() {}
     
     init(identificador: String,telefono: String,calle: String,referencia:String,colonia:String,municipio: String, cp:String, pais: String, direccionid: Int,noInt: String, noExt: String ){
         self.identificador = identificador
@@ -36,7 +35,5 @@ class Direccion{
         self.direccionid = direccionid
         self.noInt = noInt
         self.noExt = noExt
-    
     }
-    
 }

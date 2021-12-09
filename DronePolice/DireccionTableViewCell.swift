@@ -16,6 +16,8 @@ class DireccionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        backgroundColor = .white
+        direccionTxt.textColor = .black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
