@@ -18,6 +18,8 @@ target 'DronePolice' do
   pod 'NutUtils'
   pod 'lottie-ios'
   pod 'SwiftMessages'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
   
   post_install do |installer|
     installer.pods_project.targets.each do |target|

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -75,9 +75,6 @@
 		F28349682761031400E136C5 /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28349672761031400E136C5 /* Entities.swift */; };
 		F283496C276110B900E136C5 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F283496A276110B900E136C5 /* ProfileTableViewCell.swift */; };
 		F283496D276110B900E136C5 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F283496B276110B900E136C5 /* ProfileTableViewCell.xib */; };
-		F28349732761333F00E136C5 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = F28349722761333F00E136C5 /* FacebookCore */; };
-		F28349752761333F00E136C5 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = F28349742761333F00E136C5 /* FacebookLogin */; };
-		F28349772761333F00E136C5 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = F28349762761333F00E136C5 /* FacebookShare */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,10 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F28349752761333F00E136C5 /* FacebookLogin in Frameworks */,
 				7D298BF11EF2B8A3000D5EDC /* AdSupport.framework in Frameworks */,
-				F28349732761333F00E136C5 /* FacebookCore in Frameworks */,
-				F28349772761333F00E136C5 /* FacebookShare in Frameworks */,
 				5B1ACE75148B91BF35F66784 /* Pods_DronePolice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,11 +570,6 @@
 			dependencies = (
 			);
 			name = DronePolice;
-			packageProductDependencies = (
-				F28349722761333F00E136C5 /* FacebookCore */,
-				F28349742761333F00E136C5 /* FacebookLogin */,
-				F28349762761333F00E136C5 /* FacebookShare */,
-			);
 			productName = DronePolice;
 			productReference = 7DAD18C71ED439B2009B37E5 /* DronePolice.app */;
 			productType = "com.apple.product-type.application";
@@ -620,9 +609,6 @@
 				Base,
 			);
 			mainGroup = 7DAD18BE1ED439B2009B37E5;
-			packageReferences = (
-				F28349712761333F00E136C5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-			);
 			productRefGroup = 7DAD18C81ED439B2009B37E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -684,6 +670,10 @@
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/ConnectionLayer/ConnectionLayer.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBAEMKit/FBAEMKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit_Basics/FBSDKCoreKit_Basics.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -699,6 +689,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ConnectionLayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBAEMKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit_Basics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -934,8 +928,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -953,10 +946,7 @@
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -979,10 +969,7 @@
 				DEVELOPMENT_TEAM = MC2W678MVZ;
 				INFOPLIST_FILE = DronePolice/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inovaweb.DronePolice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1014,35 +1001,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F28349712761333F00E136C5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F28349722761333F00E136C5 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F28349712761333F00E136C5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		F28349742761333F00E136C5 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F28349712761333F00E136C5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-		F28349762761333F00E136C5 /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F28349712761333F00E136C5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7DAD18D11ED439B2009B37E5 /* DronePolice.xcdatamodeld */ = {
