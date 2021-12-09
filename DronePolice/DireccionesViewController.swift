@@ -215,14 +215,9 @@ extension DireccionesViewController: UITableViewDataSource{
     
     @objc func buttonAction(sender: UIButton!) {
         let indice = sender.tag
-        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono.valueOrEmpty, referencia: direcciones[indice].referencia.valueOrEmpty, calle: direcciones[indice].calle.valueOrEmpty, numinterior: direcciones[indice].noInt.valueOrEmpty, numexterior: direcciones[indice].noExt.valueOrEmpty, colonia: direcciones[indice].colonia.valueOrEmpty, ciudad: direcciones[indice].municipio.valueOrEmpty, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais.valueOrEmpty, eliminar: true, completionHandler: { (response,stringresponse ,error) in
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud , latitudDir: latitud, longitudDir: longitud, iddireccion: direcciones[indice].direccionid, identificador: direcciones[indice].identificador, telefono: direcciones[indice].telefono.valueOrEmpty, referencia: direcciones[indice].referencia.valueOrEmpty, calle: direcciones[indice].calle.valueOrEmpty, numinterior: direcciones[indice].noInt.valueOrEmpty, numexterior: direcciones[indice].noExt.valueOrEmpty, colonia: direcciones[indice].colonia.valueOrEmpty, ciudad: direcciones[indice].municipio.valueOrEmpty, estadoId: 0, cp: direcciones[indice].cp, pais: direcciones[indice].pais.valueOrEmpty, eliminar: true, completionHandler: { (response, stringresponse) in
             
             self.dismiss(animated: true, completion: nil)
-            
-            if(error != nil){
-                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                return
-            }
             if(stringresponse != nil){
                 Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                 return

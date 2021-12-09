@@ -122,14 +122,9 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
             }
         }
         else{
-            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: false, completionHandler: { (response,stringresponse ,error) in
+            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: false, completionHandler: { (response,stringresponse) in
                 
                 self.dismiss(animated: true, completion: nil)
-                
-                if(error != nil){
-                    Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                    return
-                }
                 if(stringresponse != nil){
                     Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                     return
@@ -159,14 +154,9 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     }
     
     @IBAction func EliminarDirecciones(_ sender: Any) {
-        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: true, completionHandler: { (response,stringresponse ,error) in
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: true, completionHandler: { (response, stringresponse) in
             
             self.dismiss(animated: true, completion: nil)
-            
-            if(error != nil){
-                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                return
-            }
             if(stringresponse != nil){
                 Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                 return

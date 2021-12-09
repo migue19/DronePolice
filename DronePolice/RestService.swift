@@ -297,8 +297,8 @@ class RestService{
                 guard let data = response else {
                     return
                 }
-                if let entity = Utils.decode(LoginResponse.self, from: data, serviceName: "register_service".localized) {
-                    if let error = entity.error {
+                if let entity = Utils.decode(ResponseGeneric.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error, error != "" {
                         completionHandler(nil, error)
                         return
                     }
@@ -307,8 +307,7 @@ class RestService{
                         completionHandler(nil,resperror)
                         return
                     }
-                    let response = ResponseGeneric(estatus: entity.estatus.valueOrZero, error: "")
-                    completionHandler(response, nil)
+                    completionHandler(entity, nil)
                 } else {
                     let error = "decode_error".localized
                     completionHandler(nil, error)
@@ -319,7 +318,7 @@ class RestService{
     
     
     
-    func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double,latitudDir: Double, longitudDir: Double,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,eliminar: Bool,completionHandler: @escaping (ResponseGeneric?,String? ,Error?) -> ()){
+    func ActualizarDireccion(context: UIViewController,latitud: Double ,longitud: Double,latitudDir: Double, longitudDir: Double,iddireccion: Int, identificador: String,telefono: String,referencia: String,calle: String,numinterior: String,numexterior: String,colonia: String,ciudad: String,estadoId: Int,cp:String,pais: String,eliminar: Bool,completionHandler: @escaping (ResponseGeneric?, String?) -> ()){
         
         Utils().showLoading(context: context)
         let fecha = Utils().currentDate()
@@ -345,25 +344,31 @@ class RestService{
             "eliminar": eliminar
         ]
         restConnection.SendRequestService(url: Path.ACTUALIZARDIRECCION, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                completionHandler(nil,nil ,error)
-            //                return
-            //            }
-            //
-            //            let estatus = response!["estatus"].int!
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //            let response = ResponseGeneric(estatus: estatus, error: resperror)
-            //
-            //            completionHandler(response,nil,nil)
-            
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(ResponseGeneric.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror)
+                        return
+                    }
+                    completionHandler(entity, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error)
+                }
+            }
         }
     }
     
