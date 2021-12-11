@@ -18,17 +18,17 @@ class EstadosDAO{
         
         let request: NSFetchRequest<Estados> = Estados.fetchRequest()
         
-        request.predicate = NSPredicate(format: "estadoid == %i", estado.estadoid)
+        request.predicate = NSPredicate(format: "estadoid == %i", estado.estadoid.valueOrZero)
         
         do{
             let fetchResult = try context.fetch(request)
             if fetchResult.count > 0{
                 print("Updateando Setting")
-                UpdateEstadosCoreData(estado: fetchResult[0], idestado: estado.estadoid, nombre: estado.nombre)
+                UpdateEstadosCoreData(estado: fetchResult[0], idestado: estado.estadoid.valueOrZero, nombre: estado.nombre.valueOrEmpty)
             }else{
                 print("Insertando Setting")
                 let estadoData = Estados(context: context)
-                estadoData.estadoid = Int32(estado.estadoid)
+                estadoData.estadoid = Int32(estado.estadoid.valueOrZero)
                 estadoData.nombre = estado.nombre
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
             }

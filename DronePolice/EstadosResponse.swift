@@ -8,17 +8,14 @@
 
 import Foundation
 
-class EstadosResponse {
-    
-    var estatus = Int()
-    var error:String! = String()
-    var estados = [Estado]()
-    
+class EstadosResponse: Codable {
+    var estatus: Int?
+    var error: String?
+    var estados: [Estado]
     
     init(estatus: Int, error: String, estados: [Estado]){
         self.estatus = estatus
         self.error = error
         self.estados = estados
     }
-    
 }

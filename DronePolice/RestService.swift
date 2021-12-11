@@ -488,60 +488,35 @@ class RestService{
             }
         }
     }
-    
-    
-    
-    
-    func GetEstados(completionHandler: @escaping (EstadosResponse?,String? ,Error?) -> ()){
+    func GetEstados(completionHandler: @escaping (EstadosResponse?, String?) -> ()){
         let parameters: [String: Any] = [:]
-        
-        
         restConnection.SendRequestService(url: Path.ESTADOS, body: parameters, secure: true, method: .post) { (response, error) in
-            print(response ?? "Algo")
-            //            if error != nil{
-            //                print("Ocurrio un error al validar el usuario: ", error!)
-            //                return
-            //            }
-            //
-            //            let estatus: Int = response!["estatus"].intValue
-            //
-            //
-            //            var resperror = ""
-            //            if(estatus == 0){
-            //                resperror =  response!["error"].string!
-            //                completionHandler(nil,resperror,nil)
-            //                return
-            //            }
-            //
-            //
-            //            let estados = response!["estados"].arrayValue
-            //
-            //           // let loginResponse = LoginResponse(token: token, estatus: estatus)
-            //
-            //            var arrayEstado = [Estado]()
-            //
-            //            for estado in estados {
-            //               //let auxestado = estado.dictionaryValue
-            //               let estadoid = estado["estadoid"].int!
-            //               let nombre = estado["nombre"].string!
-            //
-            //                let auxEstados = Estado.init(estadoid: estadoid, nombre: nombre)
-            //
-            //                arrayEstado.append(auxEstados)
-            //
-            //            }
-            //
-            //
-            //            let estadoResponse = EstadosResponse.init(estatus: estatus, error: resperror, estados: arrayEstado)
-            //
-            //
-            //
-            //            completionHandler(estadoResponse,nil, nil)
-            
-            
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Ocurrio un error al validar el usuario: ", error)
+                    completionHandler(nil, error)
+                    return
+                }
+                guard let data = response else {
+                    return
+                }
+                if let entity = Utils.decode(EstadosResponse.self, from: data, serviceName: "register_service".localized) {
+                    if let error = entity.error, error != "" {
+                        completionHandler(nil, error)
+                        return
+                    }
+                    if(entity.estatus == 0){
+                        let resperror = entity.error
+                        completionHandler(nil,resperror)
+                        return
+                    }
+                    completionHandler(entity, nil)
+                } else {
+                    let error = "decode_error".localized
+                    completionHandler(nil, error)
+                }
+            }
         }
-        
-        
     }
     func AccessUser(request: LoginRequest, completionHandler: @escaping (LoginResponse?,String?, Error?) -> ()){
         let fecha = Utils().currentDate()
@@ -564,7 +539,7 @@ class RestService{
                     return
                 }
                 if let entity = Utils.decode(LoginResponse.self, from: data, serviceName: "register_service".localized) {
-                    if let error = entity.error {
+                    if let error = entity.error, error != "" {
                         completionHandler(nil, error, nil)
                         return
                     }
@@ -579,27 +554,9 @@ class RestService{
                     completionHandler(nil, error, nil)
                 }
             }
-            //print(response ?? "")
-            /*if response?.dictionaryObject?.count == nil
-             {
-             completionHandler(nil,response?.rawString(),nil)
-             }
-             else{
-             let usuarioId: Int = response!["usuarioid"].intValue
-             let rol_id: String = response!["rol_id"].string!
-             let name: String = response!["name"].string!
-             let middlename: String = response!["middlename"].string!
-             let surname: String = response!["surname"].string!
-             let email: String = response!["email"].string!
-             
-             let user = UserResponse(usuarioid: usuarioId,rol_id: rol_id,name: name,middlename: middlename,surname: surname,email: email)
-             completionHandler(user, nil, nil)
-             }*/
+            //UserResponse
         }
     }
-    
-    
-    
     func RegistroRedesSociales(request: SocialLoginRequest, completionHandler: @escaping (LoginResponse?, Error?) -> ()){
         let fecha = Utils().currentDate()
         let parameters: [String: Any] = [
@@ -684,16 +641,4 @@ class RestService{
             }
         }
     }
-    
-    
 }
-
-
-
-
-
-
-
-
-
-

@@ -904,7 +904,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate func setOpenWindowLevel() {
         if SlideMenuOptions.hideStatusBar {
             DispatchQueue.main.async(execute: {
-                if let window = UIApplication.shared.keyWindow {
+                if let window = UIApplication.shared.windows.first {
                     window.windowLevel = UIWindow.Level.statusBar + 1
                 }
             })
@@ -914,7 +914,7 @@ open class SlideMenuController: UIViewController, UIGestureRecognizerDelegate {
     fileprivate func setCloseWindowLevel() {
         if SlideMenuOptions.hideStatusBar {
             DispatchQueue.main.async(execute: {
-                if let window = UIApplication.shared.keyWindow {
+                if let window = UIApplication.shared.windows.first {
                     window.windowLevel = UIWindow.Level.normal
                 }
             })

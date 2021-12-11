@@ -8,15 +8,12 @@
 
 import Foundation
 
-class Estado{
-    var estadoid = Int()
-    var nombre = String()
-    
+class Estado: Codable {
+    var estadoid: Int?
+    var nombre: String?
     init(){}
-    
-    init(estadoid: Int, nombre: String){
+    init(estadoid: Int, nombre: String) {
         self.estadoid = estadoid
         self.nombre = nombre
     }
-
 }

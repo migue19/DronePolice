@@ -55,31 +55,19 @@ class EstadosViewController: UIViewController {
     
     
     func DescargarEstados(){
-        restService.GetEstados { (response, stringresponse ,error) in
-            if(error != nil){
-                //self.dismiss(animated: true, completion: nil)
-                Utils().alerta(context: self, title: "Error en el servidor", mensaje: error.debugDescription)
-                
-                return
-            }
+        restService.GetEstados { (response, stringresponse) in
             if(stringresponse != nil){
                 //self.dismiss(animated: true, completion: nil)
                 Utils().alerta(context: self, title: "Error", mensaje: stringresponse!)
                 return
             }
-            
-            
             self.arrayEstados = (response?.estados)!
-            
             for estado in self.arrayEstados {
                 EstadosDAO().InsertEstado(estado: estado)
             }
-            
             EstadosDAO().getData()
-            
             self.tableView.reloadData()
         }
-    
     }
     
 

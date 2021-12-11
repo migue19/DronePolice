@@ -99,7 +99,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
             return
         }
         if(direccion.direccionid == 0){
-            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud,latitudDir: latitudDireccion, longitudDir: longitudDireccion,identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!) { (response,stringresponse) in
+            RestService().AgregarDirecciones(context: self, latitud: latitud, longitud: longitud,latitudDir: latitudDireccion, longitudDir: longitudDireccion,identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid.valueOrZero, cp: cp.text!, pais: pais.text!) { (response,stringresponse) in
                 
                 self.dismiss(animated: true, completion: nil)
                 if(stringresponse != nil){
@@ -115,7 +115,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
             }
         }
         else{
-            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: false, completionHandler: { (response,stringresponse) in
+            RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid.valueOrZero, cp: cp.text!, pais: pais.text!, eliminar: false, completionHandler: { (response,stringresponse) in
                 
                 self.dismiss(animated: true, completion: nil)
                 if(stringresponse != nil){
@@ -147,7 +147,7 @@ class AgregarDireccionesViewController: UIViewController,LocationServiceDelegate
     }
     
     @IBAction func EliminarDirecciones(_ sender: Any) {
-        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid, cp: cp.text!, pais: pais.text!, eliminar: true, completionHandler: { (response, stringresponse) in
+        RestService().ActualizarDireccion(context: self, latitud: latitud, longitud: longitud, latitudDir: latitudDireccion, longitudDir: longitudDireccion, iddireccion: direccion.direccionid, identificador: identificador.text!, telefono: telefono.text!, referencia: referencia.text!, calle: calle.text!, numinterior: numInterior.text!, numexterior: numexterior.text!, colonia: colonia.text!, ciudad: Ciudad.text!, estadoId: Auxestado.estadoid.valueOrZero, cp: cp.text!, pais: pais.text!, eliminar: true, completionHandler: { (response, stringresponse) in
             
             self.dismiss(animated: true, completion: nil)
             if(stringresponse != nil){
