@@ -54,12 +54,12 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
         let request = LoginRequest(latitude: latitud, longitude: longitud, imei: uuid, user: usuario.text!, password: contraseña.text!)
         showHUD()
         restService.AccessUser(request: request, completionHandler: { (response, stringResponse ,error) in
-            self.hideHUD()
-            if error != nil{
+            if error != nil {
                 Utils().alerta(context: self, title: "Errror en el server", mensaje: error.debugDescription)
                 return
             }
             if let stringResponse = stringResponse{
+                self.hideHUD()
                 self.showMessage(message: stringResponse, type: .error)
                 return
             }
@@ -103,6 +103,7 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
                 }
                 self.settingsDAO.insertUserInDB(idUser: self.usuario.text!, token: token!, estatus: estatus!, name: nombre, apePaterno: paterno, apeMaterno: materno, email: self.usuario.text!, urlImage: urlimage, imei: self.uuid)
                 RestService().RegisterDevice(latitud: self.latitud, longitud: self.longitud, imei: self.uuid,token: tokenfirebase, completionHandler: { (respose, error) in
+                    self.hideHUD()
                     if(error != nil){
                         Utils().alerta(context: self,title: "Error en el Servidor", mensaje: error.debugDescription)
                         self.settingsDAO.deleteAllSettings()
@@ -110,7 +111,6 @@ class LoginController: BaseViewController,LoginButtonDelegate,GIDSignInDelegate,
                         return
                     }
                     self.settingsDAO.getData()
-                    
                     print(respose ?? "error")
                     let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "TabBar") as! TabBarController
                     UIApplication.shared.windows.first?.rootViewController = vc
