@@ -32,7 +32,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        if CLLocationManager.authorizationStatus() == .notDetermined {
+        if locationManager.authorizationStatus == .notDetermined {
             // you have 2 choice 
             // 1. requestAlwaysAuthorization
             // 2. requestWhenInUseAuthorization
