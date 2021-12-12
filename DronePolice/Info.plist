@@ -60,13 +60,13 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) necessita acceder a la camara</string>
+	<string>Necesitamos acceder a la camara para enviar foto del sospechoso o tomar una selfie para tu perfil</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Necesitamos obtener su ubicacion actual</string>
+	<string>Necesitamos obtener su ubicacion actual para posicionarte en el mapa y puedas enviarla en caso de una alerta ciudadana</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Necesitamos obtener su ubicacion</string>
+	<string>Necesitamos obtener su ubicacion actual para posicionarte en el mapa y puedas enviarla en caso de una alerta ciudadana</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires access to the photo library.</string>
+	<string>Solicitamos acceso a tu biblioteca para obtener las imagenes de perfil</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

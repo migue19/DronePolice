@@ -52,7 +52,7 @@ class SettingsDAO{
             if fetchRequest.count > 0
             {
                 print("Updateando Imagen")
-                UpdateImage(image: fetchRequest[0] as! Imagen, data: data)
+                UpdateImage(image: fetchRequest[0], data: data)
             }
             else{
                 print("Insertando Imagen")
